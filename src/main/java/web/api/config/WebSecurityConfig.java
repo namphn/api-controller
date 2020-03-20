@@ -23,16 +23,24 @@ import web.api.service.UserDetailServiceCustom;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UserDetailServiceCustom userDetailServiceCustom;
-    @Autowired
-    private JwtAuthenticationEntryPoint authenticationEntryPoint;
-    @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final UserDetailServiceCustom userDetailServiceCustom;
+    private final JwtAuthenticationEntryPoint authenticationEntryPoint;
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
-    @Bean
-    ManagedChannel chanelBean(){
+    public WebSecurityConfig(UserDetailServiceCustom userDetailServiceCustom, JwtAuthenticationEntryPoint authenticationEntryPoint, JwtAuthenticationFilter jwtAuthenticationFilter) {
+        this.userDetailServiceCustom = userDetailServiceCustom;
+        this.authenticationEntryPoint = authenticationEntryPoint;
+        this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+    }
+
+    @Bean("news-feed")
+    ManagedChannel newsFeedGrpcBeanChanel(){
         return ManagedChannelBuilder.forAddress("localhost", 6566).usePlaintext().build();
+    }
+
+    @Bean("user-service")
+    ManagedChannel userGrpcBeanChanel(){
+        return ManagedChannelBuilder.forAddress("localhost", 6567).usePlaintext().build();
     }
 
     @Autowired

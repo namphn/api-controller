@@ -1,32 +1,31 @@
 package web.api.service;
 
 import io.grpc.ManagedChannel;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import web.service.grpc.*;
-import web.service.user.model.request.LoginRequest;
-import web.service.user.model.request.PasswordForgotRequest;
-import web.service.user.model.request.RegistrationRequest;
-import web.service.user.model.response.PasswordForgotResponse;
-import web.service.user.model.response.RegistrationResponse;
-import web.service.user.model.response.VerificationEmailResponse;
-import web.service.user.model.response.VerificationResetPasswordResponse;
+import web.api.model.request.PasswordForgotRequest;
+import web.api.model.request.RegistrationRequest;
+import web.api.model.response.PasswordForgotResponse;
+import web.api.model.response.RegistrationResponse;
+import web.api.model.response.VerificationEmailResponse;
+import web.api.model.response.VerificationResetPasswordResponse;
+import web.service.grpc.user.*;
 
 @Service
-public class GrpcClientService {
+public class GrpcClientUserService {
 
-    private final ConvertToGrpcRequest convert;
-    private final ManagedChannel channel;
+    @Autowired
+    @Qualifier("user-service")
+    private ManagedChannel channel;
+    @Autowired
+    private  ConvertToGrpcRequest convert;
 
-    public GrpcClientService(ConvertToGrpcRequest convert, ManagedChannel channel) {
-        this.convert = convert;
-        this.channel = channel;
-    }
-
-    public web.service.user.model.response.LoginResponse login(LoginRequest loginRequest){
+    public web.api.model.response.LoginResponse login(web.api.model.request.LoginRequest loginRequest){
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
-        web.service.grpc.LoginRequest loginRequestGrpc = convert.convertToLoginRequestGprc(loginRequest);
+        web.service.grpc.user.LoginRequest loginRequestGrpc = convert.convertToLoginRequestGprc(loginRequest);
         LoginResponse response = stub.login(loginRequestGrpc);
-        return new web.service.user.model.response.LoginResponse(response);
+        return new web.api.model.response.LoginResponse(response);
     }
 
     public RegistrationResponse registerNewAccount(RegistrationRequest request){
@@ -60,18 +59,18 @@ public class GrpcClientService {
         return response;
     }
 
-    public web.service.user.model.response.NewPasswordResponse setNewPassword(
-            web.service.user.model.request.NewPasswordRequest request,
+    public web.api.model.response.NewPasswordResponse setNewPassword(
+            web.api.model.request.NewPasswordRequest request,
             String token){
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
         NewPasswordRequest grpcRequest = convert.convertToNewPasswordRequestGrpc(request,token);
         NewPasswordResponse grpcresponse = stub.passwordReset(grpcRequest);
-        web.service.user.model.response.NewPasswordResponse response =
-                new web.service.user.model.response.NewPasswordResponse(grpcresponse);
+        web.api.model.response.NewPasswordResponse response =
+                new web.api.model.response.NewPasswordResponse(grpcresponse);
         return response;
     }
 
-    public String registerInformation(web.service.user.model.request.RegistrationInformationRequest request){
+    public String registerInformation(web.api.model.request.RegistrationInformationRequest request){
         RegistrationInformationRequest grpcRequest = convert.convertToRegistrationInformationRequestGrpc(request);
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
         RegistrationInformationResponse grpcResponse = stub.registrationInformation(grpcRequest);

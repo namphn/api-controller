@@ -1,4 +1,4 @@
-package web.api.controller;
+package web.api.controller.user;
 
 import io.grpc.StatusRuntimeException;
 import org.springframework.http.HttpStatus;
@@ -7,28 +7,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import web.service.user.model.request.LoginRequest;
-import web.service.user.model.response.LoginResponse;
-import web.service.user.model.response.Status;
-import web.api.service.GrpcClientService;
-
+import web.api.service.GrpcClientUserService;
+import web.api.model.request.LoginRequest;
+import web.api.model.response.LoginResponse;
+import web.api.model.response.Status;
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("user")
 public class LoginController {
 
-    private final GrpcClientService grpcClientService;
+    private final GrpcClientUserService grpcClientUserService;
 
-    public LoginController(GrpcClientService grpcClientService) {
-        this.grpcClientService = grpcClientService;
+    public LoginController(GrpcClientUserService grpcClientUserService) {
+        this.grpcClientUserService = grpcClientUserService;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) throws Exception {
         LoginResponse response = null;
         try{
-            response =  grpcClientService.login(loginRequest);
+            response =  grpcClientUserService.login(loginRequest);
         } catch (StatusRuntimeException e) {
             System.out.println(e);
         }

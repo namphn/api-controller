@@ -1,22 +1,21 @@
-package web.api.controller;
+package web.api.controller.user;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import web.api.service.GrpcClientService;
-import web.service.user.model.response.Status;
-import web.service.user.model.response.VerificationEmailResponse;
-import web.service.user.model.response.VerificationResetPasswordResponse;
-
+import web.api.model.response.Status;
+import web.api.model.response.VerificationEmailResponse;
+import web.api.model.response.VerificationResetPasswordResponse;
+import web.api.service.GrpcClientUserService;
 
 @RestController
 @RequestMapping("/user")
 @CrossOrigin
 public class VerificationController {
 
-    private final GrpcClientService grpcClientService;
+    private final GrpcClientUserService grpcClientService;
 
-    public VerificationController(GrpcClientService grpcClientService) {
+    public VerificationController(GrpcClientUserService grpcClientService) {
         this.grpcClientService = grpcClientService;
     }
 

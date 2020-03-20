@@ -1,14 +1,14 @@
 package web.api.service;
 
 import org.springframework.stereotype.Service;
-import web.service.grpc.*;
-import web.service.user.model.request.PasswordForgotRequest;
-import web.service.user.model.request.RegistrationRequest;
+import web.api.model.request.PasswordForgotRequest;
+import web.api.model.request.RegistrationRequest;
+import web.service.grpc.user.*;
 
 @Service
 public class ConvertToGrpcRequest {
 
-    public LoginRequest convertToLoginRequestGprc(web.service.user.model.request.LoginRequest request){
+    public LoginRequest convertToLoginRequestGprc(web.api.model.request.LoginRequest request){
         LoginRequest.Builder grpcRequest = LoginRequest.newBuilder();
         grpcRequest.setEmail(request.getEmail());
         grpcRequest.setPassword(request.getPassword());
@@ -29,7 +29,7 @@ public class ConvertToGrpcRequest {
         return resetRequest.build();
     }
 
-    public NewPasswordRequest convertToNewPasswordRequestGrpc(web.service.user.model.request.NewPasswordRequest request,
+    public NewPasswordRequest convertToNewPasswordRequestGrpc(web.api.model.request.NewPasswordRequest request,
                                                               String token){
         NewPasswordRequest.Builder grpcRequest = NewPasswordRequest.newBuilder();
         grpcRequest.setNewPassword(request.getNewPassword());
@@ -39,7 +39,7 @@ public class ConvertToGrpcRequest {
     }
 
     public RegistrationInformationRequest convertToRegistrationInformationRequestGrpc(
-            web.service.user.model.request.RegistrationInformationRequest request){
+            web.api.model.request.RegistrationInformationRequest request){
         RegistrationInformationRequest.Builder grpcRequest = RegistrationInformationRequest.newBuilder();
         grpcRequest.setEmail(request.getEmail());
         grpcRequest.setPhone(request.getPhone());

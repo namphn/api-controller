@@ -25,6 +25,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Spring-5.2.3.RELEASE" level="project" />
     <orderEntry type="module" module-name="grpc" />
     <orderEntry type="library" name="Maven: io.github.lognet:grpc-spring-boot-starter:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.grpc:grpc-netty:1.15.1" level="project" />
@@ -122,6 +123,7 @@
     <orderEntry type="library" name="Maven: io.grpc:grpc-api:1.27.2" level="project" />
     <orderEntry type="library" name="Maven: io.grpc:grpc-context:1.27.2" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.18" level="project" />
+    <orderEntry type="library" name="Maven: com.googlecode.protobuf-java-format:protobuf-java-format:1.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.2.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.3.RELEASE" level="project" />
@@ -147,6 +149,5 @@
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.2.3.RELEASE" level="project" />
-    <orderEntry type="library" name="Spring-5.2.3.RELEASE" level="project" />
   </component>
 </module>
