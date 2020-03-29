@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import web.api.model.request.CommentRequest;
 import web.api.model.request.LikeRequest;
+import web.api.model.request.ShareRequest;
+import web.api.model.request.TagRequest;
 import web.api.service.GrpcClientNewsFeedService;
 import web.service.grpc.newsfeed.*;
 
@@ -37,8 +40,8 @@ public class NewsFeedController {
         postGrpc.setUserId(post.getUserId());
         Comment.Builder comment = Comment.newBuilder();
         postGrpc.addAllComments(new ArrayList<Comment>());
-        postGrpc.addAllLikes(new ArrayList<Like>());
-        postGrpc.addAllTags(new ArrayList<Tag>());
+        postGrpc.addAllLikes(post.getLikes());
+        postGrpc.addAllTags(post.getTags());
         postGrpc.addAllShares(new ArrayList<Share>());
         grpcClientNewsFeedService.saveNewPost(postGrpc.build());
         return new ResponseEntity(gson.toJson(post), HttpStatus.OK);
@@ -47,6 +50,23 @@ public class NewsFeedController {
     @PostMapping("/like")
     public ResponseEntity likePost(@RequestBody LikeRequest request){
         LikeResponse response = grpcClientNewsFeedService.like(request);
+        return new ResponseEntity(gson.toJson(response), HttpStatus.OK);
+    }
+    @PostMapping("/share")
+    public ResponseEntity sharePost(@RequestBody ShareRequest request){
+        ShareResponse response = grpcClientNewsFeedService.share(request);
+        return new ResponseEntity(gson.toJson(response), HttpStatus.OK);
+    }
+
+    @PostMapping("/tag")
+    public ResponseEntity tag(@RequestBody TagRequest request){
+        TagResponse response = grpcClientNewsFeedService.tag(request);
+        return new ResponseEntity(gson.toJson(response), HttpStatus.OK);
+    }
+
+    @PostMapping("/comment")
+    public ResponseEntity comment(@RequestBody CommentRequest request){
+        CommentResponse response = grpcClientNewsFeedService.comment(request);
         return new ResponseEntity(gson.toJson(response), HttpStatus.OK);
     }
 }

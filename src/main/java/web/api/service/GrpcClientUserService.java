@@ -79,7 +79,11 @@ public class GrpcClientUserService {
 
     public String getEmailFromToken(GetEmailRequest request){
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
-        GetEmailResponse response = stub.getEmailFromToken(request);
+        GetEmailResponse response = null;
+        try {
+            response = stub.getEmailFromToken(request);
+        } catch (RuntimeException e){
+        }
         return response.getEmail();
     }
 

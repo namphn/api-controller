@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import web.service.grpc.newsfeed.GetNewsFeedResponse;
-
 import java.util.List;
 
 @Data
@@ -17,7 +15,7 @@ public class Post {
     private long userId;
     private String content;
     private List<Comment> comment;
-    private List<Long> likes;
+    private List<String> likes;
     private List<Share> share;
-    private List<Long> tags;
+    private List<String> tags;
 }

@@ -36,4 +36,35 @@ public class GrpcClientNewsFeedService {
         LikeResponse grpcResponse = stub.like(grpcRequest.build());
         return grpcResponse;
     }
+
+    public ShareResponse share(web.api.model.request.ShareRequest request){
+        ShareRequest.Builder grpcRequest = ShareRequest.newBuilder();
+        grpcRequest.setUserId(request.getUserId());
+        grpcRequest.setPostId(request.getPostId());
+        grpcRequest.setContent(request.getContent());
+        NewsFeedServiceGrpc.NewsFeedServiceBlockingStub stub
+                = NewsFeedServiceGrpc.newBlockingStub(channel);
+        ShareResponse response = stub.share(grpcRequest.build());
+        return response;
+    }
+
+    public TagResponse tag(web.api.model.request.TagRequest request){
+        TagRequest.Builder grpcRequest = TagRequest.newBuilder();
+        grpcRequest.setPostId(request.getPostId());
+        grpcRequest.setUserId(request.getUserId());
+        NewsFeedServiceGrpc.NewsFeedServiceBlockingStub stub = NewsFeedServiceGrpc.newBlockingStub(channel);
+        TagResponse response = stub.tag(grpcRequest.build());
+        return response;
+    }
+
+    public CommentResponse comment(web.api.model.request.CommentRequest request){
+        CommentRequest.Builder grpcRequest = CommentRequest.newBuilder();
+        grpcRequest.setContent(request.getContent());
+        grpcRequest.setPostId(request.getPostId());
+        grpcRequest.setUserId(request.getUserId());
+        NewsFeedServiceGrpc.NewsFeedServiceBlockingStub stub
+                = NewsFeedServiceGrpc.newBlockingStub(channel);
+        CommentResponse response = stub.comment(grpcRequest.build());
+        return response;
+    }
 }
