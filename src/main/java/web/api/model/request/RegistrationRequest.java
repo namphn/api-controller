@@ -10,5 +10,10 @@ public class RegistrationRequest {
     String email;
     @NotNull
     String password;
-
+    @NotNull
+    String firstName;
+    @NotNull
+    String lastName;
+    @NotNull
+    boolean sex;
 }
