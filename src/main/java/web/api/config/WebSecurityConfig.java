@@ -19,10 +19,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import web.service.user.model.CustomAuthenticationManager;
 import web.api.service.JwtAuthenticationEntryPoint;
 import web.api.service.JwtAuthenticationFilter;
@@ -87,9 +84,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/user/login","/user/verification",
+                .antMatchers("/user/login",
                         "/user/forgot-password", "/user/register",
-                        "/user/verifying-email", "/user/verifying-reset-password").permitAll()
+                        "/verifying-email", "/verifying-reset-password",
+                        "/public/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling()
@@ -100,4 +98,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().formLogin().disable()
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
+
 }

@@ -13,6 +13,5 @@ public class RegistrationResponse {
     public RegistrationResponse(RegistrationResponseGrpc responseGrpc){
         this.status = responseGrpc.getStatus();
         this.email = responseGrpc.getEmail();
-        this.password = responseGrpc.getPassword();
     }
 }
