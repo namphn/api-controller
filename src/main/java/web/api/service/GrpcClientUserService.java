@@ -12,6 +12,8 @@ import web.api.model.response.VerificationEmailResponse;
 import web.api.model.response.VerificationResetPasswordResponse;
 import web.service.grpc.user.*;
 
+import java.util.List;
+
 @Service
 public class GrpcClientUserService {
 
@@ -91,5 +93,11 @@ public class GrpcClientUserService {
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
         ValidateTokenResponse response = stub.validateToken(request);
         return response.getStatus();
+    }
+
+    public GetAllUserResponse getUsers(GetAllUserRequest request) {
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        GetAllUserResponse response = stub.getAllUser(request);
+        return response;
     }
 }
