@@ -11,10 +11,12 @@ public class LoginResponse implements Serializable {
     private String token;
     private String status;
     private String username;
+    private String userId;
 
     public LoginResponse(web.service.grpc.user.LoginResponse response){
         this.token = response.getToken();
         this.status = response.getStatus();
         this.username = response.getUsername();
+        this.userId = response.getUserId();
     }
 }

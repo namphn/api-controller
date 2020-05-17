@@ -35,7 +35,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         if(requestTokenHeader != null) {
             jwtToken = requestTokenHeader.substring(7);
-            System.out.println(jwtToken);
+
             try {
                 GetEmailRequest.Builder getEmailRequest = GetEmailRequest.newBuilder();
                 getEmailRequest.setToken(jwtToken);

@@ -5,7 +5,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import web.api.service.GrpcClientUserService;
 import web.service.grpc.user.GetAllUserRequest;
@@ -33,6 +32,6 @@ public class UserController {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity(gson.toJson(response), HttpStatus.NOT_FOUND);
+        return new ResponseEntity(gson.toJson(response), HttpStatus.OK);
     }
 }
