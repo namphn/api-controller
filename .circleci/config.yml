@@ -44,7 +44,9 @@ jobs:
       - run:
           name: Setup Heroku
           command: bash .circleci/setup-heroku.sh # run a script to set up Heroku
-
+                     - add_ssh_keys:
+                     fingerprints:
+                       - "51:fc:6f:f9:13:6d:7a:8a:60:b6:cd:c6:3f:21:a1:a7"
       - run:
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
