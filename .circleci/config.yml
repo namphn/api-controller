@@ -23,8 +23,4 @@ jobs:
           key: maven-{{ checksum "/tmp/maven_cache_seed" }}
       - store_test_results:
           path: target/surefire-reports
-workflows:
-  maven_test:
-    jobs:
-      - maven/test
-  version: 2
+
