@@ -8,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.filter.OncePerRequestFilter;
-import web.service.grpc.user.GetEmailRequest;
-import web.service.grpc.user.ValidateTokenRequest;
+import web.api.rpc.user.GetEmailRequest;
+import web.api.rpc.user.ValidateTokenRequest;
 
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;

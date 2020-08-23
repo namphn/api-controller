@@ -3,7 +3,7 @@ package web.api.model.response;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import web.service.grpc.user.ConfirmEmailResponse;
+import web.api.rpc.user.ConfirmEmailResponse;
 
 @Data
 @NoArgsConstructor

@@ -1,7 +1,7 @@
 package web.api.model.response;
 
 import lombok.Data;
-import web.service.grpc.user.PasswordResetResponse;
+import web.api.rpc.user.PasswordResetResponse;
 
 @Data
 public class PasswordForgotResponse {

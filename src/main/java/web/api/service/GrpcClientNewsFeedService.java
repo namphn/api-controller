@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import web.api.model.request.LikeRequest;
-import web.service.grpc.newsfeed.*;
+import web.api.rpc.newsfeed.*;
 
 @Service
 public class GrpcClientNewsFeedService {
@@ -28,8 +28,8 @@ public class GrpcClientNewsFeedService {
     }
 
     public LikeResponse like(LikeRequest request){
-        web.service.grpc.newsfeed.LikeRequest.Builder grpcRequest =
-                web.service.grpc.newsfeed.LikeRequest.newBuilder();
+        web.api.rpc.newsfeed.LikeRequest.Builder grpcRequest =
+                web.api.rpc.newsfeed.LikeRequest.newBuilder();
         grpcRequest.setPostId(request.getPostId());
         grpcRequest.setUserId(request.getUserId());
         NewsFeedServiceGrpc.NewsFeedServiceBlockingStub stub = NewsFeedServiceGrpc.newBlockingStub(channel);

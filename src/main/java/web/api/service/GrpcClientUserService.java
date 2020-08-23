@@ -10,9 +10,7 @@ import web.api.model.response.PasswordForgotResponse;
 import web.api.model.response.RegistrationResponse;
 import web.api.model.response.VerificationEmailResponse;
 import web.api.model.response.VerificationResetPasswordResponse;
-import web.service.grpc.user.*;
-
-import java.util.List;
+import web.api.rpc.user.*;
 
 @Service
 public class GrpcClientUserService {
@@ -25,7 +23,7 @@ public class GrpcClientUserService {
 
     public web.api.model.response.LoginResponse login(web.api.model.request.LoginRequest loginRequest){
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
-        web.service.grpc.user.LoginRequest loginRequestGrpc = convert.convertToLoginRequestGprc(loginRequest);
+        web.api.rpc.user.LoginRequest loginRequestGrpc = convert.convertToLoginRequestGprc(loginRequest);
         LoginResponse response = stub.login(loginRequestGrpc);
         return new web.api.model.response.LoginResponse(response);
     }

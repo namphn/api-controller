@@ -12,7 +12,7 @@ public class RegistrationInformationRequest {
     String email;
     String phone;
 
-    public RegistrationInformationRequest(web.service.grpc.user.RegistrationInformationRequest request){
+    public RegistrationInformationRequest(web.api.rpc.user.RegistrationInformationRequest request){
         this.email = request.getEmail();
         this.userName = request.getUserName();
         this.phone = request.getPhone();
