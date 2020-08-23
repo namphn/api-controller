@@ -47,7 +47,7 @@ jobs:
 
       - run:
           command: |
-            git push heroku sequential-branch-filter:master
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
             heroku restart
 
 workflows:
