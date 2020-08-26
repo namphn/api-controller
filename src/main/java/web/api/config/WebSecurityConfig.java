@@ -47,11 +47,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailServiceCustom).passwordEncoder(passwordEncoder());
     }
 
-
-//    @Bean
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return new  CustomAuthenticationManager();
-//    }
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
