@@ -1,9 +1,6 @@
 server:
   port: 0
-  ssl:
-    key-store: classpath:key.p12
-    key-store-password: 123456
-    keyStoreType: PKCS12
 
-security:
-  require-ssl=true:
+mongo:
+  remoteUri: "mongodb+srv://web-server:server123@cluster0.tmzfq.mongodb.net/user-service?retryWrites=true&w=majority"
+
