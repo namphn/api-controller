@@ -12,7 +12,7 @@ import web.api.model.request.LikeRequest;
 import web.api.model.request.ShareRequest;
 import web.api.model.request.TagRequest;
 import web.api.service.GrpcClientNewsFeedService;
-import web.service.grpc.newsfeed.*;
+import web.api.rpc.newsfeed.*;
 
 import java.util.ArrayList;
 

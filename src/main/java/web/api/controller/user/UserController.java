@@ -7,8 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import web.api.service.GrpcClientUserService;
-import web.service.grpc.user.GetAllUserRequest;
-import web.service.grpc.user.GetAllUserResponse;
+import web.api.rpc.user.GetAllUserRequest;
+import web.api.rpc.user.GetAllUserResponse;
 
 @RestController
 public class UserController {

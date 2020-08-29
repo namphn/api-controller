@@ -13,7 +13,7 @@ public class LoginResponse implements Serializable {
     private String username;
     private String userId;
 
-    public LoginResponse(web.service.grpc.user.LoginResponse response){
+    public LoginResponse(web.api.rpc.user.LoginResponse response){
         this.token = response.getToken();
         this.status = response.getStatus();
         this.username = response.getUsername();

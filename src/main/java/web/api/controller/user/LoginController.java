@@ -22,7 +22,7 @@ public class LoginController {
 
     @CrossOrigin(origins = {"*"})
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) throws Exception {
+    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         LoginResponse response = null;
         try{
             response =  grpcClientUserService.login(loginRequest);

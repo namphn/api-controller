@@ -1,7 +1,7 @@
 package web.api.model.response;
 
 import lombok.Data;
-import web.service.grpc.user.RegistrationResponseGrpc;
+import web.api.rpc.user.RegistrationResponseGrpc;
 
 @Data
 public class RegistrationResponse {

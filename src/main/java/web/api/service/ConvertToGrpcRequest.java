@@ -3,7 +3,7 @@ package web.api.service;
 import org.springframework.stereotype.Service;
 import web.api.model.request.PasswordForgotRequest;
 import web.api.model.request.RegistrationRequest;
-import web.service.grpc.user.*;
+import web.api.rpc.user.*;
 
 @Service
 public class ConvertToGrpcRequest {
