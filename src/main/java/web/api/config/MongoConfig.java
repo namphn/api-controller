@@ -16,6 +16,7 @@ public class MongoConfig extends AbstractMongoConfiguration {
     public MongoClient mongoClient() {
         MongoClientURI uri = new MongoClientURI("mongodb+srv://web-server:server123@cluster0.tmzfq.mongodb.net/user-service?retryWrites=true&w=majority");
         return new MongoClient(uri);
+
     }
 
     @Override
@@ -25,7 +26,7 @@ public class MongoConfig extends AbstractMongoConfiguration {
 
     @Override
     public MongoTemplate mongoTemplate(){
-        return new MongoTemplate(mongoClient(),"user-service");
+        return new MongoTemplate(mongoClient(),getDatabaseName());
     }
 
 }
