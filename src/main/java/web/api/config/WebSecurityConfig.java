@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean("user-service")
     ManagedChannel userGrpcBeanChanel(){
-        return ManagedChannelBuilder.forAddress("localhost", 6568).usePlaintext().build();
+        return ManagedChannelBuilder.forAddress("laver-user-service.herokuapp.com", 54200).usePlaintext().build();
     }
 
     @Autowired
