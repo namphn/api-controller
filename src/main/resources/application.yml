@@ -1,5 +1,13 @@
 server:
-  port: 0
+  port: 8081
+  ssl:
+    key-store: classpath:namph.jks
+    key-store-password: password
+    keyStoreType: PKCS12
+    key-alias: namph
+
+  security:
+    require-ssl: true
 
 mongo:
   remoteUri: "mongodb+srv://web-server:server123@cluster0.tmzfq.mongodb.net/user-service?retryWrites=true&w=majority"
