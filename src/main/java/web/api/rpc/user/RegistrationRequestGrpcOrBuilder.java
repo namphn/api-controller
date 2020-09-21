@@ -28,27 +28,12 @@ public interface RegistrationRequestGrpcOrBuilder extends
       getPasswordBytes();
 
   /**
-   * <code>string firstName = 3;</code>
+   * <code>string name = 3;</code>
    */
-  java.lang.String getFirstName();
+  java.lang.String getName();
   /**
-   * <code>string firstName = 3;</code>
+   * <code>string name = 3;</code>
    */
   com.google.protobuf.ByteString
-      getFirstNameBytes();
-
-  /**
-   * <code>string lastName = 4;</code>
-   */
-  java.lang.String getLastName();
-  /**
-   * <code>string lastName = 4;</code>
-   */
-  com.google.protobuf.ByteString
-      getLastNameBytes();
-
-  /**
-   * <code>bool sex = 5;</code>
-   */
-  boolean getSex();
+      getNameBytes();
 }

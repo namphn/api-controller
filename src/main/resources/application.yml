@@ -1,6 +1,6 @@
 server:
-  port: 0
+  port: 8081
 
 mongo:
-  remoteUri: "mongodb+srv://web-server:server123@cluster0.tmzfq.mongodb.net/user-service?retryWrites=true&w=majority"
+  remoteUri: "localhost:27017"
 

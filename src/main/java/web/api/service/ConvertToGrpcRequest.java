@@ -20,9 +20,6 @@ public class ConvertToGrpcRequest {
         RegistrationRequestGrpc.Builder grpcRequest = RegistrationRequestGrpc.newBuilder();
         grpcRequest.setEmail(request.getEmail());
         grpcRequest.setPassword(request.getPassword());
-        grpcRequest.setFirstName(request.getFirstName());
-        grpcRequest.setLastName(request.getLastName());
-        grpcRequest.setSex(request.isSex());
         return grpcRequest.build();
     }
 

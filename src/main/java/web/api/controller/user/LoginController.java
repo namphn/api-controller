@@ -30,7 +30,7 @@ public class LoginController {
             System.out.println(e);
         }
         if(response.getStatus().equals(Status.HAVE_NOT_ACCOUNT)){
-            return new ResponseEntity(response,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(response,HttpStatus.OK);
         }
         return new ResponseEntity(response, HttpStatus.OK);
     }

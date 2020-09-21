@@ -128,56 +128,55 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"l\n\027RegistrationRequestGrpc\022" +
-      "\r\n\005email\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\021\n\tfirs" +
-      "tName\030\003 \001(\t\022\020\n\010lastName\030\004 \001(\t\022\013\n\003sex\030\005 \001" +
-      "(\010\"9\n\030RegistrationResponseGrpc\022\r\n\005email\030" +
-      "\001 \001(\t\022\016\n\006status\030\002 \001(\t\"$\n\023ConfirmEmailReq" +
-      "uest\022\r\n\005token\030\001 \001(\t\"5\n\024ConfirmEmailRespo" +
-      "nse\022\016\n\006status\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\"%\n\024Pa" +
-      "sswordResetRequest\022\r\n\005email\030\001 \001(\t\"6\n\025Pas" +
-      "swordResetResponse\022\016\n\006status\030\001 \001(\t\022\r\n\005em" +
-      "ail\030\002 \001(\t\"P\n\036RegistrationInformationRequ" +
-      "est\022\r\n\005email\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t\022\r\n\005" +
-      "phone\030\003 \001(\t\"1\n\037RegistrationInformationRe" +
-      "sponse\022\016\n\006status\030\001 \001(\t\"/\n\014LoginRequest\022\r" +
-      "\n\005email\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"P\n\rLogin" +
-      "Response\022\016\n\006status\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\022" +
-      "\020\n\010username\030\003 \001(\t\022\016\n\006userId\030\004 \001(\t\"T\n\022New" +
-      "PasswordRequest\022\r\n\005token\030\001 \001(\t\022\023\n\013newPas" +
-      "sword\030\002 \001(\t\022\032\n\022newPasswordConfirm\030\003 \001(\t\"" +
-      "4\n\023NewPasswordResponse\022\r\n\005email\030\001 \001(\t\022\016\n" +
-      "\006status\030\002 \001(\t\"6\n%VerificationResetPasswo" +
-      "rdTokenRequest\022\r\n\005token\030\001 \001(\t\"G\n&Verific" +
-      "ationResetPasswordTokenResponse\022\r\n\005email" +
-      "\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\" \n\017GetEmailReques" +
-      "t\022\r\n\005token\030\001 \001(\t\"!\n\020GetEmailResponse\022\r\n\005" +
-      "email\030\001 \001(\t\"4\n\024ValidateTokenRequest\022\r\n\005e" +
-      "mail\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\"\'\n\025ValidateTok" +
-      "enResponse\022\016\n\006status\030\001 \001(\010\"!\n\021GetAllUser" +
-      "Request\022\014\n\004page\030\001 \001(\005\"\212\001\n\022GetAllUserResp" +
-      "onse\0222\n\007allUser\030\001 \003(\0132!.GetAllUserRespon" +
-      "se.UserGrpcModel\032@\n\rUserGrpcModel\022\n\n\002id\030" +
-      "\001 \001(\t\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName\030\003 \001" +
-      "(\t2\307\005\n\013UserService\022C\n\014Registration\022\030.Reg" +
-      "istrationRequestGrpc\032\031.RegistrationRespo" +
-      "nseGrpc\022&\n\005Login\022\r.LoginRequest\032\016.LoginR" +
-      "esponse\022L\n\035VerificationTokenRegistration" +
-      "\022\024.ConfirmEmailRequest\032\025.ConfirmEmailRes" +
-      "ponse\022?\n\016PasswordForgot\022\025.PasswordResetR" +
-      "equest\032\026.PasswordResetResponse\022:\n\rPasswo" +
-      "rdReset\022\023.NewPasswordRequest\032\024.NewPasswo" +
-      "rdResponse\022\\\n\027RegistrationInformation\022\037." +
-      "RegistrationInformationRequest\032 .Registr" +
-      "ationInformationResponse\022q\n\036Verification" +
-      "ResetPasswordToken\022&.VerificationResetPa" +
-      "sswordTokenRequest\032\'.VerificationResetPa" +
-      "sswordTokenResponse\0228\n\021GetEmailFromToken" +
-      "\022\020.GetEmailRequest\032\021.GetEmailResponse\022>\n" +
-      "\rValidateToken\022\025.ValidateTokenRequest\032\026." +
-      "ValidateTokenResponse\0225\n\nGetAllUser\022\022.Ge" +
-      "tAllUserRequest\032\023.GetAllUserResponseB\027\n\020" +
-      "web.api.rpc.userP\001\210\001\001b\006proto3"
+      "\n\nuser.proto\"H\n\027RegistrationRequestGrpc\022" +
+      "\r\n\005email\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022\014\n\004name" +
+      "\030\003 \001(\t\"9\n\030RegistrationResponseGrpc\022\r\n\005em" +
+      "ail\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\"$\n\023ConfirmEmai" +
+      "lRequest\022\r\n\005token\030\001 \001(\t\"5\n\024ConfirmEmailR" +
+      "esponse\022\016\n\006status\030\001 \001(\t\022\r\n\005email\030\002 \001(\t\"%" +
+      "\n\024PasswordResetRequest\022\r\n\005email\030\001 \001(\t\"6\n" +
+      "\025PasswordResetResponse\022\016\n\006status\030\001 \001(\t\022\r" +
+      "\n\005email\030\002 \001(\t\"P\n\036RegistrationInformation" +
+      "Request\022\r\n\005email\030\001 \001(\t\022\020\n\010userName\030\002 \001(\t" +
+      "\022\r\n\005phone\030\003 \001(\t\"1\n\037RegistrationInformati" +
+      "onResponse\022\016\n\006status\030\001 \001(\t\"/\n\014LoginReque" +
+      "st\022\r\n\005email\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"P\n\rL" +
+      "oginResponse\022\016\n\006status\030\001 \001(\t\022\r\n\005token\030\002 " +
+      "\001(\t\022\020\n\010username\030\003 \001(\t\022\016\n\006userId\030\004 \001(\t\"T\n" +
+      "\022NewPasswordRequest\022\r\n\005token\030\001 \001(\t\022\023\n\013ne" +
+      "wPassword\030\002 \001(\t\022\032\n\022newPasswordConfirm\030\003 " +
+      "\001(\t\"4\n\023NewPasswordResponse\022\r\n\005email\030\001 \001(" +
+      "\t\022\016\n\006status\030\002 \001(\t\"6\n%VerificationResetPa" +
+      "sswordTokenRequest\022\r\n\005token\030\001 \001(\t\"G\n&Ver" +
+      "ificationResetPasswordTokenResponse\022\r\n\005e" +
+      "mail\030\001 \001(\t\022\016\n\006status\030\002 \001(\t\" \n\017GetEmailRe" +
+      "quest\022\r\n\005token\030\001 \001(\t\"!\n\020GetEmailResponse" +
+      "\022\r\n\005email\030\001 \001(\t\"4\n\024ValidateTokenRequest\022" +
+      "\r\n\005email\030\001 \001(\t\022\r\n\005token\030\002 \001(\t\"\'\n\025Validat" +
+      "eTokenResponse\022\016\n\006status\030\001 \001(\010\"!\n\021GetAll" +
+      "UserRequest\022\014\n\004page\030\001 \001(\005\"\212\001\n\022GetAllUser" +
+      "Response\0222\n\007allUser\030\001 \003(\0132!.GetAllUserRe" +
+      "sponse.UserGrpcModel\032@\n\rUserGrpcModel\022\n\n" +
+      "\002id\030\001 \001(\t\022\021\n\tfirstName\030\002 \001(\t\022\020\n\010lastName" +
+      "\030\003 \001(\t2\307\005\n\013UserService\022C\n\014Registration\022\030" +
+      ".RegistrationRequestGrpc\032\031.RegistrationR" +
+      "esponseGrpc\022&\n\005Login\022\r.LoginRequest\032\016.Lo" +
+      "ginResponse\022L\n\035VerificationTokenRegistra" +
+      "tion\022\024.ConfirmEmailRequest\032\025.ConfirmEmai" +
+      "lResponse\022?\n\016PasswordForgot\022\025.PasswordRe" +
+      "setRequest\032\026.PasswordResetResponse\022:\n\rPa" +
+      "sswordReset\022\023.NewPasswordRequest\032\024.NewPa" +
+      "sswordResponse\022\\\n\027RegistrationInformatio" +
+      "n\022\037.RegistrationInformationRequest\032 .Reg" +
+      "istrationInformationResponse\022q\n\036Verifica" +
+      "tionResetPasswordToken\022&.VerificationRes" +
+      "etPasswordTokenRequest\032\'.VerificationRes" +
+      "etPasswordTokenResponse\0228\n\021GetEmailFromT" +
+      "oken\022\020.GetEmailRequest\032\021.GetEmailRespons" +
+      "e\022>\n\rValidateToken\022\025.ValidateTokenReques" +
+      "t\032\026.ValidateTokenResponse\0225\n\nGetAllUser\022" +
+      "\022.GetAllUserRequest\032\023.GetAllUserResponse" +
+      "B\027\n\020web.api.rpc.userP\001\210\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -196,7 +195,7 @@ public final class User {
     internal_static_RegistrationRequestGrpc_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegistrationRequestGrpc_descriptor,
-        new java.lang.String[] { "Email", "Password", "FirstName", "LastName", "Sex", });
+        new java.lang.String[] { "Email", "Password", "Name", });
     internal_static_RegistrationResponseGrpc_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_RegistrationResponseGrpc_fieldAccessorTable = new

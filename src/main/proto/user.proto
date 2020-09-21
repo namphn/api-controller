@@ -6,9 +6,7 @@ option java_package = "web.api.rpc.user";
 message RegistrationRequestGrpc{
   string email = 1;
   string password = 2;
-  string firstName = 3;
-  string lastName = 4;
-  bool sex = 5;
+  string name = 3;
 }
 message RegistrationResponseGrpc{
   string email = 1;

@@ -11,9 +11,5 @@ public class RegistrationRequest {
     @NotNull
     String password;
     @NotNull
-    String firstName;
-    @NotNull
-    String lastName;
-    @NotNull
-    boolean sex;
+    String name;
 }

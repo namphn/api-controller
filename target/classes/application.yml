@@ -1,6 +1,0 @@
-server:
-  port: 0
-
-mongo:
-  remoteUri: "mongodb+srv://web-server:server123@cluster0.tmzfq.mongodb.net/user-service?retryWrites=true&w=majority"
-
