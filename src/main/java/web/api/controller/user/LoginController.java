@@ -4,6 +4,7 @@ import io.grpc.StatusRuntimeException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import web.api.model.response.Error;
 import web.api.service.GrpcClientUserService;
 import web.api.model.request.LoginRequest;
 import web.api.model.response.LoginResponse;
@@ -27,11 +28,9 @@ public class LoginController {
         try{
             response =  grpcClientUserService.login(loginRequest);
         } catch (StatusRuntimeException e) {
-            System.out.println(e);
+            return new ResponseEntity(Error.INTERNAL_SERVER, HttpStatus.OK);
         }
-        if(response.getStatus().equals(Status.HAVE_NOT_ACCOUNT)){
-            return new ResponseEntity(response,HttpStatus.OK);
-        }
+
         return new ResponseEntity(response, HttpStatus.OK);
     }
 }

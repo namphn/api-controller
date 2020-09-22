@@ -7,7 +7,6 @@ import web.api.rpc.user.RegistrationResponseGrpc;
 public class RegistrationResponse {
 
     private String email;
-    private String password;
     private String status;
 
     public RegistrationResponse(RegistrationResponseGrpc responseGrpc){

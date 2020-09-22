@@ -19,4 +19,7 @@ public class LoginResponse implements Serializable {
         this.username = response.getUsername();
         this.userId = response.getUserId();
     }
+    public LoginResponse(String status) {
+        this.status = status;
+    }
 }
