@@ -30,7 +30,7 @@ public class RegistrationNewAccountController {
     public ResponseEntity register(@Valid @RequestBody RegistrationRequest request){
         RegistrationResponse response = grpcClientService.registerNewAccount(request);
         if(response.getStatus() == Status.EMAIL_ALREADY_EXISTS) {
-            return new ResponseEntity(Error.HAVE_EXIST_ACCOUNT,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity(Error.HAVE_EXIST_ACCOUNT,HttpStatus.BAD_REQUEST);
         } else if(response.getStatus() == Status.INVALID_EMAIL){
             return new ResponseEntity(Error.INVALID_EMAIL,HttpStatus.BAD_REQUEST);
         }

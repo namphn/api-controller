@@ -17,8 +17,9 @@ public class MongoConfig extends AbstractMongoConfiguration {
 
     @Override
     public MongoClient mongoClient() {
-        MongoClientURI uri = new MongoClientURI(mongoURi);
-        return new MongoClient(uri);
+//        MongoClientURI uri = new MongoClientURI(mongoURi);
+//        return new MongoClient(uri);
+        return new MongoClient("127.0.0.1", 27017);
     }
 
     @Override
