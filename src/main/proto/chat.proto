@@ -1,0 +1,35 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_generic_services = true;
+option java_package = "web.api.rpc.chat";
+
+message GetNewsFeedRequest {
+
+}
+
+message ChatMessage {
+  string fromUser = 1;
+  string toUser = 2;
+  string content = 3;
+}
+
+message createChanelRequest {
+  string userId1 = 1;
+  string userId2 = 2;
+}
+
+message createChanelResponse {
+  string uuid = 1;
+}
+
+message getChannelRe {
+  string userId1 = 1;
+  string userId2 = 2;
+}
+
+service NewsFeedService {
+  rpc createNewChanel (createChanelRequest) returns (createChanelResponse);
+  rpc getChannel (get)
+}
+
+
