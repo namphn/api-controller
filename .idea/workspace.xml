@@ -1,7 +1,314 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4db17e59-1b33-4c4a-a9c4-15793da9bb74" name="Default Changelist" comment="" />
+    <list default="true" id="4db17e59-1b33-4c4a-a9c4-15793da9bb74" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/config/MongoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/config/MongoConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/controller/user/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/controller/user/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/model/request/RegistrationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/model/request/RegistrationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Comment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Comment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/CommentResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/GetNewsFeedResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/LikeResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/NewsFeedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/NewsFeedService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/NewsFeedServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/NewsFeedServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Newsfeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Newsfeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/PostOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/PostOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/SaveNewPostResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/SaveNewPostResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/SaveNewPostResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/SaveNewPostResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Share.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/Share.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/ShareResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/newsfeed/TagResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ConfirmEmailResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetAllUserResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/GetEmailResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/LoginResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/NewPasswordResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/PasswordResetResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationInformationResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationRequestGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationRequestGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationRequestGrpcOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationRequestGrpcOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationResponseGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationResponseGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationResponseGrpcOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/RegistrationResponseGrpcOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/UserServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/UserServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/ValidateTokenResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/rpc/user/VerificationResetPasswordTokenResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/api/service/ConvertToGrpcRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/api/service/ConvertToGrpcRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/key.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/ApiControllerApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/config/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/config/MongoConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/config/WebSecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/controller/newsfeed/NewsFeedController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/controller/user/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/controller/user/PasswordForgotController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/controller/user/RegistrationNewAccountController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/controller/user/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/controller/user/VerificationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/UserDetailCustom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/newsfeed/Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/newsfeed/Post.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/newsfeed/Share.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/CommentRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/LikeRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/LoginRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/NewPasswordRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/PasswordForgotRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/RegistrationInformationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/RegistrationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/ShareRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/TagRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/request/base/ReactRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/Error.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/ErrorResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/LoginResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/NewPasswordResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/PasswordForgotResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/RegistrationResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/VerificationEmailResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/model/response/VerificationResetPasswordResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/repository/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Comment$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Comment$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Comment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/CommentResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/GetNewsFeedResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/LikeResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedService$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedService$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedService$BlockingInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedService$BlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedService$Interface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedService$Stub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$NewsFeedServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$NewsFeedServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$NewsFeedServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$NewsFeedServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$NewsFeedServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$NewsFeedServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc$NewsFeedServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/NewsFeedServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Newsfeed$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Newsfeed.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Post$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Post$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Post.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/PostOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/SaveNewPostResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/SaveNewPostResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/SaveNewPostResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/SaveNewPostResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Share$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Share$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/Share.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/ShareResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/newsfeed/TagResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ConfirmEmailResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponse$UserGrpcModel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponse$UserGrpcModel$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponse$UserGrpcModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponse$UserGrpcModelOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetAllUserResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/GetEmailResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/LoginResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/NewPasswordResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/PasswordResetResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationInformationResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationRequestGrpc$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationRequestGrpc$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationRequestGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationRequestGrpcOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationResponseGrpc$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationResponseGrpc$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationResponseGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/RegistrationResponseGrpcOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/User$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserService$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserService$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserService$BlockingInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserService$BlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserService$Interface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserService$Stub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$MethodHandlers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$UserServiceBaseDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$UserServiceBlockingStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$UserServiceFileDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$UserServiceFutureStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$UserServiceImplBase.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$UserServiceMethodDescriptorSupplier.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc$UserServiceStub.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/UserServiceGrpc.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/ValidateTokenResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenRequest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenRequest$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenRequestOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenResponse$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenResponse$Builder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/rpc/user/VerificationResetPasswordTokenResponseOrBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/service/ConvertToGrpcRequest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/service/GrpcClientChatService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/service/GrpcClientNewsFeedService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/service/GrpcClientUserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/service/JwtAuthenticationEntryPoint.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/service/JwtAuthenticationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/web/api/service/UserDetailServiceCustom.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,12 +321,19 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="vmOptions" value="-DproxySet=true -DproxyHost=10.128.2.55 -DproxyPort=3130" />
   </component>
   <component name="ProjectId" id="1YzWSEqiW7i5ajmvHHJ7Vr8kpp1" />
   <component name="ProjectViewState">
@@ -28,10 +342,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../user-service" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
   </component>
   <component name="RunManager">
     <configuration name="ApiControllerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -66,10 +386,111 @@
       <updated>1583945901188</updated>
       <workItem from="1583945907932" duration="693000" />
       <workItem from="1584018990324" duration="491000" />
+      <workItem from="1600657221491" duration="379000" />
+      <workItem from="1600657624577" duration="322000" />
+      <workItem from="1600657974282" duration="904000" />
+      <workItem from="1600661825490" duration="1958000" />
+      <workItem from="1600667231286" duration="656000" />
+      <workItem from="1600668005829" duration="5464000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="565" y="233" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600668389544">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="565" y="233" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600668389544" />
+    <state x="579" y="184" key="FileChooserDialogImpl" timestamp="1600667274475">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="579" y="184" key="FileChooserDialogImpl/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600667274475" />
+    <state width="1557" height="265" key="GridCell.Tab.0.bottom" timestamp="1600684363629">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.0.bottom/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149432" />
+    <state width="1557" height="265" key="GridCell.Tab.0.bottom/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363629" />
+    <state width="1557" height="265" key="GridCell.Tab.0.center" timestamp="1600684363628">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.0.center/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149432" />
+    <state width="1557" height="265" key="GridCell.Tab.0.center/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363628" />
+    <state width="1557" height="265" key="GridCell.Tab.0.left" timestamp="1600684363628">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.0.left/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149432" />
+    <state width="1557" height="265" key="GridCell.Tab.0.left/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363628" />
+    <state width="1557" height="265" key="GridCell.Tab.0.right" timestamp="1600684363628">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.0.right/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149432" />
+    <state width="1557" height="265" key="GridCell.Tab.0.right/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363628" />
+    <state width="1557" height="265" key="GridCell.Tab.1.bottom" timestamp="1600684363629">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.bottom/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149433" />
+    <state width="1557" height="265" key="GridCell.Tab.1.bottom/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363629" />
+    <state width="1557" height="265" key="GridCell.Tab.1.center" timestamp="1600684363629">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.center/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149432" />
+    <state width="1557" height="265" key="GridCell.Tab.1.center/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363629" />
+    <state width="1557" height="265" key="GridCell.Tab.1.left" timestamp="1600684363629">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.left/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149432" />
+    <state width="1557" height="265" key="GridCell.Tab.1.left/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363629" />
+    <state width="1557" height="265" key="GridCell.Tab.1.right" timestamp="1600684363629">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.1.right/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149432" />
+    <state width="1557" height="265" key="GridCell.Tab.1.right/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600684363629" />
+    <state width="1397" height="276" key="GridCell.Tab.2.bottom" timestamp="1600684149433">
+      <screen x="-1440" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.2.bottom/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149433" />
+    <state width="1397" height="276" key="GridCell.Tab.2.center" timestamp="1600684149433">
+      <screen x="-1440" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.2.center/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149433" />
+    <state width="1397" height="276" key="GridCell.Tab.2.left" timestamp="1600684149433">
+      <screen x="-1440" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.2.left/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149433" />
+    <state width="1397" height="276" key="GridCell.Tab.2.right" timestamp="1600684149433">
+      <screen x="-1440" y="0" width="1440" height="860" />
+    </state>
+    <state width="1397" height="276" key="GridCell.Tab.2.right/0.0.1600.860/-1440.0.1440.860@-1440.0.1440.860" timestamp="1600684149433" />
+    <state x="308" y="72" key="SettingsEditor" timestamp="1600662600022">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="308" y="72" key="SettingsEditor/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600662600022" />
+    <state x="501" y="254" key="com.intellij.ide.util.TipDialog" timestamp="1600657223749">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="501" y="254" key="com.intellij.ide.util.TipDialog/0.0.1600.860/-1440.0.1440.860@0.0.1600.860" timestamp="1600657223749" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/web/api/controller/user/LoginController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/web/api/controller/user/LoginController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/web/api/controller/user/LoginController.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
