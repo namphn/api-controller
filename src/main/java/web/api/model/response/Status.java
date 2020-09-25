@@ -14,4 +14,11 @@ public class Status {
     public static final String SAVED_NEW_PASSWORD = "SAVED_NEW_PASSWORD";
     public static final String ACCEPT = "ACCEPT";
     public static final String SAVED_INFORMATION = "SAVED INFORMATION";
+    public static final String INTERNAL_SERVER = "INTERNAL SERVER ERROR";
+
+    public static class StatusCode {
+        public static final String NORMAL = "200";
+        public static final String NODATA = "202";
+        public static final String SERVER_ERROR = "500";
+    }
 }

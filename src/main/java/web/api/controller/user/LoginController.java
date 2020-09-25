@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import web.api.model.response.Error;
+import web.api.model.response.ResponseBase;
 import web.api.service.GrpcClientUserService;
 import web.api.model.request.LoginRequest;
 import web.api.model.response.LoginResponse;
@@ -30,7 +31,13 @@ public class LoginController {
         } catch (StatusRuntimeException e) {
             return new ResponseEntity(Error.INTERNAL_SERVER, HttpStatus.OK);
         }
+        ResponseBase responseBase = new ResponseBase();
+        if(response != null) {
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatusCode(Status.ACCEPT);
+            responseBase.setData(response);
+        }
 
-        return new ResponseEntity(response, HttpStatus.OK);
+        return new ResponseEntity(responseBase, HttpStatus.OK);
     }
 }
