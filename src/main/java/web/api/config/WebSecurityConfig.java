@@ -32,16 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
-    @Bean("news-feed")
-    ManagedChannel newsFeedGrpcBeanChanel(){
-        return ManagedChannelBuilder.forAddress("localhost", 6566).usePlaintext().build();
-    }
-
-    @Bean("user-service")
-    ManagedChannel userGrpcBeanChanel(){
-        return ManagedChannelBuilder.forAddress("localhost", 6568).usePlaintext().build();
-    }
-
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailServiceCustom).passwordEncoder(passwordEncoder());

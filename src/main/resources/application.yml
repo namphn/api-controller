@@ -1,13 +1,13 @@
 server:
-  port: 8081
-  ssl:
-    key-store: classpath:namph.jks
-    key-store-password: password
-    keyStoreType: PKCS12
-    key-alias: namph
+  port: 8084
+#  ssl:
+#    key-store: classpath:namph.jks
+#    key-store-password: password
+#    keyStoreType: PKCS12
+#    key-alias: namph
 
-  security:
-    require-ssl: true
+#  security:
+#    require-ssl: true
 
 
 mongo:

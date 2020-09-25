@@ -1,6 +1,7 @@
 package web.api.service;
 
 import org.springframework.stereotype.Service;
+import web.api.model.request.GetChanelRequest;
 import web.api.model.request.PasswordForgotRequest;
 import web.api.model.request.RegistrationRequest;
 import web.api.rpc.user.*;
@@ -52,5 +53,12 @@ public class ConvertToGrpcRequest {
         VerificationResetPasswordTokenRequest.Builder request = VerificationResetPasswordTokenRequest.newBuilder();
         request.setToken(token);
         return request.build();
+    }
+
+    public web.api.rpc.chat.GetChannelRequest convertToGetChannelRequestGrpc(GetChanelRequest request) {
+        web.api.rpc.chat.GetChannelRequest.Builder grpcRequest = web.api.rpc.chat.GetChannelRequest.newBuilder();
+        grpcRequest.setUserId1(request.getUserId1());
+        grpcRequest.setUserId2(request.getUserId2());
+        return grpcRequest.build();
     }
 }
