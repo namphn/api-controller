@@ -15,6 +15,8 @@ public class Status {
     public static final String ACCEPT = "ACCEPT";
     public static final String SAVED_INFORMATION = "SAVED INFORMATION";
     public static final String INTERNAL_SERVER = "INTERNAL SERVER ERROR";
+    public static final String SUCCESS = "SUCCESS";
+    public static final String NODATA = "HAVE NOT DATA";
 
     public static class StatusCode {
         public static final String NORMAL = "200";

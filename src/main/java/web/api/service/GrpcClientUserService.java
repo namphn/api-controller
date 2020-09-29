@@ -21,11 +21,11 @@ public class GrpcClientUserService {
     @Autowired
     private  ConvertToGrpcRequest convert;
 
-    public web.api.model.response.LoginResponse login(web.api.model.request.LoginRequest loginRequest){
+    public LoginResponse login(web.api.model.request.LoginRequest loginRequest) throws Exception{
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
         web.api.rpc.user.LoginRequest loginRequestGrpc = convert.convertToLoginRequestGprc(loginRequest);
         LoginResponse response = stub.login(loginRequestGrpc);
-        return new web.api.model.response.LoginResponse(response);
+        return response;
     }
 
     public RegistrationResponse registerNewAccount(RegistrationRequest request){

@@ -1,14 +1,13 @@
 server:
   port: 8084
-#  ssl:
-#    key-store: classpath:namph.jks
-#    key-store-password: password
-#    keyStoreType: PKCS12
-#    key-alias: namph
+  ssl:
+    key-store: classpath:namph.jks
+    key-store-password: password
+    keyStoreType: PKCS12
+    key-alias: namph
 
 #  security:
 #    require-ssl: true
-
 
 mongo:
   remoteUri: "localhost:27017"

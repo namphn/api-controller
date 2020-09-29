@@ -59,6 +59,38 @@ public final class ChatServiceGrpc {
      return getGetChannelMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<web.api.rpc.chat.ChatMessage,
+      web.api.rpc.chat.SubmitResponse> getSubmitMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "submit",
+      requestType = web.api.rpc.chat.ChatMessage.class,
+      responseType = web.api.rpc.chat.SubmitResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<web.api.rpc.chat.ChatMessage,
+      web.api.rpc.chat.SubmitResponse> getSubmitMethod() {
+    io.grpc.MethodDescriptor<web.api.rpc.chat.ChatMessage, web.api.rpc.chat.SubmitResponse> getSubmitMethod;
+    if ((getSubmitMethod = ChatServiceGrpc.getSubmitMethod) == null) {
+      synchronized (ChatServiceGrpc.class) {
+        if ((getSubmitMethod = ChatServiceGrpc.getSubmitMethod) == null) {
+          ChatServiceGrpc.getSubmitMethod = getSubmitMethod = 
+              io.grpc.MethodDescriptor.<web.api.rpc.chat.ChatMessage, web.api.rpc.chat.SubmitResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "ChatService", "submit"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.chat.ChatMessage.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.chat.SubmitResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ChatServiceMethodDescriptorSupplier("submit"))
+                  .build();
+          }
+        }
+     }
+     return getSubmitMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +125,13 @@ public final class ChatServiceGrpc {
       asyncUnimplementedUnaryCall(getGetChannelMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void submit(web.api.rpc.chat.ChatMessage request,
+        io.grpc.stub.StreamObserver<web.api.rpc.chat.SubmitResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getSubmitMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +141,13 @@ public final class ChatServiceGrpc {
                 web.api.rpc.chat.GetChannelRequest,
                 web.api.rpc.chat.GetChannelResponse>(
                   this, METHODID_GET_CHANNEL)))
+          .addMethod(
+            getSubmitMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                web.api.rpc.chat.ChatMessage,
+                web.api.rpc.chat.SubmitResponse>(
+                  this, METHODID_SUBMIT)))
           .build();
     }
   }
@@ -131,6 +177,14 @@ public final class ChatServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetChannelMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void submit(web.api.rpc.chat.ChatMessage request,
+        io.grpc.stub.StreamObserver<web.api.rpc.chat.SubmitResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getSubmitMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -156,6 +210,13 @@ public final class ChatServiceGrpc {
     public web.api.rpc.chat.GetChannelResponse getChannel(web.api.rpc.chat.GetChannelRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetChannelMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public web.api.rpc.chat.SubmitResponse submit(web.api.rpc.chat.ChatMessage request) {
+      return blockingUnaryCall(
+          getChannel(), getSubmitMethod(), getCallOptions(), request);
     }
   }
 
@@ -184,9 +245,18 @@ public final class ChatServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetChannelMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<web.api.rpc.chat.SubmitResponse> submit(
+        web.api.rpc.chat.ChatMessage request) {
+      return futureUnaryCall(
+          getChannel().newCall(getSubmitMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_GET_CHANNEL = 0;
+  private static final int METHODID_SUBMIT = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -208,6 +278,10 @@ public final class ChatServiceGrpc {
         case METHODID_GET_CHANNEL:
           serviceImpl.getChannel((web.api.rpc.chat.GetChannelRequest) request,
               (io.grpc.stub.StreamObserver<web.api.rpc.chat.GetChannelResponse>) responseObserver);
+          break;
+        case METHODID_SUBMIT:
+          serviceImpl.submit((web.api.rpc.chat.ChatMessage) request,
+              (io.grpc.stub.StreamObserver<web.api.rpc.chat.SubmitResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -271,6 +345,7 @@ public final class ChatServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ChatServiceFileDescriptorSupplier())
               .addMethod(getGetChannelMethod())
+              .addMethod(getSubmitMethod())
               .build();
         }
       }

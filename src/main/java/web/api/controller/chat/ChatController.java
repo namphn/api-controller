@@ -1,6 +1,7 @@
 package web.api.controller.chat;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import web.api.model.chat.ChatMessage;
 import web.api.model.request.GetChanelRequest;
 import web.api.model.response.GetChanelResponse;
+import web.api.model.response.ResponseBase;
+import web.api.model.response.Status;
 import web.api.rpc.chat.GetChannelResponse;
 import web.api.service.GrpcClientChatService;
 
@@ -22,19 +25,32 @@ public class ChatController {
     @MessageMapping("/private.chat.{channelId}")
     @SendTo("/topic/private.chat.{channelId}")
     public ChatMessage chatMessage(@DestinationVariable String channelId, ChatMessage chatMessage) {
-//        this.chatService.submitMessage(chatMessage);
+        this.grpcClientChatService.submitMessage(chatMessage);
         return chatMessage;
     }
 
-//    @PutMapping(value="/channel",produces="application/json", consumes="application/json")
-//    public ResponseEntity establishChatChannel(@RequestBody GetChanelRequest request) {
-//        GetChanelResponse response = null;
-//        try {
-//            GetChanelResponse response = grpcClientChatService.getChannel(request);
-//        }
-//
-//
-//    }
+    @PostMapping(value="/channel",produces="application/json", consumes="application/json")
+    public ResponseEntity establishChatChannel(@RequestBody GetChanelRequest request) {
+        GetChanelResponse response = null;
+        ResponseBase responseBase = new ResponseBase();
+        try {
+            response = grpcClientChatService.getChannel(request);
+        } catch (Exception e) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+        }
+
+        if(response != null) {
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(Status.SUCCESS);
+            responseBase.setData(response);
+        } else {
+            responseBase.setStatusCode(Status.StatusCode.NODATA);
+            responseBase.setStatus(Status.NODATA);
+        }
+
+        return new ResponseEntity(responseBase, HttpStatus.OK);
+    }
     /**
      * todo getMessage
      */

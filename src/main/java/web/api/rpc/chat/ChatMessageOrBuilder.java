@@ -8,24 +8,24 @@ public interface ChatMessageOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string fromUser = 1;</code>
+   * <code>string userId1 = 1;</code>
    */
-  java.lang.String getFromUser();
+  java.lang.String getUserId1();
   /**
-   * <code>string fromUser = 1;</code>
+   * <code>string userId1 = 1;</code>
    */
   com.google.protobuf.ByteString
-      getFromUserBytes();
+      getUserId1Bytes();
 
   /**
-   * <code>string toUser = 2;</code>
+   * <code>string userId2 = 2;</code>
    */
-  java.lang.String getToUser();
+  java.lang.String getUserId2();
   /**
-   * <code>string toUser = 2;</code>
+   * <code>string userId2 = 2;</code>
    */
   com.google.protobuf.ByteString
-      getToUserBytes();
+      getUserId2Bytes();
 
   /**
    * <code>string content = 3;</code>
