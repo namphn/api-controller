@@ -19,6 +19,14 @@ public  abstract class ChatService
         web.api.rpc.chat.GetChannelRequest request,
         com.google.protobuf.RpcCallback<web.api.rpc.chat.GetChannelResponse> done);
 
+    /**
+     * <code>rpc submit(.ChatMessage) returns (.SubmitResponse);</code>
+     */
+    public abstract void submit(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.chat.ChatMessage request,
+        com.google.protobuf.RpcCallback<web.api.rpc.chat.SubmitResponse> done);
+
   }
 
   public static com.google.protobuf.Service newReflectiveService(
@@ -30,6 +38,14 @@ public  abstract class ChatService
           web.api.rpc.chat.GetChannelRequest request,
           com.google.protobuf.RpcCallback<web.api.rpc.chat.GetChannelResponse> done) {
         impl.getChannel(controller, request, done);
+      }
+
+      @java.lang.Override
+      public  void submit(
+          com.google.protobuf.RpcController controller,
+          web.api.rpc.chat.ChatMessage request,
+          com.google.protobuf.RpcCallback<web.api.rpc.chat.SubmitResponse> done) {
+        impl.submit(controller, request, done);
       }
 
     };
@@ -56,6 +72,8 @@ public  abstract class ChatService
         switch(method.getIndex()) {
           case 0:
             return impl.getChannel(controller, (web.api.rpc.chat.GetChannelRequest)request);
+          case 1:
+            return impl.submit(controller, (web.api.rpc.chat.ChatMessage)request);
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -72,6 +90,8 @@ public  abstract class ChatService
         switch(method.getIndex()) {
           case 0:
             return web.api.rpc.chat.GetChannelRequest.getDefaultInstance();
+          case 1:
+            return web.api.rpc.chat.ChatMessage.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -88,6 +108,8 @@ public  abstract class ChatService
         switch(method.getIndex()) {
           case 0:
             return web.api.rpc.chat.GetChannelResponse.getDefaultInstance();
+          case 1:
+            return web.api.rpc.chat.SubmitResponse.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -103,6 +125,14 @@ public  abstract class ChatService
       com.google.protobuf.RpcController controller,
       web.api.rpc.chat.GetChannelRequest request,
       com.google.protobuf.RpcCallback<web.api.rpc.chat.GetChannelResponse> done);
+
+  /**
+   * <code>rpc submit(.ChatMessage) returns (.SubmitResponse);</code>
+   */
+  public abstract void submit(
+      com.google.protobuf.RpcController controller,
+      web.api.rpc.chat.ChatMessage request,
+      com.google.protobuf.RpcCallback<web.api.rpc.chat.SubmitResponse> done);
 
   public static final
       com.google.protobuf.Descriptors.ServiceDescriptor
@@ -131,6 +161,11 @@ public  abstract class ChatService
           com.google.protobuf.RpcUtil.<web.api.rpc.chat.GetChannelResponse>specializeCallback(
             done));
         return;
+      case 1:
+        this.submit(controller, (web.api.rpc.chat.ChatMessage)request,
+          com.google.protobuf.RpcUtil.<web.api.rpc.chat.SubmitResponse>specializeCallback(
+            done));
+        return;
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -147,6 +182,8 @@ public  abstract class ChatService
     switch(method.getIndex()) {
       case 0:
         return web.api.rpc.chat.GetChannelRequest.getDefaultInstance();
+      case 1:
+        return web.api.rpc.chat.ChatMessage.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -163,6 +200,8 @@ public  abstract class ChatService
     switch(method.getIndex()) {
       case 0:
         return web.api.rpc.chat.GetChannelResponse.getDefaultInstance();
+      case 1:
+        return web.api.rpc.chat.SubmitResponse.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -198,6 +237,21 @@ public  abstract class ChatService
           web.api.rpc.chat.GetChannelResponse.class,
           web.api.rpc.chat.GetChannelResponse.getDefaultInstance()));
     }
+
+    public  void submit(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.chat.ChatMessage request,
+        com.google.protobuf.RpcCallback<web.api.rpc.chat.SubmitResponse> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(1),
+        controller,
+        request,
+        web.api.rpc.chat.SubmitResponse.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          web.api.rpc.chat.SubmitResponse.class,
+          web.api.rpc.chat.SubmitResponse.getDefaultInstance()));
+    }
   }
 
   public static BlockingInterface newBlockingStub(
@@ -209,6 +263,11 @@ public  abstract class ChatService
     public web.api.rpc.chat.GetChannelResponse getChannel(
         com.google.protobuf.RpcController controller,
         web.api.rpc.chat.GetChannelRequest request)
+        throws com.google.protobuf.ServiceException;
+
+    public web.api.rpc.chat.SubmitResponse submit(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.chat.ChatMessage request)
         throws com.google.protobuf.ServiceException;
   }
 
@@ -228,6 +287,18 @@ public  abstract class ChatService
         controller,
         request,
         web.api.rpc.chat.GetChannelResponse.getDefaultInstance());
+    }
+
+
+    public web.api.rpc.chat.SubmitResponse submit(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.chat.ChatMessage request)
+        throws com.google.protobuf.ServiceException {
+      return (web.api.rpc.chat.SubmitResponse) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(1),
+        controller,
+        request,
+        web.api.rpc.chat.SubmitResponse.getDefaultInstance());
     }
 
   }

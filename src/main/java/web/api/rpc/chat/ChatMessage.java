@@ -16,8 +16,8 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ChatMessage() {
-    fromUser_ = "";
-    toUser_ = "";
+    userId1_ = "";
+    userId2_ = "";
     content_ = "";
   }
 
@@ -55,13 +55,13 @@ private static final long serialVersionUID = 0L;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            fromUser_ = s;
+            userId1_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            toUser_ = s;
+            userId2_ = s;
             break;
           }
           case 26: {
@@ -94,68 +94,68 @@ private static final long serialVersionUID = 0L;
             web.api.rpc.chat.ChatMessage.class, web.api.rpc.chat.ChatMessage.Builder.class);
   }
 
-  public static final int FROMUSER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object fromUser_;
+  public static final int USERID1_FIELD_NUMBER = 1;
+  private volatile java.lang.Object userId1_;
   /**
-   * <code>string fromUser = 1;</code>
+   * <code>string userId1 = 1;</code>
    */
-  public java.lang.String getFromUser() {
-    java.lang.Object ref = fromUser_;
+  public java.lang.String getUserId1() {
+    java.lang.Object ref = userId1_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      fromUser_ = s;
+      userId1_ = s;
       return s;
     }
   }
   /**
-   * <code>string fromUser = 1;</code>
+   * <code>string userId1 = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getFromUserBytes() {
-    java.lang.Object ref = fromUser_;
+      getUserId1Bytes() {
+    java.lang.Object ref = userId1_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      fromUser_ = b;
+      userId1_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int TOUSER_FIELD_NUMBER = 2;
-  private volatile java.lang.Object toUser_;
+  public static final int USERID2_FIELD_NUMBER = 2;
+  private volatile java.lang.Object userId2_;
   /**
-   * <code>string toUser = 2;</code>
+   * <code>string userId2 = 2;</code>
    */
-  public java.lang.String getToUser() {
-    java.lang.Object ref = toUser_;
+  public java.lang.String getUserId2() {
+    java.lang.Object ref = userId2_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      toUser_ = s;
+      userId2_ = s;
       return s;
     }
   }
   /**
-   * <code>string toUser = 2;</code>
+   * <code>string userId2 = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getToUserBytes() {
-    java.lang.Object ref = toUser_;
+      getUserId2Bytes() {
+    java.lang.Object ref = userId2_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      toUser_ = b;
+      userId2_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -208,11 +208,11 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getFromUserBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fromUser_);
+    if (!getUserId1Bytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId1_);
     }
-    if (!getToUserBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, toUser_);
+    if (!getUserId2Bytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, userId2_);
     }
     if (!getContentBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, content_);
@@ -225,11 +225,11 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getFromUserBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fromUser_);
+    if (!getUserId1Bytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId1_);
     }
-    if (!getToUserBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, toUser_);
+    if (!getUserId2Bytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, userId2_);
     }
     if (!getContentBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, content_);
@@ -250,10 +250,10 @@ private static final long serialVersionUID = 0L;
     web.api.rpc.chat.ChatMessage other = (web.api.rpc.chat.ChatMessage) obj;
 
     boolean result = true;
-    result = result && getFromUser()
-        .equals(other.getFromUser());
-    result = result && getToUser()
-        .equals(other.getToUser());
+    result = result && getUserId1()
+        .equals(other.getUserId1());
+    result = result && getUserId2()
+        .equals(other.getUserId2());
     result = result && getContent()
         .equals(other.getContent());
     result = result && unknownFields.equals(other.unknownFields);
@@ -267,10 +267,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + FROMUSER_FIELD_NUMBER;
-    hash = (53 * hash) + getFromUser().hashCode();
-    hash = (37 * hash) + TOUSER_FIELD_NUMBER;
-    hash = (53 * hash) + getToUser().hashCode();
+    hash = (37 * hash) + USERID1_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId1().hashCode();
+    hash = (37 * hash) + USERID2_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId2().hashCode();
     hash = (37 * hash) + CONTENT_FIELD_NUMBER;
     hash = (53 * hash) + getContent().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
@@ -402,9 +402,9 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      fromUser_ = "";
+      userId1_ = "";
 
-      toUser_ = "";
+      userId2_ = "";
 
       content_ = "";
 
@@ -430,8 +430,8 @@ private static final long serialVersionUID = 0L;
 
     public web.api.rpc.chat.ChatMessage buildPartial() {
       web.api.rpc.chat.ChatMessage result = new web.api.rpc.chat.ChatMessage(this);
-      result.fromUser_ = fromUser_;
-      result.toUser_ = toUser_;
+      result.userId1_ = userId1_;
+      result.userId2_ = userId2_;
       result.content_ = content_;
       onBuilt();
       return result;
@@ -474,12 +474,12 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(web.api.rpc.chat.ChatMessage other) {
       if (other == web.api.rpc.chat.ChatMessage.getDefaultInstance()) return this;
-      if (!other.getFromUser().isEmpty()) {
-        fromUser_ = other.fromUser_;
+      if (!other.getUserId1().isEmpty()) {
+        userId1_ = other.userId1_;
         onChanged();
       }
-      if (!other.getToUser().isEmpty()) {
-        toUser_ = other.toUser_;
+      if (!other.getUserId2().isEmpty()) {
+        userId2_ = other.userId2_;
         onChanged();
       }
       if (!other.getContent().isEmpty()) {
@@ -513,140 +513,140 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fromUser_ = "";
+    private java.lang.Object userId1_ = "";
     /**
-     * <code>string fromUser = 1;</code>
+     * <code>string userId1 = 1;</code>
      */
-    public java.lang.String getFromUser() {
-      java.lang.Object ref = fromUser_;
+    public java.lang.String getUserId1() {
+      java.lang.Object ref = userId1_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        fromUser_ = s;
+        userId1_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string fromUser = 1;</code>
+     * <code>string userId1 = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getFromUserBytes() {
-      java.lang.Object ref = fromUser_;
+        getUserId1Bytes() {
+      java.lang.Object ref = userId1_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        fromUser_ = b;
+        userId1_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string fromUser = 1;</code>
+     * <code>string userId1 = 1;</code>
      */
-    public Builder setFromUser(
+    public Builder setUserId1(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      fromUser_ = value;
+      userId1_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string fromUser = 1;</code>
+     * <code>string userId1 = 1;</code>
      */
-    public Builder clearFromUser() {
+    public Builder clearUserId1() {
       
-      fromUser_ = getDefaultInstance().getFromUser();
+      userId1_ = getDefaultInstance().getUserId1();
       onChanged();
       return this;
     }
     /**
-     * <code>string fromUser = 1;</code>
+     * <code>string userId1 = 1;</code>
      */
-    public Builder setFromUserBytes(
+    public Builder setUserId1Bytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      fromUser_ = value;
+      userId1_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object toUser_ = "";
+    private java.lang.Object userId2_ = "";
     /**
-     * <code>string toUser = 2;</code>
+     * <code>string userId2 = 2;</code>
      */
-    public java.lang.String getToUser() {
-      java.lang.Object ref = toUser_;
+    public java.lang.String getUserId2() {
+      java.lang.Object ref = userId2_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        toUser_ = s;
+        userId2_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>string toUser = 2;</code>
+     * <code>string userId2 = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getToUserBytes() {
-      java.lang.Object ref = toUser_;
+        getUserId2Bytes() {
+      java.lang.Object ref = userId2_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        toUser_ = b;
+        userId2_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>string toUser = 2;</code>
+     * <code>string userId2 = 2;</code>
      */
-    public Builder setToUser(
+    public Builder setUserId2(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      toUser_ = value;
+      userId2_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string toUser = 2;</code>
+     * <code>string userId2 = 2;</code>
      */
-    public Builder clearToUser() {
+    public Builder clearUserId2() {
       
-      toUser_ = getDefaultInstance().getToUser();
+      userId2_ = getDefaultInstance().getUserId2();
       onChanged();
       return this;
     }
     /**
-     * <code>string toUser = 2;</code>
+     * <code>string userId2 = 2;</code>
      */
-    public Builder setToUserBytes(
+    public Builder setUserId2Bytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      toUser_ = value;
+      userId2_ = value;
       onChanged();
       return this;
     }
