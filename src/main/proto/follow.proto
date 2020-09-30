@@ -1,0 +1,27 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_generic_services = true;
+option java_package = "web.service.follow.rpc";
+
+message GetFollowerRequest {
+  string userId = 1;
+}
+
+message GetFollowerResponse {
+  repeated string followers = 1;
+}
+
+message GetFollowingRequest {
+  string userId = 1;
+}
+
+message GetFollowingResponse {
+  repeated string following = 1;
+}
+
+service FollowRpcService {
+  rpc getFollower (GetFollowerRequest) returns (GetFollowerResponse);
+  rpc getFollowing (GetFollowingRequest) returns (GetFollowingResponse);
+}
+
+
