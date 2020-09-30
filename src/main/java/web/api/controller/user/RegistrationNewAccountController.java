@@ -39,17 +39,19 @@ public class RegistrationNewAccountController {
             responseBase.setStatus(Status.INTERNAL_SERVER);
         }
 
-        if(response.getStatus() == Status.EMAIL_ALREADY_EXISTS) {
+        if(response == null) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+            return new ResponseEntity(responseBase, HttpStatus.OK);
+        }
 
+        if(!response.getStatus().equals(Status.SENT_EMAIL)) {
             responseBase.setStatusCode(Status.StatusCode.NODATA);
-            responseBase.setStatus(Status.EMAIL_ALREADY_EXISTS);
-            responseBase.setData(Error.HAVE_EXIST_ACCOUNT);
-
-        } else if(response.getStatus() == Status.INVALID_EMAIL){
-
-            responseBase.setStatusCode(Status.StatusCode.NODATA);
-            responseBase.setStatus(Status.INVALID_EMAIL);
-            responseBase.setData(Error.INVALID_EMAIL);
+            responseBase.setStatus(response.getStatus());
+            responseBase.setData(response);
+        } else{
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(response.getStatus());
         }
         return new ResponseEntity(responseBase, HttpStatus.OK);
     }
