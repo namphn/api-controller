@@ -22,4 +22,9 @@ public class BeanConfig {
     ManagedChannel chatGrpcBeanChanel(){
         return ManagedChannelBuilder.forAddress("localhost", 6567).usePlaintext().build();
     }
+
+    @Bean("follow-service")
+    ManagedChannel followGrpcBeanChanel(){
+        return ManagedChannelBuilder.forAddress("localhost", 6569).usePlaintext().build();
+    }
 }

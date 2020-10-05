@@ -6,8 +6,8 @@ server:
     keyStoreType: PKCS12
     key-alias: namph
 
-#  security:
-#    require-ssl: true
+  security:
+    require-ssl: true
 
 mongo:
   remoteUri: "localhost:27017"

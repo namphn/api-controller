@@ -1,9 +1,9 @@
 syntax = "proto3";
 option java_multiple_files = true;
 option java_generic_services = true;
-option java_package = "web.service.follow.rpc";
+option java_package = "web.api.rpc.follow";
 
-message GetFollowerRequest {
+message GetFollowerAndFollowingRequest {
   string userId = 1;
 }
 
@@ -11,17 +11,24 @@ message GetFollowerResponse {
   repeated string followers = 1;
 }
 
-message GetFollowingRequest {
-  string userId = 1;
-}
-
 message GetFollowingResponse {
   repeated string following = 1;
 }
 
+message AddFollowRequest {
+  string userId = 1;
+  string userAdd = 2;
+  bool addFollower = 3;
+}
+
+message AddFollowResponse {
+  string status = 1;
+}
+
 service FollowRpcService {
-  rpc getFollower (GetFollowerRequest) returns (GetFollowerResponse);
-  rpc getFollowing (GetFollowingRequest) returns (GetFollowingResponse);
+  rpc getFollower (GetFollowerAndFollowingRequest) returns (GetFollowerResponse);
+  rpc getFollowing (GetFollowerAndFollowingRequest) returns (GetFollowingResponse);
+  rpc addFollow(AddFollowRequest) returns (AddFollowResponse);
 }
 
 
