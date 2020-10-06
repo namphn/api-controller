@@ -10,6 +10,7 @@ import web.api.model.request.RegistrationInformationRequest;
 import web.api.model.request.RegistrationRequest;
 import web.api.model.response.Error;
 import web.api.model.response.RegistrationResponse;
+import web.api.model.response.ResponseBase;
 import web.api.model.response.Status;
 import web.api.service.GrpcClientUserService;
 
@@ -28,13 +29,31 @@ public class RegistrationNewAccountController {
 
     @PostMapping("/register")
     public ResponseEntity register(@Valid @RequestBody RegistrationRequest request){
-        RegistrationResponse response = grpcClientService.registerNewAccount(request);
-        if(response.getStatus() == Status.EMAIL_ALREADY_EXISTS) {
-            return new ResponseEntity(Error.HAVE_EXIST_ACCOUNT,HttpStatus.BAD_REQUEST);
-        } else if(response.getStatus() == Status.INVALID_EMAIL){
-            return new ResponseEntity(Error.INVALID_EMAIL,HttpStatus.BAD_REQUEST);
+        ResponseBase responseBase = new ResponseBase();
+        RegistrationResponse response = null;
+
+        try {
+            response = grpcClientService.registerNewAccount(request);
+        } catch (Exception e) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
         }
-        return new ResponseEntity(response, HttpStatus.OK);
+
+        if(response == null) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+            return new ResponseEntity(responseBase, HttpStatus.OK);
+        }
+
+        if(!response.getStatus().equals(Status.SENT_EMAIL)) {
+            responseBase.setStatusCode(Status.StatusCode.NODATA);
+            responseBase.setStatus(response.getStatus());
+            responseBase.setData(response);
+        } else{
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(response.getStatus());
+        }
+        return new ResponseEntity(responseBase, HttpStatus.OK);
     }
 
     @PostMapping("/register-information")

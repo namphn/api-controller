@@ -19,12 +19,12 @@ public class MongoConfig extends AbstractMongoConfiguration {
     public MongoClient mongoClient() {
 //        MongoClientURI uri = new MongoClientURI(mongoURi);
 //        return new MongoClient(uri);
-        return new MongoClient("127.0.0.1", 27017);
+        return new MongoClient("localhost", 27017);
     }
 
     @Override
     protected String getDatabaseName() {
-        return "web-server";
+        return "user";
     }
 
     @Override
