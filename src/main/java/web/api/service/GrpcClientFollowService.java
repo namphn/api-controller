@@ -19,8 +19,6 @@ public class GrpcClientFollowService {
     @Qualifier("follow-service")
     private ManagedChannel channel;
 
-    private FollowRpcServiceGrpc.FollowRpcServiceBlockingStub stub =FollowRpcServiceGrpc.newBlockingStub(channel);
-
     public ResponseBase getAllFollower(String userId, int getFlg) {
         GetFollowerAndFollowingRequest.Builder request = GetFollowerAndFollowingRequest.newBuilder();
         request.setUserId(userId);
@@ -28,6 +26,7 @@ public class GrpcClientFollowService {
         GetFollowingResponse getFollowingResponse = null;
         GetFollowerAndFollowingResponse getFollowerAndFollowingResponse = new GetFollowerAndFollowingResponse();
         ResponseBase responseBase = new ResponseBase();
+        FollowRpcServiceGrpc.FollowRpcServiceBlockingStub stub =FollowRpcServiceGrpc.newBlockingStub(channel);
 
         try {
             switch (getFlg) {
@@ -47,6 +46,7 @@ public class GrpcClientFollowService {
         } catch (Exception e) {
             responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
             responseBase.setStatus(Status.INTERNAL_SERVER);
+            return responseBase;
         }
 
         if(getFollowerResponse != null) getFollowerAndFollowingResponse.setFollowers(getFollowerResponse.getFollowersList());
@@ -73,6 +73,9 @@ public class GrpcClientFollowService {
         request.setUserId(userId);
         request.setUserAdd(userAdd);
         request.setAddFollower(addFollower);
+        FollowRpcServiceGrpc.FollowRpcServiceBlockingStub stub =FollowRpcServiceGrpc.newBlockingStub(channel);
+
+        ResponseBase responseBase = new ResponseBase();
 
         AddFollowResponse response = null;
         try
@@ -80,7 +83,19 @@ public class GrpcClientFollowService {
             response = stub.addFollow(request.build());
         } catch (Exception e)
         {
-
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            return responseBase;
         }
+        if(response == null) {
+            responseBase.setStatusCode(Status.StatusCode.NODATA);
+            responseBase.setStatus(Status.SUCCESS);
+        }
+        else {
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(response.getStatus());
+        }
+
+        return responseBase;
     }
 }

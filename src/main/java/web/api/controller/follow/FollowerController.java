@@ -18,7 +18,9 @@ public class FollowerController {
     public ResponseEntity getFollow(@PathVariable String userId) {
         return new ResponseEntity(followService.getAllFollower(userId, 1), HttpStatus.OK);
     }
-
     @PostMapping
-
+    @RequestMapping("/add/{userId}")
+    public ResponseEntity addFollower(@PathVariable String userId, @RequestBody String followerId ) {
+        return new ResponseEntity(followService.addFollow(userId, followerId, true), HttpStatus.OK);
+    }
 }
