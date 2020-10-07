@@ -131,6 +131,18 @@ public  abstract class UserService
         web.api.rpc.user.GetAllUserRequest request,
         com.google.protobuf.RpcCallback<web.api.rpc.user.GetAllUserResponse> done);
 
+    /**
+     * <pre>
+     * change user's name
+     * </pre>
+     *
+     * <code>rpc RenameUser(.ChangeUserNameRpcRequest) returns (.ChangeUserNameRpcResponse);</code>
+     */
+    public abstract void renameUser(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.ChangeUserNameRpcRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.ChangeUserNameRpcResponse> done);
+
   }
 
   public static com.google.protobuf.Service newReflectiveService(
@@ -216,6 +228,14 @@ public  abstract class UserService
         impl.getAllUser(controller, request, done);
       }
 
+      @java.lang.Override
+      public  void renameUser(
+          com.google.protobuf.RpcController controller,
+          web.api.rpc.user.ChangeUserNameRpcRequest request,
+          com.google.protobuf.RpcCallback<web.api.rpc.user.ChangeUserNameRpcResponse> done) {
+        impl.renameUser(controller, request, done);
+      }
+
     };
   }
 
@@ -258,6 +278,8 @@ public  abstract class UserService
             return impl.validateToken(controller, (web.api.rpc.user.ValidateTokenRequest)request);
           case 9:
             return impl.getAllUser(controller, (web.api.rpc.user.GetAllUserRequest)request);
+          case 10:
+            return impl.renameUser(controller, (web.api.rpc.user.ChangeUserNameRpcRequest)request);
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -292,6 +314,8 @@ public  abstract class UserService
             return web.api.rpc.user.ValidateTokenRequest.getDefaultInstance();
           case 9:
             return web.api.rpc.user.GetAllUserRequest.getDefaultInstance();
+          case 10:
+            return web.api.rpc.user.ChangeUserNameRpcRequest.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -326,6 +350,8 @@ public  abstract class UserService
             return web.api.rpc.user.ValidateTokenResponse.getDefaultInstance();
           case 9:
             return web.api.rpc.user.GetAllUserResponse.getDefaultInstance();
+          case 10:
+            return web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -454,6 +480,18 @@ public  abstract class UserService
       web.api.rpc.user.GetAllUserRequest request,
       com.google.protobuf.RpcCallback<web.api.rpc.user.GetAllUserResponse> done);
 
+  /**
+   * <pre>
+   * change user's name
+   * </pre>
+   *
+   * <code>rpc RenameUser(.ChangeUserNameRpcRequest) returns (.ChangeUserNameRpcResponse);</code>
+   */
+  public abstract void renameUser(
+      com.google.protobuf.RpcController controller,
+      web.api.rpc.user.ChangeUserNameRpcRequest request,
+      com.google.protobuf.RpcCallback<web.api.rpc.user.ChangeUserNameRpcResponse> done);
+
   public static final
       com.google.protobuf.Descriptors.ServiceDescriptor
       getDescriptor() {
@@ -526,6 +564,11 @@ public  abstract class UserService
           com.google.protobuf.RpcUtil.<web.api.rpc.user.GetAllUserResponse>specializeCallback(
             done));
         return;
+      case 10:
+        this.renameUser(controller, (web.api.rpc.user.ChangeUserNameRpcRequest)request,
+          com.google.protobuf.RpcUtil.<web.api.rpc.user.ChangeUserNameRpcResponse>specializeCallback(
+            done));
+        return;
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -560,6 +603,8 @@ public  abstract class UserService
         return web.api.rpc.user.ValidateTokenRequest.getDefaultInstance();
       case 9:
         return web.api.rpc.user.GetAllUserRequest.getDefaultInstance();
+      case 10:
+        return web.api.rpc.user.ChangeUserNameRpcRequest.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -594,6 +639,8 @@ public  abstract class UserService
         return web.api.rpc.user.ValidateTokenResponse.getDefaultInstance();
       case 9:
         return web.api.rpc.user.GetAllUserResponse.getDefaultInstance();
+      case 10:
+        return web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -764,6 +811,21 @@ public  abstract class UserService
           web.api.rpc.user.GetAllUserResponse.class,
           web.api.rpc.user.GetAllUserResponse.getDefaultInstance()));
     }
+
+    public  void renameUser(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.ChangeUserNameRpcRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.ChangeUserNameRpcResponse> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(10),
+        controller,
+        request,
+        web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          web.api.rpc.user.ChangeUserNameRpcResponse.class,
+          web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance()));
+    }
   }
 
   public static BlockingInterface newBlockingStub(
@@ -820,6 +882,11 @@ public  abstract class UserService
     public web.api.rpc.user.GetAllUserResponse getAllUser(
         com.google.protobuf.RpcController controller,
         web.api.rpc.user.GetAllUserRequest request)
+        throws com.google.protobuf.ServiceException;
+
+    public web.api.rpc.user.ChangeUserNameRpcResponse renameUser(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.ChangeUserNameRpcRequest request)
         throws com.google.protobuf.ServiceException;
   }
 
@@ -947,6 +1014,18 @@ public  abstract class UserService
         controller,
         request,
         web.api.rpc.user.GetAllUserResponse.getDefaultInstance());
+    }
+
+
+    public web.api.rpc.user.ChangeUserNameRpcResponse renameUser(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.ChangeUserNameRpcRequest request)
+        throws com.google.protobuf.ServiceException {
+      return (web.api.rpc.user.ChangeUserNameRpcResponse) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(10),
+        controller,
+        request,
+        web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance());
     }
 
   }

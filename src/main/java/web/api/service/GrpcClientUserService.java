@@ -3,14 +3,16 @@ package web.api.service;
 import io.grpc.ManagedChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import web.api.model.request.ChangeUsernameRequest;
 import web.api.model.request.PasswordForgotRequest;
 import web.api.model.request.RegistrationRequest;
-import web.api.model.response.PasswordForgotResponse;
-import web.api.model.response.RegistrationResponse;
-import web.api.model.response.VerificationEmailResponse;
-import web.api.model.response.VerificationResetPasswordResponse;
+import web.api.model.response.*;
 import web.api.rpc.user.*;
+import web.api.rpc.user.LoginResponse;
+import web.api.rpc.user.NewPasswordResponse;
 
 @Service
 public class GrpcClientUserService {
@@ -97,5 +99,10 @@ public class GrpcClientUserService {
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
         GetAllUserResponse response = stub.getAllUser(request);
         return response;
+    }
+
+    public ResponseEntity changeUserName(String userId, ChangeUsernameRequest request) {
+        ResponseBase responseBase = new ResponseBase();
+        return new ResponseEntity(responseBase, HttpStatus.OK);
     }
 }

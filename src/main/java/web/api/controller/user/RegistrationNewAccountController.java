@@ -2,16 +2,14 @@ package web.api.controller.user;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import web.api.model.request.RegistrationInformationRequest;
 import web.api.model.request.RegistrationRequest;
-import web.api.model.response.Error;
 import web.api.model.response.RegistrationResponse;
 import web.api.model.response.ResponseBase;
 import web.api.model.response.Status;
+import web.api.service.FileService;
 import web.api.service.GrpcClientUserService;
 
 import javax.validation.Valid;
@@ -19,12 +17,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/user")
 public class RegistrationNewAccountController {
-
-
     private final GrpcClientUserService grpcClientService;
+    private final FileService fileService;
 
-    public RegistrationNewAccountController(GrpcClientUserService grpcClientService) {
+    public RegistrationNewAccountController(GrpcClientUserService grpcClientService, FileService fileService) {
         this.grpcClientService = grpcClientService;
+        this.fileService = fileService;
     }
 
     @PostMapping("/register")
@@ -60,5 +58,10 @@ public class RegistrationNewAccountController {
     public ResponseEntity registerInformationAccount(@Valid @RequestBody RegistrationInformationRequest request){
         String response = grpcClientService.registerInformation(request);
         return new ResponseEntity(response, HttpStatus.OK);
+    }
+
+    @RequestMapping("/{userId}/avatar")
+    public ResponseEntity uploadUserAvatar(@RequestParam("file") MultipartFile file, @PathVariable String userId){
+        return fileService.uploadAvatar(file,userId);
     }
 }

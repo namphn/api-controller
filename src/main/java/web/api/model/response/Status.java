@@ -17,6 +17,7 @@ public class Status {
     public static final String INTERNAL_SERVER = "INTERNAL SERVER ERROR";
     public static final String SUCCESS = "SUCCESS";
     public static final String NODATA = "HAVE NOT DATA";
+    public static final String CAN_NOT_SAVE_FILE = "CAN NOT SAVE FILE";
 
     public static class StatusCode {
         public static final String NORMAL = "200";

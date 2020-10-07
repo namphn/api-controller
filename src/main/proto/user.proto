@@ -95,6 +95,14 @@ message GetAllUserResponse {
   repeated UserGrpcModel allUser = 1;
 }
 
+message ChangeUserNameRpcRequest {
+    string username = 1;
+}
+
+message ChangeUserNameRpcResponse {
+  string status = 1;
+}
+
 service UserService{
 
   // create a new account, save new email, password and send verification email
@@ -129,5 +137,8 @@ service UserService{
 
   // get all user
   rpc GetAllUser (GetAllUserRequest) returns (GetAllUserResponse);
+
+  // change user's name
+  rpc RenameUser(ChangeUserNameRpcRequest) returns (ChangeUserNameRpcResponse);
 }
 

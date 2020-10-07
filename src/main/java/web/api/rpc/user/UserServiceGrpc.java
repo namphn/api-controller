@@ -347,6 +347,38 @@ public final class UserServiceGrpc {
      return getGetAllUserMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<web.api.rpc.user.ChangeUserNameRpcRequest,
+      web.api.rpc.user.ChangeUserNameRpcResponse> getRenameUserMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RenameUser",
+      requestType = web.api.rpc.user.ChangeUserNameRpcRequest.class,
+      responseType = web.api.rpc.user.ChangeUserNameRpcResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<web.api.rpc.user.ChangeUserNameRpcRequest,
+      web.api.rpc.user.ChangeUserNameRpcResponse> getRenameUserMethod() {
+    io.grpc.MethodDescriptor<web.api.rpc.user.ChangeUserNameRpcRequest, web.api.rpc.user.ChangeUserNameRpcResponse> getRenameUserMethod;
+    if ((getRenameUserMethod = UserServiceGrpc.getRenameUserMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getRenameUserMethod = UserServiceGrpc.getRenameUserMethod) == null) {
+          UserServiceGrpc.getRenameUserMethod = getRenameUserMethod = 
+              io.grpc.MethodDescriptor.<web.api.rpc.user.ChangeUserNameRpcRequest, web.api.rpc.user.ChangeUserNameRpcResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "UserService", "RenameUser"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.ChangeUserNameRpcRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("RenameUser"))
+                  .build();
+          }
+        }
+     }
+     return getRenameUserMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -474,6 +506,16 @@ public final class UserServiceGrpc {
       asyncUnimplementedUnaryCall(getGetAllUserMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * change user's name
+     * </pre>
+     */
+    public void renameUser(web.api.rpc.user.ChangeUserNameRpcRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.ChangeUserNameRpcResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getRenameUserMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -546,6 +588,13 @@ public final class UserServiceGrpc {
                 web.api.rpc.user.GetAllUserRequest,
                 web.api.rpc.user.GetAllUserResponse>(
                   this, METHODID_GET_ALL_USER)))
+          .addMethod(
+            getRenameUserMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                web.api.rpc.user.ChangeUserNameRpcRequest,
+                web.api.rpc.user.ChangeUserNameRpcResponse>(
+                  this, METHODID_RENAME_USER)))
           .build();
     }
   }
@@ -677,6 +726,17 @@ public final class UserServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetAllUserMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * change user's name
+     * </pre>
+     */
+    public void renameUser(web.api.rpc.user.ChangeUserNameRpcRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.ChangeUserNameRpcResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRenameUserMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -795,6 +855,16 @@ public final class UserServiceGrpc {
     public web.api.rpc.user.GetAllUserResponse getAllUser(web.api.rpc.user.GetAllUserRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetAllUserMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * change user's name
+     * </pre>
+     */
+    public web.api.rpc.user.ChangeUserNameRpcResponse renameUser(web.api.rpc.user.ChangeUserNameRpcRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getRenameUserMethod(), getCallOptions(), request);
     }
   }
 
@@ -925,6 +995,17 @@ public final class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetAllUserMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * change user's name
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<web.api.rpc.user.ChangeUserNameRpcResponse> renameUser(
+        web.api.rpc.user.ChangeUserNameRpcRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRenameUserMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REGISTRATION = 0;
@@ -937,6 +1018,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_GET_EMAIL_FROM_TOKEN = 7;
   private static final int METHODID_VALIDATE_TOKEN = 8;
   private static final int METHODID_GET_ALL_USER = 9;
+  private static final int METHODID_RENAME_USER = 10;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -994,6 +1076,10 @@ public final class UserServiceGrpc {
         case METHODID_GET_ALL_USER:
           serviceImpl.getAllUser((web.api.rpc.user.GetAllUserRequest) request,
               (io.grpc.stub.StreamObserver<web.api.rpc.user.GetAllUserResponse>) responseObserver);
+          break;
+        case METHODID_RENAME_USER:
+          serviceImpl.renameUser((web.api.rpc.user.ChangeUserNameRpcRequest) request,
+              (io.grpc.stub.StreamObserver<web.api.rpc.user.ChangeUserNameRpcResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1066,6 +1152,7 @@ public final class UserServiceGrpc {
               .addMethod(getGetEmailFromTokenMethod())
               .addMethod(getValidateTokenMethod())
               .addMethod(getGetAllUserMethod())
+              .addMethod(getRenameUserMethod())
               .build();
         }
       }
