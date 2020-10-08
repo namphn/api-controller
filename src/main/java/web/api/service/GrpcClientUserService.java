@@ -105,4 +105,12 @@ public class GrpcClientUserService {
         ResponseBase responseBase = new ResponseBase();
         return new ResponseEntity(responseBase, HttpStatus.OK);
     }
+
+    public SaveUserAvatarResponse SetUserAvatar(String path) throws Exception {
+        SaveUserAvatarRequest.Builder request = SaveUserAvatarRequest.newBuilder();
+        request.setImageSource(path);
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        SaveUserAvatarResponse response = stub.saveAvatar(request.build());
+        return response;
+    }
 }
