@@ -16,4 +16,14 @@ public interface ChangeUserNameRpcRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getUsernameBytes();
+
+  /**
+   * <code>string userId = 2;</code>
+   */
+  java.lang.String getUserId();
+  /**
+   * <code>string userId = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserIdBytes();
 }

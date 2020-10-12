@@ -18,11 +18,9 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class RegistrationNewAccountController {
     private final GrpcClientUserService grpcClientService;
-    private final FileService fileService;
 
     public RegistrationNewAccountController(GrpcClientUserService grpcClientService, FileService fileService) {
         this.grpcClientService = grpcClientService;
-        this.fileService = fileService;
     }
 
     @PostMapping("/register")
@@ -58,10 +56,5 @@ public class RegistrationNewAccountController {
     public ResponseEntity registerInformationAccount(@Valid @RequestBody RegistrationInformationRequest request){
         String response = grpcClientService.registerInformation(request);
         return new ResponseEntity(response, HttpStatus.OK);
-    }
-
-    @RequestMapping("/{userId}/avatar")
-    public ResponseEntity uploadUserAvatar(@RequestParam("file") MultipartFile file, @PathVariable String userId){
-        return fileService.uploadAvatar(file,userId);
     }
 }

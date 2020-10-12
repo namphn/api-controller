@@ -97,6 +97,7 @@ message GetAllUserResponse {
 
 message ChangeUserNameRpcRequest {
     string username = 1;
+    string userId = 2;
 }
 
 message ChangeUserNameRpcResponse {

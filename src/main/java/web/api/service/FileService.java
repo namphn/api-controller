@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 public class FileService {
     @Value( "${path.avatar}")
     private String avatarStore;
+    private final Path root = Paths.get("images");
 
     @Autowired
     private GrpcClientUserService grpcClientUserService;
@@ -49,7 +50,8 @@ public class FileService {
         return new ResponseEntity(responseBase, HttpStatus.OK);
     }
     private String saveFile(MultipartFile file, String folderPath, String userId) {
-        String path = folderPath + userId + LocalDateTime.now().toString();
+        ClassLoader classLoader = getClass().getClassLoader();
+        String path = classLoader.getResource(".") + folderPath + userId + LocalDateTime.now().toString().replace(":","").replace(".","") + ".jpg";
         try {
             Path copyLocation = Paths
                     .get(path);

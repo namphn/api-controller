@@ -103,6 +103,28 @@ public class GrpcClientUserService {
 
     public ResponseEntity changeUserName(String userId, ChangeUsernameRequest request) {
         ResponseBase responseBase = new ResponseBase();
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        ChangeUserNameRpcResponse response = null;
+        ChangeUserNameRpcRequest.Builder rpcRequest = ChangeUserNameRpcRequest.newBuilder();
+        rpcRequest.setUserId(userId);
+        rpcRequest.setUsername(request.getUsername());
+
+        try {
+            response = stub.renameUser(rpcRequest.build());
+        } catch (Exception e) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+        }
+
+        if(response != null && response.getStatus().equals(Status.SUCCESS)) {
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(Status.SUCCESS);
+        }
+        else {
+            responseBase.setStatusCode(Status.StatusCode.NODATA);
+            responseBase.setStatus(Status.ERROR);
+        }
+
         return new ResponseEntity(responseBase, HttpStatus.OK);
     }
 

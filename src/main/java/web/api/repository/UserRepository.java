@@ -8,5 +8,4 @@ import web.api.model.User;
 public interface UserRepository extends MongoRepository<User, String> {
     User findByEmail(String email);
     User findByUserName(String userName);
-    User getByEmail(String email);
 }
