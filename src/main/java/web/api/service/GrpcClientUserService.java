@@ -3,14 +3,16 @@ package web.api.service;
 import io.grpc.ManagedChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import web.api.model.request.ChangeUsernameRequest;
 import web.api.model.request.PasswordForgotRequest;
 import web.api.model.request.RegistrationRequest;
-import web.api.model.response.PasswordForgotResponse;
-import web.api.model.response.RegistrationResponse;
-import web.api.model.response.VerificationEmailResponse;
-import web.api.model.response.VerificationResetPasswordResponse;
+import web.api.model.response.*;
 import web.api.rpc.user.*;
+import web.api.rpc.user.LoginResponse;
+import web.api.rpc.user.NewPasswordResponse;
 
 @Service
 public class GrpcClientUserService {
@@ -96,6 +98,41 @@ public class GrpcClientUserService {
     public GetAllUserResponse getUsers(GetAllUserRequest request) {
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
         GetAllUserResponse response = stub.getAllUser(request);
+        return response;
+    }
+
+    public ResponseEntity changeUserName(String userId, ChangeUsernameRequest request) {
+        ResponseBase responseBase = new ResponseBase();
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        ChangeUserNameRpcResponse response = null;
+        ChangeUserNameRpcRequest.Builder rpcRequest = ChangeUserNameRpcRequest.newBuilder();
+        rpcRequest.setUserId(userId);
+        rpcRequest.setUsername(request.getUsername());
+
+        try {
+            response = stub.renameUser(rpcRequest.build());
+        } catch (Exception e) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+        }
+
+        if(response != null && response.getStatus().equals(Status.SUCCESS)) {
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(Status.SUCCESS);
+        }
+        else {
+            responseBase.setStatusCode(Status.StatusCode.NODATA);
+            responseBase.setStatus(Status.ERROR);
+        }
+
+        return new ResponseEntity(responseBase, HttpStatus.OK);
+    }
+
+    public SaveUserAvatarResponse SetUserAvatar(String path) throws Exception {
+        SaveUserAvatarRequest.Builder request = SaveUserAvatarRequest.newBuilder();
+        request.setImageSource(path);
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        SaveUserAvatarResponse response = stub.saveAvatar(request.build());
         return response;
     }
 }

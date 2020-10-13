@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: 8085
   ssl:
     key-store: classpath:namph.jks
     key-store-password: password
@@ -9,6 +9,14 @@ server:
   security:
     require-ssl: true
 
+spring:
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
 mongo:
   remoteUri: "localhost:27017"
 
+path :
+  avatar: /avatar/

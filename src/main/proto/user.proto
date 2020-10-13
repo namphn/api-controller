@@ -95,6 +95,24 @@ message GetAllUserResponse {
   repeated UserGrpcModel allUser = 1;
 }
 
+message ChangeUserNameRpcRequest {
+    string username = 1;
+    string userId = 2;
+}
+
+message ChangeUserNameRpcResponse {
+  string status = 1;
+}
+
+message SaveUserAvatarRequest {
+  string imageSource = 1;
+  string userId = 2;
+}
+
+message SaveUserAvatarResponse {
+  string status = 1;
+}
+
 service UserService{
 
   // create a new account, save new email, password and send verification email
@@ -129,5 +147,11 @@ service UserService{
 
   // get all user
   rpc GetAllUser (GetAllUserRequest) returns (GetAllUserResponse);
+
+  // change user's name
+  rpc RenameUser(ChangeUserNameRpcRequest) returns (ChangeUserNameRpcResponse);
+
+  // save source user's avatar to DB
+  rpc SaveAvatar(SaveUserAvatarRequest) returns (SaveUserAvatarResponse);
 }
 
