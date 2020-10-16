@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import web.api.model.response.ResponseBase;
 import web.api.model.response.Status;
+import web.api.model.response.UploadAvatarResponse;
 import web.api.rpc.user.SaveUserAvatarResponse;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,7 +22,6 @@ import java.time.LocalDateTime;
 public class FileService {
     @Value( "${path.avatar}")
     private String avatarStore;
-    private final Path root = Paths.get("images");
 
     @Autowired
     private GrpcClientUserService grpcClientUserService;
@@ -32,7 +33,7 @@ public class FileService {
 
         if(savedPath != null) {
             try {
-                saveUserAvatarResponse = grpcClientUserService.SetUserAvatar(savedPath);
+                saveUserAvatarResponse = grpcClientUserService.SetUserAvatar(savedPath, userId);
             } catch (Exception e) {
                 responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
                 responseBase.setStatus(Status.CAN_NOT_SAVE_FILE);
@@ -41,24 +42,35 @@ public class FileService {
             responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
             responseBase.setStatus(Status.CAN_NOT_SAVE_FILE);
         }
-
-        if(saveUserAvatarResponse.getStatus().equals(Status.SUCCESS)) {
+        if(saveUserAvatarResponse == null ) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.CAN_NOT_SAVE_FILE);
+        }
+        else if(saveUserAvatarResponse.getStatus().equals(Status.SUCCESS)) {
             responseBase.setStatusCode(Status.StatusCode.NORMAL);
             responseBase.setStatus(Status.SUCCESS);
+            responseBase.setData(new UploadAvatarResponse(savedPath));
         }
 
         return new ResponseEntity(responseBase, HttpStatus.OK);
     }
     private String saveFile(MultipartFile file, String folderPath, String userId) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        String path = classLoader.getResource(".") + folderPath + userId + LocalDateTime.now().toString().replace(":","").replace(".","") + ".jpg";
+        final Path root = Paths.get(folderPath);
+        String fileName = userId + LocalDateTime.now().toString().replace(":","").replace(".","") + ".jpg";
         try {
-            Path copyLocation = Paths
-                    .get(path);
-            Files.copy(file.getInputStream(), copyLocation, StandardCopyOption.REPLACE_EXISTING);
+            Files.createDirectory(root);
+        } catch (IOException e) {
+            try {
+                Files.getFileStore(root);
+            } catch (IOException ioException) {
+                return null;
+            }
+        }
+        try {
+            Files.copy(file.getInputStream(), root.resolve(fileName), StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
             return null;
         }
-        return path;
+        return fileName;
     }
 }
