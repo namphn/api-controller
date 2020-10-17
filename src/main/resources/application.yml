@@ -19,4 +19,5 @@ mongo:
   remoteUri: "localhost:27017"
 
 path :
-  avatar: /avatar/
+  avatar: avatars
+  resource: src\main\resources\static\
