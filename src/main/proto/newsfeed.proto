@@ -1,0 +1,93 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_generic_services = true;
+option java_package = "web.api.rpc.newsfeed";
+
+message GetNewsFeedRequest {
+
+}
+
+message ChildComment {
+    string userId = 1;
+    string content = 2;
+}
+
+message Comment {
+    string userId = 1;
+    string content = 2;
+    string userAvatar = 3;
+    repeated ChildComment childComments = 4;
+}
+
+message Share {
+    string userId = 1;
+    string content = 2;
+}
+
+message Post{
+    string id = 1;
+    int64 userId = 2;
+    string content = 3;
+    repeated Comment comments = 4;
+    repeated string likes = 5;
+    repeated Share shares = 6;
+    string images = 7;
+}
+
+message GetNewsFeedResponse {
+    repeated Post posts = 1;
+}
+
+
+message SaveNewPostResponse {
+    string status = 1;
+}
+
+message LikeRequest {
+    string userId = 1;
+    string postId = 2;
+}
+
+message LikeResponse {
+    string status = 1;
+}
+
+message ShareRequest {
+    string userId = 1;
+    string postId = 2;
+    string content = 3;
+}
+
+message ShareResponse {
+    string status = 1;
+}
+
+message CommentRequest {
+    string userId = 1;
+    string postId = 2;
+    string content = 3;
+}
+
+message CommentResponse {
+    string status = 1;
+}
+
+message TagRequest {
+    string userId = 1;
+    string postId = 2;
+}
+
+message TagResponse{
+    string status = 1;
+}
+
+service NewsFeedService {
+    rpc getNewsFeed (GetNewsFeedRequest) returns (GetNewsFeedResponse);
+    rpc saveNewPost (Post) returns (SaveNewPostResponse);
+    rpc like (LikeRequest) returns (LikeResponse);
+    rpc share (ShareRequest) returns (ShareResponse);
+    rpc comment (CommentRequest) returns (CommentResponse);
+    rpc tag (TagRequest) returns (TagResponse);
+}
+
+
