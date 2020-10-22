@@ -7,9 +7,16 @@ message GetNewsFeedRequest {
 
 }
 
+message ChildComment {
+    string userId = 1;
+    string content = 2;
+}
+
 message Comment {
     string userId = 1;
     string content = 2;
+    string userAvatar = 3;
+    repeated ChildComment childComments = 4;
 }
 
 message Share {
@@ -24,8 +31,7 @@ message Post{
     repeated Comment comments = 4;
     repeated string likes = 5;
     repeated Share shares = 6;
-    repeated string tags = 7;
-    repeated string images = 8;
+    string images = 7;
 }
 
 message GetNewsFeedResponse {

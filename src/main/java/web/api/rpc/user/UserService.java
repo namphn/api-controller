@@ -155,6 +155,18 @@ public  abstract class UserService
         web.api.rpc.user.SaveUserAvatarRequest request,
         com.google.protobuf.RpcCallback<web.api.rpc.user.SaveUserAvatarResponse> done);
 
+    /**
+     * <pre>
+     * get Friend
+     * </pre>
+     *
+     * <code>rpc getFriend(.GetListFriendRequest) returns (.GetListFriendResponse);</code>
+     */
+    public abstract void getFriend(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetListFriendRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.GetListFriendResponse> done);
+
   }
 
   public static com.google.protobuf.Service newReflectiveService(
@@ -256,6 +268,14 @@ public  abstract class UserService
         impl.saveAvatar(controller, request, done);
       }
 
+      @java.lang.Override
+      public  void getFriend(
+          com.google.protobuf.RpcController controller,
+          web.api.rpc.user.GetListFriendRequest request,
+          com.google.protobuf.RpcCallback<web.api.rpc.user.GetListFriendResponse> done) {
+        impl.getFriend(controller, request, done);
+      }
+
     };
   }
 
@@ -302,6 +322,8 @@ public  abstract class UserService
             return impl.renameUser(controller, (web.api.rpc.user.ChangeUserNameRpcRequest)request);
           case 11:
             return impl.saveAvatar(controller, (web.api.rpc.user.SaveUserAvatarRequest)request);
+          case 12:
+            return impl.getFriend(controller, (web.api.rpc.user.GetListFriendRequest)request);
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -340,6 +362,8 @@ public  abstract class UserService
             return web.api.rpc.user.ChangeUserNameRpcRequest.getDefaultInstance();
           case 11:
             return web.api.rpc.user.SaveUserAvatarRequest.getDefaultInstance();
+          case 12:
+            return web.api.rpc.user.GetListFriendRequest.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -378,6 +402,8 @@ public  abstract class UserService
             return web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance();
           case 11:
             return web.api.rpc.user.SaveUserAvatarResponse.getDefaultInstance();
+          case 12:
+            return web.api.rpc.user.GetListFriendResponse.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -530,6 +556,18 @@ public  abstract class UserService
       web.api.rpc.user.SaveUserAvatarRequest request,
       com.google.protobuf.RpcCallback<web.api.rpc.user.SaveUserAvatarResponse> done);
 
+  /**
+   * <pre>
+   * get Friend
+   * </pre>
+   *
+   * <code>rpc getFriend(.GetListFriendRequest) returns (.GetListFriendResponse);</code>
+   */
+  public abstract void getFriend(
+      com.google.protobuf.RpcController controller,
+      web.api.rpc.user.GetListFriendRequest request,
+      com.google.protobuf.RpcCallback<web.api.rpc.user.GetListFriendResponse> done);
+
   public static final
       com.google.protobuf.Descriptors.ServiceDescriptor
       getDescriptor() {
@@ -612,6 +650,11 @@ public  abstract class UserService
           com.google.protobuf.RpcUtil.<web.api.rpc.user.SaveUserAvatarResponse>specializeCallback(
             done));
         return;
+      case 12:
+        this.getFriend(controller, (web.api.rpc.user.GetListFriendRequest)request,
+          com.google.protobuf.RpcUtil.<web.api.rpc.user.GetListFriendResponse>specializeCallback(
+            done));
+        return;
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -650,6 +693,8 @@ public  abstract class UserService
         return web.api.rpc.user.ChangeUserNameRpcRequest.getDefaultInstance();
       case 11:
         return web.api.rpc.user.SaveUserAvatarRequest.getDefaultInstance();
+      case 12:
+        return web.api.rpc.user.GetListFriendRequest.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -688,6 +733,8 @@ public  abstract class UserService
         return web.api.rpc.user.ChangeUserNameRpcResponse.getDefaultInstance();
       case 11:
         return web.api.rpc.user.SaveUserAvatarResponse.getDefaultInstance();
+      case 12:
+        return web.api.rpc.user.GetListFriendResponse.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -888,6 +935,21 @@ public  abstract class UserService
           web.api.rpc.user.SaveUserAvatarResponse.class,
           web.api.rpc.user.SaveUserAvatarResponse.getDefaultInstance()));
     }
+
+    public  void getFriend(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetListFriendRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.GetListFriendResponse> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(12),
+        controller,
+        request,
+        web.api.rpc.user.GetListFriendResponse.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          web.api.rpc.user.GetListFriendResponse.class,
+          web.api.rpc.user.GetListFriendResponse.getDefaultInstance()));
+    }
   }
 
   public static BlockingInterface newBlockingStub(
@@ -954,6 +1016,11 @@ public  abstract class UserService
     public web.api.rpc.user.SaveUserAvatarResponse saveAvatar(
         com.google.protobuf.RpcController controller,
         web.api.rpc.user.SaveUserAvatarRequest request)
+        throws com.google.protobuf.ServiceException;
+
+    public web.api.rpc.user.GetListFriendResponse getFriend(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetListFriendRequest request)
         throws com.google.protobuf.ServiceException;
   }
 
@@ -1105,6 +1172,18 @@ public  abstract class UserService
         controller,
         request,
         web.api.rpc.user.SaveUserAvatarResponse.getDefaultInstance());
+    }
+
+
+    public web.api.rpc.user.GetListFriendResponse getFriend(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetListFriendRequest request)
+        throws com.google.protobuf.ServiceException {
+      return (web.api.rpc.user.GetListFriendResponse) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(12),
+        controller,
+        request,
+        web.api.rpc.user.GetListFriendResponse.getDefaultInstance());
     }
 
   }

@@ -27,7 +27,7 @@ public class NewsFeedController {
         this.gson = gson;
     }
 
-    @GetMapping("/news-feed")
+    @GetMapping("/")
     public ResponseEntity getNewsFeed(){
         GetNewsFeedResponse response = grpcClientNewsFeedService.getNewsFeed();
         return new ResponseEntity(gson.toJson(response), HttpStatus.OK);

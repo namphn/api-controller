@@ -411,6 +411,38 @@ public final class UserServiceGrpc {
      return getSaveAvatarMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<web.api.rpc.user.GetListFriendRequest,
+      web.api.rpc.user.GetListFriendResponse> getGetFriendMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getFriend",
+      requestType = web.api.rpc.user.GetListFriendRequest.class,
+      responseType = web.api.rpc.user.GetListFriendResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<web.api.rpc.user.GetListFriendRequest,
+      web.api.rpc.user.GetListFriendResponse> getGetFriendMethod() {
+    io.grpc.MethodDescriptor<web.api.rpc.user.GetListFriendRequest, web.api.rpc.user.GetListFriendResponse> getGetFriendMethod;
+    if ((getGetFriendMethod = UserServiceGrpc.getGetFriendMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetFriendMethod = UserServiceGrpc.getGetFriendMethod) == null) {
+          UserServiceGrpc.getGetFriendMethod = getGetFriendMethod = 
+              io.grpc.MethodDescriptor.<web.api.rpc.user.GetListFriendRequest, web.api.rpc.user.GetListFriendResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "UserService", "getFriend"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.GetListFriendRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.GetListFriendResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getFriend"))
+                  .build();
+          }
+        }
+     }
+     return getGetFriendMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -558,6 +590,16 @@ public final class UserServiceGrpc {
       asyncUnimplementedUnaryCall(getSaveAvatarMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     * get Friend
+     * </pre>
+     */
+    public void getFriend(web.api.rpc.user.GetListFriendRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.GetListFriendResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetFriendMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -644,6 +686,13 @@ public final class UserServiceGrpc {
                 web.api.rpc.user.SaveUserAvatarRequest,
                 web.api.rpc.user.SaveUserAvatarResponse>(
                   this, METHODID_SAVE_AVATAR)))
+          .addMethod(
+            getGetFriendMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                web.api.rpc.user.GetListFriendRequest,
+                web.api.rpc.user.GetListFriendResponse>(
+                  this, METHODID_GET_FRIEND)))
           .build();
     }
   }
@@ -797,6 +846,17 @@ public final class UserServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getSaveAvatarMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     * <pre>
+     * get Friend
+     * </pre>
+     */
+    public void getFriend(web.api.rpc.user.GetListFriendRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.GetListFriendResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetFriendMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -935,6 +995,16 @@ public final class UserServiceGrpc {
     public web.api.rpc.user.SaveUserAvatarResponse saveAvatar(web.api.rpc.user.SaveUserAvatarRequest request) {
       return blockingUnaryCall(
           getChannel(), getSaveAvatarMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     * get Friend
+     * </pre>
+     */
+    public web.api.rpc.user.GetListFriendResponse getFriend(web.api.rpc.user.GetListFriendRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetFriendMethod(), getCallOptions(), request);
     }
   }
 
@@ -1087,6 +1157,17 @@ public final class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getSaveAvatarMethod(), getCallOptions()), request);
     }
+
+    /**
+     * <pre>
+     * get Friend
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<web.api.rpc.user.GetListFriendResponse> getFriend(
+        web.api.rpc.user.GetListFriendRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetFriendMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REGISTRATION = 0;
@@ -1101,6 +1182,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_GET_ALL_USER = 9;
   private static final int METHODID_RENAME_USER = 10;
   private static final int METHODID_SAVE_AVATAR = 11;
+  private static final int METHODID_GET_FRIEND = 12;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1166,6 +1248,10 @@ public final class UserServiceGrpc {
         case METHODID_SAVE_AVATAR:
           serviceImpl.saveAvatar((web.api.rpc.user.SaveUserAvatarRequest) request,
               (io.grpc.stub.StreamObserver<web.api.rpc.user.SaveUserAvatarResponse>) responseObserver);
+          break;
+        case METHODID_GET_FRIEND:
+          serviceImpl.getFriend((web.api.rpc.user.GetListFriendRequest) request,
+              (io.grpc.stub.StreamObserver<web.api.rpc.user.GetListFriendResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1240,6 +1326,7 @@ public final class UserServiceGrpc {
               .addMethod(getGetAllUserMethod())
               .addMethod(getRenameUserMethod())
               .addMethod(getSaveAvatarMethod())
+              .addMethod(getGetFriendMethod())
               .build();
         }
       }

@@ -153,5 +153,6 @@ service UserService{
 
   // save source user's avatar to DB
   rpc SaveAvatar(SaveUserAvatarRequest) returns (SaveUserAvatarResponse);
+
 }
 

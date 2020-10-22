@@ -100,40 +100,12 @@ public interface PostOrBuilder extends
       int index);
 
   /**
-   * <code>repeated string tags = 7;</code>
+   * <code>string images = 7;</code>
    */
-  java.util.List<java.lang.String>
-      getTagsList();
+  java.lang.String getImages();
   /**
-   * <code>repeated string tags = 7;</code>
-   */
-  int getTagsCount();
-  /**
-   * <code>repeated string tags = 7;</code>
-   */
-  java.lang.String getTags(int index);
-  /**
-   * <code>repeated string tags = 7;</code>
+   * <code>string images = 7;</code>
    */
   com.google.protobuf.ByteString
-      getTagsBytes(int index);
-
-  /**
-   * <code>repeated string images = 8;</code>
-   */
-  java.util.List<java.lang.String>
-      getImagesList();
-  /**
-   * <code>repeated string images = 8;</code>
-   */
-  int getImagesCount();
-  /**
-   * <code>repeated string images = 8;</code>
-   */
-  java.lang.String getImages(int index);
-  /**
-   * <code>repeated string images = 8;</code>
-   */
-  com.google.protobuf.ByteString
-      getImagesBytes(int index);
+      getImagesBytes();
 }

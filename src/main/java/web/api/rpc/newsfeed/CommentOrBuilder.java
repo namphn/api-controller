@@ -26,4 +26,38 @@ public interface CommentOrBuilder extends
    */
   com.google.protobuf.ByteString
       getContentBytes();
+
+  /**
+   * <code>string userAvatar = 3;</code>
+   */
+  java.lang.String getUserAvatar();
+  /**
+   * <code>string userAvatar = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserAvatarBytes();
+
+  /**
+   * <code>repeated .ChildComment childComments = 4;</code>
+   */
+  java.util.List<web.api.rpc.newsfeed.ChildComment> 
+      getChildCommentsList();
+  /**
+   * <code>repeated .ChildComment childComments = 4;</code>
+   */
+  web.api.rpc.newsfeed.ChildComment getChildComments(int index);
+  /**
+   * <code>repeated .ChildComment childComments = 4;</code>
+   */
+  int getChildCommentsCount();
+  /**
+   * <code>repeated .ChildComment childComments = 4;</code>
+   */
+  java.util.List<? extends web.api.rpc.newsfeed.ChildCommentOrBuilder> 
+      getChildCommentsOrBuilderList();
+  /**
+   * <code>repeated .ChildComment childComments = 4;</code>
+   */
+  web.api.rpc.newsfeed.ChildCommentOrBuilder getChildCommentsOrBuilder(
+      int index);
 }
