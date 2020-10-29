@@ -3,8 +3,8 @@
 
 package web.api.rpc.user;
 
-public interface GetListFriendRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:GetListFriendRequest)
+public interface GetUserAvatarRequestOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:GetUserAvatarRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

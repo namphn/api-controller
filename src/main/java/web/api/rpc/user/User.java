@@ -140,15 +140,15 @@ public final class User {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SaveUserAvatarResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetListFriendRequest_descriptor;
+    internal_static_GetUserAvatarRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetListFriendRequest_fieldAccessorTable;
+      internal_static_GetUserAvatarRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetListFriendResponse_descriptor;
+    internal_static_GetUserAvatarResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetListFriendResponse_fieldAccessorTable;
+      internal_static_GetUserAvatarResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -193,32 +193,33 @@ public final class User {
       "erNameRpcResponse\022\016\n\006status\030\001 \001(\t\"<\n\025Sav" +
       "eUserAvatarRequest\022\023\n\013imageSource\030\001 \001(\t\022" +
       "\016\n\006userId\030\002 \001(\t\"(\n\026SaveUserAvatarRespons" +
-      "e\022\016\n\006status\030\001 \001(\t\"&\n\024GetListFriendReques" +
-      "t\022\016\n\006userId\030\001 \001(\t\")\n\025GetListFriendRespon" +
-      "se\022\020\n\010friendId\030\001 \003(\t2\207\007\n\013UserService\022C\n\014" +
-      "Registration\022\030.RegistrationRequestGrpc\032\031" +
-      ".RegistrationResponseGrpc\022&\n\005Login\022\r.Log" +
-      "inRequest\032\016.LoginResponse\022L\n\035Verificatio" +
-      "nTokenRegistration\022\024.ConfirmEmailRequest" +
-      "\032\025.ConfirmEmailResponse\022?\n\016PasswordForgo" +
-      "t\022\025.PasswordResetRequest\032\026.PasswordReset" +
-      "Response\022:\n\rPasswordReset\022\023.NewPasswordR" +
-      "equest\032\024.NewPasswordResponse\022\\\n\027Registra" +
-      "tionInformation\022\037.RegistrationInformatio" +
-      "nRequest\032 .RegistrationInformationRespon" +
-      "se\022q\n\036VerificationResetPasswordToken\022&.V" +
-      "erificationResetPasswordTokenRequest\032\'.V" +
-      "erificationResetPasswordTokenResponse\0228\n" +
-      "\021GetEmailFromToken\022\020.GetEmailRequest\032\021.G" +
-      "etEmailResponse\022>\n\rValidateToken\022\025.Valid" +
-      "ateTokenRequest\032\026.ValidateTokenResponse\022" +
-      "5\n\nGetAllUser\022\022.GetAllUserRequest\032\023.GetA" +
-      "llUserResponse\022C\n\nRenameUser\022\031.ChangeUse" +
-      "rNameRpcRequest\032\032.ChangeUserNameRpcRespo" +
-      "nse\022=\n\nSaveAvatar\022\026.SaveUserAvatarReques" +
-      "t\032\027.SaveUserAvatarResponse\022:\n\tgetFriend\022" +
-      "\025.GetListFriendRequest\032\026.GetListFriendRe" +
-      "sponseB\027\n\020web.api.rpc.userP\001\210\001\001b\006proto3"
+      "e\022\016\n\006status\030\001 \001(\t\"&\n\024GetUserAvatarReques" +
+      "t\022\016\n\006userId\030\001 \001(\t\"\'\n\025GetUserAvatarRespon" +
+      "se\022\016\n\006avatar\030\001 \001(\t2\213\007\n\013UserService\022C\n\014Re" +
+      "gistration\022\030.RegistrationRequestGrpc\032\031.R" +
+      "egistrationResponseGrpc\022&\n\005Login\022\r.Login" +
+      "Request\032\016.LoginResponse\022L\n\035VerificationT" +
+      "okenRegistration\022\024.ConfirmEmailRequest\032\025" +
+      ".ConfirmEmailResponse\022?\n\016PasswordForgot\022" +
+      "\025.PasswordResetRequest\032\026.PasswordResetRe" +
+      "sponse\022:\n\rPasswordReset\022\023.NewPasswordReq" +
+      "uest\032\024.NewPasswordResponse\022\\\n\027Registrati" +
+      "onInformation\022\037.RegistrationInformationR" +
+      "equest\032 .RegistrationInformationResponse" +
+      "\022q\n\036VerificationResetPasswordToken\022&.Ver" +
+      "ificationResetPasswordTokenRequest\032\'.Ver" +
+      "ificationResetPasswordTokenResponse\0228\n\021G" +
+      "etEmailFromToken\022\020.GetEmailRequest\032\021.Get" +
+      "EmailResponse\022>\n\rValidateToken\022\025.Validat" +
+      "eTokenRequest\032\026.ValidateTokenResponse\0225\n" +
+      "\nGetAllUser\022\022.GetAllUserRequest\032\023.GetAll" +
+      "UserResponse\022C\n\nRenameUser\022\031.ChangeUserN" +
+      "ameRpcRequest\032\032.ChangeUserNameRpcRespons" +
+      "e\022=\n\nSaveAvatar\022\026.SaveUserAvatarRequest\032" +
+      "\027.SaveUserAvatarResponse\022>\n\rgetUserAvata" +
+      "r\022\025.GetUserAvatarRequest\032\026.GetUserAvatar" +
+      "ResponseB\027\n\020web.api.rpc.userP\001\210\001\001b\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -382,18 +383,18 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SaveUserAvatarResponse_descriptor,
         new java.lang.String[] { "Status", });
-    internal_static_GetListFriendRequest_descriptor =
+    internal_static_GetUserAvatarRequest_descriptor =
       getDescriptor().getMessageTypes().get(24);
-    internal_static_GetListFriendRequest_fieldAccessorTable = new
+    internal_static_GetUserAvatarRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetListFriendRequest_descriptor,
+        internal_static_GetUserAvatarRequest_descriptor,
         new java.lang.String[] { "UserId", });
-    internal_static_GetListFriendResponse_descriptor =
+    internal_static_GetUserAvatarResponse_descriptor =
       getDescriptor().getMessageTypes().get(25);
-    internal_static_GetListFriendResponse_fieldAccessorTable = new
+    internal_static_GetUserAvatarResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetListFriendResponse_descriptor,
-        new java.lang.String[] { "FriendId", });
+        internal_static_GetUserAvatarResponse_descriptor,
+        new java.lang.String[] { "Avatar", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

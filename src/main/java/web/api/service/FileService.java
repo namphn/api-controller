@@ -57,7 +57,7 @@ public class FileService {
 
         return new ResponseEntity(responseBase, HttpStatus.OK);
     }
-    private String saveFile(MultipartFile file, String folderPath, String userId) {
+    public String saveFile(MultipartFile file, String folderPath, String userId) {
         final Path root = Paths.get(resource + folderPath);
         String fileName = userId + LocalDateTime.now().toString().replace(":","").replace(".","") + ".jpg";
         try {

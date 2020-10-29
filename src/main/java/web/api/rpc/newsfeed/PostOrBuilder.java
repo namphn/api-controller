@@ -18,9 +18,14 @@ public interface PostOrBuilder extends
       getIdBytes();
 
   /**
-   * <code>int64 userId = 2;</code>
+   * <code>string userId = 2;</code>
    */
-  long getUserId();
+  java.lang.String getUserId();
+  /**
+   * <code>string userId = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserIdBytes();
 
   /**
    * <code>string content = 3;</code>
@@ -108,4 +113,14 @@ public interface PostOrBuilder extends
    */
   com.google.protobuf.ByteString
       getImagesBytes();
+
+  /**
+   * <code>string postTime = 8;</code>
+   */
+  java.lang.String getPostTime();
+  /**
+   * <code>string postTime = 8;</code>
+   */
+  com.google.protobuf.ByteString
+      getPostTimeBytes();
 }

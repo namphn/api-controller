@@ -136,4 +136,21 @@ public class GrpcClientUserService {
         SaveUserAvatarResponse response = stub.saveAvatar(request.build());
         return response;
     }
+
+    public String getUserAvatar(String userId) {
+        GetUserAvatarRequest.Builder request = GetUserAvatarRequest.newBuilder();
+        request.setUserId(userId);
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        GetUserAvatarResponse response = null;
+
+        try {
+            response = stub.getUserAvatar(request.build());
+        } catch (Exception e) {
+            return null;
+        }
+
+        if(response != null) return response.getAvatar();
+
+        return null;
+    }
 }

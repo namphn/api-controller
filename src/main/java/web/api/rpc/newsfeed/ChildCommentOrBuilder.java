@@ -26,4 +26,24 @@ public interface ChildCommentOrBuilder extends
    */
   com.google.protobuf.ByteString
       getContentBytes();
+
+  /**
+   * <code>string avatar = 3;</code>
+   */
+  java.lang.String getAvatar();
+  /**
+   * <code>string avatar = 3;</code>
+   */
+  com.google.protobuf.ByteString
+      getAvatarBytes();
+
+  /**
+   * <code>string timeComment = 4;</code>
+   */
+  java.lang.String getTimeComment();
+  /**
+   * <code>string timeComment = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getTimeCommentBytes();
 }

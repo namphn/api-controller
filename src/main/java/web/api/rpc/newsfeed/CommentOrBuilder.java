@@ -38,25 +38,35 @@ public interface CommentOrBuilder extends
       getUserAvatarBytes();
 
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>string timeComment = 4;</code>
+   */
+  java.lang.String getTimeComment();
+  /**
+   * <code>string timeComment = 4;</code>
+   */
+  com.google.protobuf.ByteString
+      getTimeCommentBytes();
+
+  /**
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   java.util.List<web.api.rpc.newsfeed.ChildComment> 
       getChildCommentsList();
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   web.api.rpc.newsfeed.ChildComment getChildComments(int index);
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   int getChildCommentsCount();
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   java.util.List<? extends web.api.rpc.newsfeed.ChildCommentOrBuilder> 
       getChildCommentsOrBuilderList();
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   web.api.rpc.newsfeed.ChildCommentOrBuilder getChildCommentsOrBuilder(
       int index);

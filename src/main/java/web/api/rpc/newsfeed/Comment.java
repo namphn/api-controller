@@ -19,6 +19,7 @@ private static final long serialVersionUID = 0L;
     userId_ = "";
     content_ = "";
     userAvatar_ = "";
+    timeComment_ = "";
     childComments_ = java.util.Collections.emptyList();
   }
 
@@ -72,9 +73,15 @@ private static final long serialVersionUID = 0L;
             break;
           }
           case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            timeComment_ = s;
+            break;
+          }
+          case 42: {
+            if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
               childComments_ = new java.util.ArrayList<web.api.rpc.newsfeed.ChildComment>();
-              mutable_bitField0_ |= 0x00000008;
+              mutable_bitField0_ |= 0x00000010;
             }
             childComments_.add(
                 input.readMessage(web.api.rpc.newsfeed.ChildComment.parser(), extensionRegistry));
@@ -88,7 +95,7 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
         childComments_ = java.util.Collections.unmodifiableList(childComments_);
       }
       this.unknownFields = unknownFields.build();
@@ -210,35 +217,69 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int CHILDCOMMENTS_FIELD_NUMBER = 4;
+  public static final int TIMECOMMENT_FIELD_NUMBER = 4;
+  private volatile java.lang.Object timeComment_;
+  /**
+   * <code>string timeComment = 4;</code>
+   */
+  public java.lang.String getTimeComment() {
+    java.lang.Object ref = timeComment_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      timeComment_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string timeComment = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getTimeCommentBytes() {
+    java.lang.Object ref = timeComment_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      timeComment_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int CHILDCOMMENTS_FIELD_NUMBER = 5;
   private java.util.List<web.api.rpc.newsfeed.ChildComment> childComments_;
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   public java.util.List<web.api.rpc.newsfeed.ChildComment> getChildCommentsList() {
     return childComments_;
   }
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   public java.util.List<? extends web.api.rpc.newsfeed.ChildCommentOrBuilder> 
       getChildCommentsOrBuilderList() {
     return childComments_;
   }
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   public int getChildCommentsCount() {
     return childComments_.size();
   }
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   public web.api.rpc.newsfeed.ChildComment getChildComments(int index) {
     return childComments_.get(index);
   }
   /**
-   * <code>repeated .ChildComment childComments = 4;</code>
+   * <code>repeated .ChildComment childComments = 5;</code>
    */
   public web.api.rpc.newsfeed.ChildCommentOrBuilder getChildCommentsOrBuilder(
       int index) {
@@ -266,8 +307,11 @@ private static final long serialVersionUID = 0L;
     if (!getUserAvatarBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userAvatar_);
     }
+    if (!getTimeCommentBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timeComment_);
+    }
     for (int i = 0; i < childComments_.size(); i++) {
-      output.writeMessage(4, childComments_.get(i));
+      output.writeMessage(5, childComments_.get(i));
     }
     unknownFields.writeTo(output);
   }
@@ -286,9 +330,12 @@ private static final long serialVersionUID = 0L;
     if (!getUserAvatarBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userAvatar_);
     }
+    if (!getTimeCommentBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timeComment_);
+    }
     for (int i = 0; i < childComments_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(4, childComments_.get(i));
+        .computeMessageSize(5, childComments_.get(i));
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -312,6 +359,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getContent());
     result = result && getUserAvatar()
         .equals(other.getUserAvatar());
+    result = result && getTimeComment()
+        .equals(other.getTimeComment());
     result = result && getChildCommentsList()
         .equals(other.getChildCommentsList());
     result = result && unknownFields.equals(other.unknownFields);
@@ -331,6 +380,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getContent().hashCode();
     hash = (37 * hash) + USERAVATAR_FIELD_NUMBER;
     hash = (53 * hash) + getUserAvatar().hashCode();
+    hash = (37 * hash) + TIMECOMMENT_FIELD_NUMBER;
+    hash = (53 * hash) + getTimeComment().hashCode();
     if (getChildCommentsCount() > 0) {
       hash = (37 * hash) + CHILDCOMMENTS_FIELD_NUMBER;
       hash = (53 * hash) + getChildCommentsList().hashCode();
@@ -471,9 +522,11 @@ private static final long serialVersionUID = 0L;
 
       userAvatar_ = "";
 
+      timeComment_ = "";
+
       if (childCommentsBuilder_ == null) {
         childComments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
         childCommentsBuilder_.clear();
       }
@@ -504,10 +557,11 @@ private static final long serialVersionUID = 0L;
       result.userId_ = userId_;
       result.content_ = content_;
       result.userAvatar_ = userAvatar_;
+      result.timeComment_ = timeComment_;
       if (childCommentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
           childComments_ = java.util.Collections.unmodifiableList(childComments_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.childComments_ = childComments_;
       } else {
@@ -567,11 +621,15 @@ private static final long serialVersionUID = 0L;
         userAvatar_ = other.userAvatar_;
         onChanged();
       }
+      if (!other.getTimeComment().isEmpty()) {
+        timeComment_ = other.timeComment_;
+        onChanged();
+      }
       if (childCommentsBuilder_ == null) {
         if (!other.childComments_.isEmpty()) {
           if (childComments_.isEmpty()) {
             childComments_ = other.childComments_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureChildCommentsIsMutable();
             childComments_.addAll(other.childComments_);
@@ -584,7 +642,7 @@ private static final long serialVersionUID = 0L;
             childCommentsBuilder_.dispose();
             childCommentsBuilder_ = null;
             childComments_ = other.childComments_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             childCommentsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getChildCommentsFieldBuilder() : null;
@@ -828,12 +886,81 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private java.lang.Object timeComment_ = "";
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public java.lang.String getTimeComment() {
+      java.lang.Object ref = timeComment_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timeComment_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimeCommentBytes() {
+      java.lang.Object ref = timeComment_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeComment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public Builder setTimeComment(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      timeComment_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public Builder clearTimeComment() {
+      
+      timeComment_ = getDefaultInstance().getTimeComment();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public Builder setTimeCommentBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      timeComment_ = value;
+      onChanged();
+      return this;
+    }
+
     private java.util.List<web.api.rpc.newsfeed.ChildComment> childComments_ =
       java.util.Collections.emptyList();
     private void ensureChildCommentsIsMutable() {
-      if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (!((bitField0_ & 0x00000010) == 0x00000010)) {
         childComments_ = new java.util.ArrayList<web.api.rpc.newsfeed.ChildComment>(childComments_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -841,7 +968,7 @@ private static final long serialVersionUID = 0L;
         web.api.rpc.newsfeed.ChildComment, web.api.rpc.newsfeed.ChildComment.Builder, web.api.rpc.newsfeed.ChildCommentOrBuilder> childCommentsBuilder_;
 
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public java.util.List<web.api.rpc.newsfeed.ChildComment> getChildCommentsList() {
       if (childCommentsBuilder_ == null) {
@@ -851,7 +978,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public int getChildCommentsCount() {
       if (childCommentsBuilder_ == null) {
@@ -861,7 +988,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public web.api.rpc.newsfeed.ChildComment getChildComments(int index) {
       if (childCommentsBuilder_ == null) {
@@ -871,7 +998,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder setChildComments(
         int index, web.api.rpc.newsfeed.ChildComment value) {
@@ -888,7 +1015,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder setChildComments(
         int index, web.api.rpc.newsfeed.ChildComment.Builder builderForValue) {
@@ -902,7 +1029,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder addChildComments(web.api.rpc.newsfeed.ChildComment value) {
       if (childCommentsBuilder_ == null) {
@@ -918,7 +1045,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder addChildComments(
         int index, web.api.rpc.newsfeed.ChildComment value) {
@@ -935,7 +1062,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder addChildComments(
         web.api.rpc.newsfeed.ChildComment.Builder builderForValue) {
@@ -949,7 +1076,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder addChildComments(
         int index, web.api.rpc.newsfeed.ChildComment.Builder builderForValue) {
@@ -963,7 +1090,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder addAllChildComments(
         java.lang.Iterable<? extends web.api.rpc.newsfeed.ChildComment> values) {
@@ -978,12 +1105,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder clearChildComments() {
       if (childCommentsBuilder_ == null) {
         childComments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         childCommentsBuilder_.clear();
@@ -991,7 +1118,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public Builder removeChildComments(int index) {
       if (childCommentsBuilder_ == null) {
@@ -1004,14 +1131,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public web.api.rpc.newsfeed.ChildComment.Builder getChildCommentsBuilder(
         int index) {
       return getChildCommentsFieldBuilder().getBuilder(index);
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public web.api.rpc.newsfeed.ChildCommentOrBuilder getChildCommentsOrBuilder(
         int index) {
@@ -1021,7 +1148,7 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public java.util.List<? extends web.api.rpc.newsfeed.ChildCommentOrBuilder> 
          getChildCommentsOrBuilderList() {
@@ -1032,14 +1159,14 @@ private static final long serialVersionUID = 0L;
       }
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public web.api.rpc.newsfeed.ChildComment.Builder addChildCommentsBuilder() {
       return getChildCommentsFieldBuilder().addBuilder(
           web.api.rpc.newsfeed.ChildComment.getDefaultInstance());
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public web.api.rpc.newsfeed.ChildComment.Builder addChildCommentsBuilder(
         int index) {
@@ -1047,7 +1174,7 @@ private static final long serialVersionUID = 0L;
           index, web.api.rpc.newsfeed.ChildComment.getDefaultInstance());
     }
     /**
-     * <code>repeated .ChildComment childComments = 4;</code>
+     * <code>repeated .ChildComment childComments = 5;</code>
      */
     public java.util.List<web.api.rpc.newsfeed.ChildComment.Builder> 
          getChildCommentsBuilderList() {
@@ -1060,7 +1187,7 @@ private static final long serialVersionUID = 0L;
         childCommentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             web.api.rpc.newsfeed.ChildComment, web.api.rpc.newsfeed.ChildComment.Builder, web.api.rpc.newsfeed.ChildCommentOrBuilder>(
                 childComments_,
-                ((bitField0_ & 0x00000008) == 0x00000008),
+                ((bitField0_ & 0x00000010) == 0x00000010),
                 getParentForChildren(),
                 isClean());
         childComments_ = null;
