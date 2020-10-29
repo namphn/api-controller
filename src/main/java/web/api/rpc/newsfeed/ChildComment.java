@@ -18,6 +18,8 @@ private static final long serialVersionUID = 0L;
   private ChildComment() {
     userId_ = "";
     content_ = "";
+    avatar_ = "";
+    timeComment_ = "";
   }
 
   @java.lang.Override
@@ -61,6 +63,18 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             content_ = s;
+            break;
+          }
+          case 26: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            avatar_ = s;
+            break;
+          }
+          case 34: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            timeComment_ = s;
             break;
           }
         }
@@ -155,6 +169,74 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int AVATAR_FIELD_NUMBER = 3;
+  private volatile java.lang.Object avatar_;
+  /**
+   * <code>string avatar = 3;</code>
+   */
+  public java.lang.String getAvatar() {
+    java.lang.Object ref = avatar_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      avatar_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string avatar = 3;</code>
+   */
+  public com.google.protobuf.ByteString
+      getAvatarBytes() {
+    java.lang.Object ref = avatar_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      avatar_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int TIMECOMMENT_FIELD_NUMBER = 4;
+  private volatile java.lang.Object timeComment_;
+  /**
+   * <code>string timeComment = 4;</code>
+   */
+  public java.lang.String getTimeComment() {
+    java.lang.Object ref = timeComment_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      timeComment_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string timeComment = 4;</code>
+   */
+  public com.google.protobuf.ByteString
+      getTimeCommentBytes() {
+    java.lang.Object ref = timeComment_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      timeComment_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -173,6 +255,12 @@ private static final long serialVersionUID = 0L;
     if (!getContentBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, content_);
     }
+    if (!getAvatarBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, avatar_);
+    }
+    if (!getTimeCommentBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, timeComment_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -186,6 +274,12 @@ private static final long serialVersionUID = 0L;
     }
     if (!getContentBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, content_);
+    }
+    if (!getAvatarBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, avatar_);
+    }
+    if (!getTimeCommentBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, timeComment_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -207,6 +301,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUserId());
     result = result && getContent()
         .equals(other.getContent());
+    result = result && getAvatar()
+        .equals(other.getAvatar());
+    result = result && getTimeComment()
+        .equals(other.getTimeComment());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -222,6 +320,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getUserId().hashCode();
     hash = (37 * hash) + CONTENT_FIELD_NUMBER;
     hash = (53 * hash) + getContent().hashCode();
+    hash = (37 * hash) + AVATAR_FIELD_NUMBER;
+    hash = (53 * hash) + getAvatar().hashCode();
+    hash = (37 * hash) + TIMECOMMENT_FIELD_NUMBER;
+    hash = (53 * hash) + getTimeComment().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -355,6 +457,10 @@ private static final long serialVersionUID = 0L;
 
       content_ = "";
 
+      avatar_ = "";
+
+      timeComment_ = "";
+
       return this;
     }
 
@@ -379,6 +485,8 @@ private static final long serialVersionUID = 0L;
       web.api.rpc.newsfeed.ChildComment result = new web.api.rpc.newsfeed.ChildComment(this);
       result.userId_ = userId_;
       result.content_ = content_;
+      result.avatar_ = avatar_;
+      result.timeComment_ = timeComment_;
       onBuilt();
       return result;
     }
@@ -426,6 +534,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getContent().isEmpty()) {
         content_ = other.content_;
+        onChanged();
+      }
+      if (!other.getAvatar().isEmpty()) {
+        avatar_ = other.avatar_;
+        onChanged();
+      }
+      if (!other.getTimeComment().isEmpty()) {
+        timeComment_ = other.timeComment_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -589,6 +705,144 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       content_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object avatar_ = "";
+    /**
+     * <code>string avatar = 3;</code>
+     */
+    public java.lang.String getAvatar() {
+      java.lang.Object ref = avatar_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        avatar_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string avatar = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAvatarBytes() {
+      java.lang.Object ref = avatar_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        avatar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string avatar = 3;</code>
+     */
+    public Builder setAvatar(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      avatar_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string avatar = 3;</code>
+     */
+    public Builder clearAvatar() {
+      
+      avatar_ = getDefaultInstance().getAvatar();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string avatar = 3;</code>
+     */
+    public Builder setAvatarBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      avatar_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object timeComment_ = "";
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public java.lang.String getTimeComment() {
+      java.lang.Object ref = timeComment_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timeComment_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimeCommentBytes() {
+      java.lang.Object ref = timeComment_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timeComment_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public Builder setTimeComment(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      timeComment_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public Builder clearTimeComment() {
+      
+      timeComment_ = getDefaultInstance().getTimeComment();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string timeComment = 4;</code>
+     */
+    public Builder setTimeCommentBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      timeComment_ = value;
       onChanged();
       return this;
     }

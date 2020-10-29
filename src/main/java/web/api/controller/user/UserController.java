@@ -7,10 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import web.api.model.request.ChangeUsernameRequest;
-import web.api.service.FileService;
-import web.api.service.GrpcClientUserService;
 import web.api.rpc.user.GetAllUserRequest;
 import web.api.rpc.user.GetAllUserResponse;
+import web.api.service.FileService;
+import web.api.service.GrpcClientUserService;
 
 @RestController
 @RequestMapping("/users")

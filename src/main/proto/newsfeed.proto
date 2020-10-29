@@ -4,34 +4,40 @@ option java_generic_services = true;
 option java_package = "web.api.rpc.newsfeed";
 
 message GetNewsFeedRequest {
-
+    string userId = 1;
 }
 
 message ChildComment {
     string userId = 1;
     string content = 2;
+    string avatar = 3;
+    string timeComment = 4;
 }
 
 message Comment {
     string userId = 1;
     string content = 2;
     string userAvatar = 3;
-    repeated ChildComment childComments = 4;
+    string timeComment = 4;
+    repeated ChildComment childComments = 5;
 }
 
 message Share {
-    string userId = 1;
-    string content = 2;
+    string id = 1;
+    string userId = 2;
+    string content = 3;
+    string timeShare = 4;
 }
 
 message Post{
     string id = 1;
-    int64 userId = 2;
+    string userId = 2;
     string content = 3;
     repeated Comment comments = 4;
     repeated string likes = 5;
     repeated Share shares = 6;
     string images = 7;
+    string postTime = 8;
 }
 
 message GetNewsFeedResponse {

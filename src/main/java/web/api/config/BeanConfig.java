@@ -8,14 +8,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfig {
 
-    @Bean("news-feed")
+    @Bean("newsfeed-service")
     ManagedChannel newsFeedGrpcBeanChanel(){
-        return ManagedChannelBuilder.forAddress("localhost", 6568).usePlaintext().build();
+        return ManagedChannelBuilder.forAddress("localhost", 6569).usePlaintext().build();
     }
 
     @Bean("user-service")
     ManagedChannel userGrpcBeanChanel(){
-        return ManagedChannelBuilder.forAddress("localhost", 6567).usePlaintext().build();
+        return ManagedChannelBuilder.forAddress("localhost", 6568).usePlaintext().build();
     }
 
     @Bean("chat-service")

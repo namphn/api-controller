@@ -11,9 +11,10 @@ import java.util.List;
 @NoArgsConstructor
 public class Post {
     @Id
-    private long id;
-    private long userId;
+    private String id;
+    private String userId;
     private String content;
+    private String userAvatar;
     private List<Comment> comment;
     private List<String> likes;
     private List<Share> share;

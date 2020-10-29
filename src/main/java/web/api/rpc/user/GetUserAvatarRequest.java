@@ -4,19 +4,19 @@
 package web.api.rpc.user;
 
 /**
- * Protobuf type {@code GetListFriendResponse}
+ * Protobuf type {@code GetUserAvatarRequest}
  */
-public  final class GetListFriendResponse extends
+public  final class GetUserAvatarRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:GetListFriendResponse)
-    GetListFriendResponseOrBuilder {
+    // @@protoc_insertion_point(message_implements:GetUserAvatarRequest)
+    GetUserAvatarRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use GetListFriendResponse.newBuilder() to construct.
-  private GetListFriendResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use GetUserAvatarRequest.newBuilder() to construct.
+  private GetUserAvatarRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private GetListFriendResponse() {
-    friendId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+  private GetUserAvatarRequest() {
+    userId_ = "";
   }
 
   @java.lang.Override
@@ -24,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetListFriendResponse(
+  private GetUserAvatarRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -52,11 +52,8 @@ private static final long serialVersionUID = 0L;
           }
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-              friendId_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            friendId_.add(s);
+
+            userId_ = s;
             break;
           }
         }
@@ -67,52 +64,54 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-        friendId_ = friendId_.getUnmodifiableView();
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return web.api.rpc.user.User.internal_static_GetListFriendResponse_descriptor;
+    return web.api.rpc.user.User.internal_static_GetUserAvatarRequest_descriptor;
   }
 
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return web.api.rpc.user.User.internal_static_GetListFriendResponse_fieldAccessorTable
+    return web.api.rpc.user.User.internal_static_GetUserAvatarRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            web.api.rpc.user.GetListFriendResponse.class, web.api.rpc.user.GetListFriendResponse.Builder.class);
+            web.api.rpc.user.GetUserAvatarRequest.class, web.api.rpc.user.GetUserAvatarRequest.Builder.class);
   }
 
-  public static final int FRIENDID_FIELD_NUMBER = 1;
-  private com.google.protobuf.LazyStringList friendId_;
+  public static final int USERID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object userId_;
   /**
-   * <code>repeated string friendId = 1;</code>
+   * <code>string userId = 1;</code>
    */
-  public com.google.protobuf.ProtocolStringList
-      getFriendIdList() {
-    return friendId_;
+  public java.lang.String getUserId() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userId_ = s;
+      return s;
+    }
   }
   /**
-   * <code>repeated string friendId = 1;</code>
-   */
-  public int getFriendIdCount() {
-    return friendId_.size();
-  }
-  /**
-   * <code>repeated string friendId = 1;</code>
-   */
-  public java.lang.String getFriendId(int index) {
-    return friendId_.get(index);
-  }
-  /**
-   * <code>repeated string friendId = 1;</code>
+   * <code>string userId = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getFriendIdBytes(int index) {
-    return friendId_.getByteString(index);
+      getUserIdBytes() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -127,8 +126,8 @@ private static final long serialVersionUID = 0L;
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < friendId_.size(); i++) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, friendId_.getRaw(i));
+    if (!getUserIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
     }
     unknownFields.writeTo(output);
   }
@@ -138,13 +137,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    {
-      int dataSize = 0;
-      for (int i = 0; i < friendId_.size(); i++) {
-        dataSize += computeStringSizeNoTag(friendId_.getRaw(i));
-      }
-      size += dataSize;
-      size += 1 * getFriendIdList().size();
+    if (!getUserIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -156,14 +150,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof web.api.rpc.user.GetListFriendResponse)) {
+    if (!(obj instanceof web.api.rpc.user.GetUserAvatarRequest)) {
       return super.equals(obj);
     }
-    web.api.rpc.user.GetListFriendResponse other = (web.api.rpc.user.GetListFriendResponse) obj;
+    web.api.rpc.user.GetUserAvatarRequest other = (web.api.rpc.user.GetUserAvatarRequest) obj;
 
     boolean result = true;
-    result = result && getFriendIdList()
-        .equals(other.getFriendIdList());
+    result = result && getUserId()
+        .equals(other.getUserId());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -175,78 +169,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getFriendIdCount() > 0) {
-      hash = (37 * hash) + FRIENDID_FIELD_NUMBER;
-      hash = (53 * hash) + getFriendIdList().hashCode();
-    }
+    hash = (37 * hash) + USERID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(byte[] data)
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(java.io.InputStream input)
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseDelimitedFrom(java.io.InputStream input)
+  public static web.api.rpc.user.GetUserAvatarRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseDelimitedFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static web.api.rpc.user.GetListFriendResponse parseFrom(
+  public static web.api.rpc.user.GetUserAvatarRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -258,7 +250,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(web.api.rpc.user.GetListFriendResponse prototype) {
+  public static Builder newBuilder(web.api.rpc.user.GetUserAvatarRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   public Builder toBuilder() {
@@ -273,25 +265,25 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code GetListFriendResponse}
+   * Protobuf type {@code GetUserAvatarRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:GetListFriendResponse)
-      web.api.rpc.user.GetListFriendResponseOrBuilder {
+      // @@protoc_insertion_point(builder_implements:GetUserAvatarRequest)
+      web.api.rpc.user.GetUserAvatarRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return web.api.rpc.user.User.internal_static_GetListFriendResponse_descriptor;
+      return web.api.rpc.user.User.internal_static_GetUserAvatarRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return web.api.rpc.user.User.internal_static_GetListFriendResponse_fieldAccessorTable
+      return web.api.rpc.user.User.internal_static_GetUserAvatarRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              web.api.rpc.user.GetListFriendResponse.class, web.api.rpc.user.GetListFriendResponse.Builder.class);
+              web.api.rpc.user.GetUserAvatarRequest.class, web.api.rpc.user.GetUserAvatarRequest.Builder.class);
     }
 
-    // Construct using web.api.rpc.user.GetListFriendResponse.newBuilder()
+    // Construct using web.api.rpc.user.GetUserAvatarRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -308,36 +300,31 @@ private static final long serialVersionUID = 0L;
     }
     public Builder clear() {
       super.clear();
-      friendId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      userId_ = "";
+
       return this;
     }
 
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return web.api.rpc.user.User.internal_static_GetListFriendResponse_descriptor;
+      return web.api.rpc.user.User.internal_static_GetUserAvatarRequest_descriptor;
     }
 
-    public web.api.rpc.user.GetListFriendResponse getDefaultInstanceForType() {
-      return web.api.rpc.user.GetListFriendResponse.getDefaultInstance();
+    public web.api.rpc.user.GetUserAvatarRequest getDefaultInstanceForType() {
+      return web.api.rpc.user.GetUserAvatarRequest.getDefaultInstance();
     }
 
-    public web.api.rpc.user.GetListFriendResponse build() {
-      web.api.rpc.user.GetListFriendResponse result = buildPartial();
+    public web.api.rpc.user.GetUserAvatarRequest build() {
+      web.api.rpc.user.GetUserAvatarRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
       return result;
     }
 
-    public web.api.rpc.user.GetListFriendResponse buildPartial() {
-      web.api.rpc.user.GetListFriendResponse result = new web.api.rpc.user.GetListFriendResponse(this);
-      int from_bitField0_ = bitField0_;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        friendId_ = friendId_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.friendId_ = friendId_;
+    public web.api.rpc.user.GetUserAvatarRequest buildPartial() {
+      web.api.rpc.user.GetUserAvatarRequest result = new web.api.rpc.user.GetUserAvatarRequest(this);
+      result.userId_ = userId_;
       onBuilt();
       return result;
     }
@@ -369,24 +356,18 @@ private static final long serialVersionUID = 0L;
       return (Builder) super.addRepeatedField(field, value);
     }
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof web.api.rpc.user.GetListFriendResponse) {
-        return mergeFrom((web.api.rpc.user.GetListFriendResponse)other);
+      if (other instanceof web.api.rpc.user.GetUserAvatarRequest) {
+        return mergeFrom((web.api.rpc.user.GetUserAvatarRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(web.api.rpc.user.GetListFriendResponse other) {
-      if (other == web.api.rpc.user.GetListFriendResponse.getDefaultInstance()) return this;
-      if (!other.friendId_.isEmpty()) {
-        if (friendId_.isEmpty()) {
-          friendId_ = other.friendId_;
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          ensureFriendIdIsMutable();
-          friendId_.addAll(other.friendId_);
-        }
+    public Builder mergeFrom(web.api.rpc.user.GetUserAvatarRequest other) {
+      if (other == web.api.rpc.user.GetUserAvatarRequest.getDefaultInstance()) return this;
+      if (!other.getUserId().isEmpty()) {
+        userId_ = other.userId_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -402,11 +383,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      web.api.rpc.user.GetListFriendResponse parsedMessage = null;
+      web.api.rpc.user.GetUserAvatarRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (web.api.rpc.user.GetListFriendResponse) e.getUnfinishedMessage();
+        parsedMessage = (web.api.rpc.user.GetUserAvatarRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -415,98 +396,72 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
-    private com.google.protobuf.LazyStringList friendId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-    private void ensureFriendIdIsMutable() {
-      if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-        friendId_ = new com.google.protobuf.LazyStringArrayList(friendId_);
-        bitField0_ |= 0x00000001;
-       }
-    }
+    private java.lang.Object userId_ = "";
     /**
-     * <code>repeated string friendId = 1;</code>
+     * <code>string userId = 1;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getFriendIdList() {
-      return friendId_.getUnmodifiableView();
+    public java.lang.String getUserId() {
+      java.lang.Object ref = userId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
     }
     /**
-     * <code>repeated string friendId = 1;</code>
-     */
-    public int getFriendIdCount() {
-      return friendId_.size();
-    }
-    /**
-     * <code>repeated string friendId = 1;</code>
-     */
-    public java.lang.String getFriendId(int index) {
-      return friendId_.get(index);
-    }
-    /**
-     * <code>repeated string friendId = 1;</code>
+     * <code>string userId = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getFriendIdBytes(int index) {
-      return friendId_.getByteString(index);
+        getUserIdBytes() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
     /**
-     * <code>repeated string friendId = 1;</code>
+     * <code>string userId = 1;</code>
      */
-    public Builder setFriendId(
-        int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFriendIdIsMutable();
-      friendId_.set(index, value);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string friendId = 1;</code>
-     */
-    public Builder addFriendId(
+    public Builder setUserId(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  ensureFriendIdIsMutable();
-      friendId_.add(value);
+  
+      userId_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string friendId = 1;</code>
+     * <code>string userId = 1;</code>
      */
-    public Builder addAllFriendId(
-        java.lang.Iterable<java.lang.String> values) {
-      ensureFriendIdIsMutable();
-      com.google.protobuf.AbstractMessageLite.Builder.addAll(
-          values, friendId_);
+    public Builder clearUserId() {
+      
+      userId_ = getDefaultInstance().getUserId();
       onChanged();
       return this;
     }
     /**
-     * <code>repeated string friendId = 1;</code>
+     * <code>string userId = 1;</code>
      */
-    public Builder clearFriendId() {
-      friendId_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>repeated string friendId = 1;</code>
-     */
-    public Builder addFriendIdBytes(
+    public Builder setUserIdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      ensureFriendIdIsMutable();
-      friendId_.add(value);
+      
+      userId_ = value;
       onChanged();
       return this;
     }
@@ -521,39 +476,39 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:GetListFriendResponse)
+    // @@protoc_insertion_point(builder_scope:GetUserAvatarRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:GetListFriendResponse)
-  private static final web.api.rpc.user.GetListFriendResponse DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:GetUserAvatarRequest)
+  private static final web.api.rpc.user.GetUserAvatarRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new web.api.rpc.user.GetListFriendResponse();
+    DEFAULT_INSTANCE = new web.api.rpc.user.GetUserAvatarRequest();
   }
 
-  public static web.api.rpc.user.GetListFriendResponse getDefaultInstance() {
+  public static web.api.rpc.user.GetUserAvatarRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<GetListFriendResponse>
-      PARSER = new com.google.protobuf.AbstractParser<GetListFriendResponse>() {
-    public GetListFriendResponse parsePartialFrom(
+  private static final com.google.protobuf.Parser<GetUserAvatarRequest>
+      PARSER = new com.google.protobuf.AbstractParser<GetUserAvatarRequest>() {
+    public GetUserAvatarRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetListFriendResponse(input, extensionRegistry);
+      return new GetUserAvatarRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<GetListFriendResponse> parser() {
+  public static com.google.protobuf.Parser<GetUserAvatarRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<GetListFriendResponse> getParserForType() {
+  public com.google.protobuf.Parser<GetUserAvatarRequest> getParserForType() {
     return PARSER;
   }
 
-  public web.api.rpc.user.GetListFriendResponse getDefaultInstanceForType() {
+  public web.api.rpc.user.GetUserAvatarRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
