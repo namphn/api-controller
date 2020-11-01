@@ -15,7 +15,7 @@ public class BeanConfig {
 
     @Bean("user-service")
     ManagedChannel userGrpcBeanChanel(){
-        return ManagedChannelBuilder.forAddress("localhost", 6568).usePlaintext().build();
+        return ManagedChannelBuilder.forAddress("localhost", 6567).usePlaintext().build();
     }
 
     @Bean("chat-service")
