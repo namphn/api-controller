@@ -37,7 +37,7 @@ public class LoginController {
         if(response != null && response.getStatus().equals(Status.ACCEPT)) {
             responseBase.setStatusCode(Status.StatusCode.NORMAL);
             responseBase.setStatus(Status.ACCEPT);
-            responseBase.setData(new web.api.model.response.LoginResponse(response.getToken()));
+            responseBase.setData(new web.api.model.response.LoginResponse(response));
         }
         else if(response != null) {
             responseBase.setStatusCode(Status.StatusCode.NODATA);
