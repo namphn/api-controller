@@ -13,6 +13,8 @@ import web.api.rpc.newsfeed.*;
 import web.api.rpc.user.GetUserAvatarResponse;
 import web.api.rpc.user.UserServiceGrpc;
 
+import java.util.List;
+
 @Service
 public class GrpcClientNewsFeedService {
     @Value( "${path.images}")
@@ -140,5 +142,14 @@ public class GrpcClientNewsFeedService {
         }
 
         return responseBase;
+    }
+
+    /**
+     *
+     * @param userId
+     * @return
+     */
+    public List listenNewsFeesChange(String userId) {
+        //todo
     }
 }
