@@ -9,11 +9,10 @@ import web.api.model.request.LikeRequest;
 import web.api.model.request.PostRequest;
 import web.api.model.response.ResponseBase;
 import web.api.model.response.Status;
+import web.api.rpc.follow.GetFollowerAndFollowingRequest;
+import web.api.rpc.follow.GetFollowingResponse;
 import web.api.rpc.newsfeed.*;
-import web.api.rpc.user.GetUserAvatarResponse;
 import web.api.rpc.user.UserServiceGrpc;
-
-import java.util.List;
 
 @Service
 public class GrpcClientNewsFeedService {
@@ -29,6 +28,9 @@ public class GrpcClientNewsFeedService {
 
     @Autowired
     private GrpcClientUserService grpcClientUserService;
+
+    @Autowired
+    private GrpcClientFollowService grpcClientFollowService;
 
     public ResponseBase getNewsFeed(String userId){
         NewsFeedServiceGrpc.NewsFeedServiceBlockingStub stub = NewsFeedServiceGrpc.newBlockingStub(newsFeedChannel);
@@ -92,6 +94,12 @@ public class GrpcClientNewsFeedService {
         return response;
     }
 
+    /**
+     *
+     * @param request
+     * @return response
+     */
+
     public CommentResponse comment(web.api.model.request.CommentRequest request){
         CommentRequest.Builder grpcRequest = CommentRequest.newBuilder();
         grpcRequest.setContent(request.getContent());
@@ -103,6 +111,11 @@ public class GrpcClientNewsFeedService {
         return response;
     }
 
+    /**
+     *
+     * @param postRequest
+     * @return responseBase
+     */
     public ResponseBase postNewPost(PostRequest postRequest) {
         Post.Builder rpcPost = Post.newBuilder();
         rpcPost.setContent(postRequest.getContent());
@@ -131,6 +144,14 @@ public class GrpcClientNewsFeedService {
                 String userAvatar = grpcClientUserService.getUserAvatar(postRequest.getUserId());
                 newPost.setUserAvatar(userAvatar);
                 responseBase.setData(newPost);
+
+                GetFollowerAndFollowingRequest.Builder getFollowerRequest = GetFollowerAndFollowingRequest.newBuilder();
+                getFollowerRequest.setUserId(postRequest.getUserId());
+                GetFollowingResponse getFollowingResponse = null;
+
+                try {
+                    getFollowingResponse = grpcClientFollowService.getAllFollower(postRequest.getUserId(), );
+                }
             }
             else {
                 responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
@@ -142,14 +163,5 @@ public class GrpcClientNewsFeedService {
         }
 
         return responseBase;
-    }
-
-    /**
-     *
-     * @param userId
-     * @return
-     */
-    public List listenNewsFeesChange(String userId) {
-        //todo
     }
 }

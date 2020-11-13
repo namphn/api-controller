@@ -89,6 +89,16 @@ public final class Newsfeed {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_TagResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetNewsGroupRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetNewsGroupRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetNewsGroupResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetNewsGroupResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -121,15 +131,18 @@ public final class Newsfeed {
       "(\t\022\017\n\007content\030\003 \001(\t\"!\n\017CommentResponse\022\016" +
       "\n\006status\030\001 \001(\t\",\n\nTagRequest\022\016\n\006userId\030\001" +
       " \001(\t\022\016\n\006postId\030\002 \001(\t\"\035\n\013TagResponse\022\016\n\006s" +
-      "tatus\030\001 \001(\t2\224\002\n\017NewsFeedService\0228\n\013getNe" +
-      "wsFeed\022\023.GetNewsFeedRequest\032\024.GetNewsFee" +
-      "dResponse\022*\n\013saveNewPost\022\005.Post\032\024.SaveNe" +
-      "wPostResponse\022#\n\004like\022\014.LikeRequest\032\r.Li" +
-      "keResponse\022&\n\005share\022\r.ShareRequest\032\016.Sha" +
-      "reResponse\022,\n\007comment\022\017.CommentRequest\032\020" +
-      ".CommentResponse\022 \n\003tag\022\013.TagRequest\032\014.T" +
-      "agResponseB\033\n\024web.api.rpc.newsfeedP\001\210\001\001b" +
-      "\006proto3"
+      "tatus\030\001 \001(\t\"%\n\023GetNewsGroupRequest\022\016\n\006us" +
+      "erId\030\001 \001(\t\")\n\024GetNewsGroupResponse\022\021\n\tne" +
+      "wsgroup\030\001 \001(\t2\321\002\n\017NewsFeedService\0228\n\013get" +
+      "NewsFeed\022\023.GetNewsFeedRequest\032\024.GetNewsF" +
+      "eedResponse\022*\n\013saveNewPost\022\005.Post\032\024.Save" +
+      "NewPostResponse\022#\n\004like\022\014.LikeRequest\032\r." +
+      "LikeResponse\022&\n\005share\022\r.ShareRequest\032\016.S" +
+      "hareResponse\022,\n\007comment\022\017.CommentRequest" +
+      "\032\020.CommentResponse\022 \n\003tag\022\013.TagRequest\032\014" +
+      ".TagResponse\022;\n\014getNewsGroup\022\024.GetNewsGr" +
+      "oupRequest\032\025.GetNewsGroupResponseB\033\n\024web" +
+      ".api.rpc.newsfeedP\001\210\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -233,6 +246,18 @@ public final class Newsfeed {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TagResponse_descriptor,
         new java.lang.String[] { "Status", });
+    internal_static_GetNewsGroupRequest_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_GetNewsGroupRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetNewsGroupRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_GetNewsGroupResponse_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_GetNewsGroupResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetNewsGroupResponse_descriptor,
+        new java.lang.String[] { "Newsgroup", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

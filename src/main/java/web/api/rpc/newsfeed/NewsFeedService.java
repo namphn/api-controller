@@ -59,6 +59,14 @@ public  abstract class NewsFeedService
         web.api.rpc.newsfeed.TagRequest request,
         com.google.protobuf.RpcCallback<web.api.rpc.newsfeed.TagResponse> done);
 
+    /**
+     * <code>rpc getNewsGroup(.GetNewsGroupRequest) returns (.GetNewsGroupResponse);</code>
+     */
+    public abstract void getNewsGroup(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.newsfeed.GetNewsGroupRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.newsfeed.GetNewsGroupResponse> done);
+
   }
 
   public static com.google.protobuf.Service newReflectiveService(
@@ -112,6 +120,14 @@ public  abstract class NewsFeedService
         impl.tag(controller, request, done);
       }
 
+      @java.lang.Override
+      public  void getNewsGroup(
+          com.google.protobuf.RpcController controller,
+          web.api.rpc.newsfeed.GetNewsGroupRequest request,
+          com.google.protobuf.RpcCallback<web.api.rpc.newsfeed.GetNewsGroupResponse> done) {
+        impl.getNewsGroup(controller, request, done);
+      }
+
     };
   }
 
@@ -146,6 +162,8 @@ public  abstract class NewsFeedService
             return impl.comment(controller, (web.api.rpc.newsfeed.CommentRequest)request);
           case 5:
             return impl.tag(controller, (web.api.rpc.newsfeed.TagRequest)request);
+          case 6:
+            return impl.getNewsGroup(controller, (web.api.rpc.newsfeed.GetNewsGroupRequest)request);
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -172,6 +190,8 @@ public  abstract class NewsFeedService
             return web.api.rpc.newsfeed.CommentRequest.getDefaultInstance();
           case 5:
             return web.api.rpc.newsfeed.TagRequest.getDefaultInstance();
+          case 6:
+            return web.api.rpc.newsfeed.GetNewsGroupRequest.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -198,6 +218,8 @@ public  abstract class NewsFeedService
             return web.api.rpc.newsfeed.CommentResponse.getDefaultInstance();
           case 5:
             return web.api.rpc.newsfeed.TagResponse.getDefaultInstance();
+          case 6:
+            return web.api.rpc.newsfeed.GetNewsGroupResponse.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -254,6 +276,14 @@ public  abstract class NewsFeedService
       web.api.rpc.newsfeed.TagRequest request,
       com.google.protobuf.RpcCallback<web.api.rpc.newsfeed.TagResponse> done);
 
+  /**
+   * <code>rpc getNewsGroup(.GetNewsGroupRequest) returns (.GetNewsGroupResponse);</code>
+   */
+  public abstract void getNewsGroup(
+      com.google.protobuf.RpcController controller,
+      web.api.rpc.newsfeed.GetNewsGroupRequest request,
+      com.google.protobuf.RpcCallback<web.api.rpc.newsfeed.GetNewsGroupResponse> done);
+
   public static final
       com.google.protobuf.Descriptors.ServiceDescriptor
       getDescriptor() {
@@ -306,6 +336,11 @@ public  abstract class NewsFeedService
           com.google.protobuf.RpcUtil.<web.api.rpc.newsfeed.TagResponse>specializeCallback(
             done));
         return;
+      case 6:
+        this.getNewsGroup(controller, (web.api.rpc.newsfeed.GetNewsGroupRequest)request,
+          com.google.protobuf.RpcUtil.<web.api.rpc.newsfeed.GetNewsGroupResponse>specializeCallback(
+            done));
+        return;
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -332,6 +367,8 @@ public  abstract class NewsFeedService
         return web.api.rpc.newsfeed.CommentRequest.getDefaultInstance();
       case 5:
         return web.api.rpc.newsfeed.TagRequest.getDefaultInstance();
+      case 6:
+        return web.api.rpc.newsfeed.GetNewsGroupRequest.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -358,6 +395,8 @@ public  abstract class NewsFeedService
         return web.api.rpc.newsfeed.CommentResponse.getDefaultInstance();
       case 5:
         return web.api.rpc.newsfeed.TagResponse.getDefaultInstance();
+      case 6:
+        return web.api.rpc.newsfeed.GetNewsGroupResponse.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -468,6 +507,21 @@ public  abstract class NewsFeedService
           web.api.rpc.newsfeed.TagResponse.class,
           web.api.rpc.newsfeed.TagResponse.getDefaultInstance()));
     }
+
+    public  void getNewsGroup(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.newsfeed.GetNewsGroupRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.newsfeed.GetNewsGroupResponse> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(6),
+        controller,
+        request,
+        web.api.rpc.newsfeed.GetNewsGroupResponse.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          web.api.rpc.newsfeed.GetNewsGroupResponse.class,
+          web.api.rpc.newsfeed.GetNewsGroupResponse.getDefaultInstance()));
+    }
   }
 
   public static BlockingInterface newBlockingStub(
@@ -504,6 +558,11 @@ public  abstract class NewsFeedService
     public web.api.rpc.newsfeed.TagResponse tag(
         com.google.protobuf.RpcController controller,
         web.api.rpc.newsfeed.TagRequest request)
+        throws com.google.protobuf.ServiceException;
+
+    public web.api.rpc.newsfeed.GetNewsGroupResponse getNewsGroup(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.newsfeed.GetNewsGroupRequest request)
         throws com.google.protobuf.ServiceException;
   }
 
@@ -583,6 +642,18 @@ public  abstract class NewsFeedService
         controller,
         request,
         web.api.rpc.newsfeed.TagResponse.getDefaultInstance());
+    }
+
+
+    public web.api.rpc.newsfeed.GetNewsGroupResponse getNewsGroup(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.newsfeed.GetNewsGroupRequest request)
+        throws com.google.protobuf.ServiceException {
+      return (web.api.rpc.newsfeed.GetNewsGroupResponse) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(6),
+        controller,
+        request,
+        web.api.rpc.newsfeed.GetNewsGroupResponse.getDefaultInstance());
     }
 
   }

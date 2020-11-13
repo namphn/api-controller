@@ -1,8 +1,10 @@
 package web.api.controller.newsfeed;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import web.api.rpc.newsfeed.NewsFeedService;
 import web.api.rpc.newsfeed.Post;
@@ -16,9 +18,9 @@ public class NewsFeedSocketController {
     @Autowired
     private GrpcClientNewsFeedService grpcClientNewsFeedService;
 
-    @MessageMapping("/newsfeed/{userId}")
-    public List<Post> listenNews(@Payload Post newPost) {
-        List<Post> allNewPost =
+    @SendTo("news/{groupId}")
+    public List<Post> listenNews(@Payload Post newPost, @DestinationVariable String groupId) {
+        List<Post> allNewPost = grpcClientNewsFeedService.listenNewsFeesChange(newPost)
     }
 
 }

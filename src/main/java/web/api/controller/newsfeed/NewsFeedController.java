@@ -4,17 +4,9 @@ import com.google.gson.Gson;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.Request;
 import web.api.model.request.*;
-import web.api.model.request.CommentRequest;
-import web.api.model.request.LikeRequest;
-import web.api.model.request.ShareRequest;
-import web.api.model.request.TagRequest;
 import web.api.model.response.ResponseBase;
 import web.api.service.GrpcClientNewsFeedService;
-import web.api.rpc.newsfeed.*;
-
-import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/posts")
@@ -22,10 +14,12 @@ public class NewsFeedController {
 
     private final GrpcClientNewsFeedService grpcClientNewsFeedService;
     private final Gson gson;
+    private final NewsFeedSocketController socketController;
 
-    public NewsFeedController(GrpcClientNewsFeedService grpcClientNewsFeedService, Gson gson) {
+    public NewsFeedController(GrpcClientNewsFeedService grpcClientNewsFeedService, Gson gson, NewsFeedSocketController socketController) {
         this.grpcClientNewsFeedService = grpcClientNewsFeedService;
         this.gson = gson;
+        this.socketController = socketController;
     }
 
     @GetMapping("/{userId}")

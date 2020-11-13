@@ -87,6 +87,14 @@ message TagResponse{
     string status = 1;
 }
 
+message GetNewsGroupRequest {
+    string userId = 1;
+}
+
+message GetNewsGroupResponse {
+    string newsgroup = 1;
+}
+
 service NewsFeedService {
     rpc getNewsFeed (GetNewsFeedRequest) returns (GetNewsFeedResponse);
     rpc saveNewPost (Post) returns (SaveNewPostResponse);
@@ -94,6 +102,7 @@ service NewsFeedService {
     rpc share (ShareRequest) returns (ShareResponse);
     rpc comment (CommentRequest) returns (CommentResponse);
     rpc tag (TagRequest) returns (TagResponse);
+    rpc getNewsGroup (GetNewsGroupRequest) returns (GetNewsGroupResponse);
 }
 
 

@@ -9,6 +9,9 @@ import web.api.model.response.ResponseBase;
 import web.api.model.response.Status;
 import web.api.rpc.follow.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class GrpcClientFollowService {
 
@@ -22,17 +25,15 @@ public class GrpcClientFollowService {
     public ResponseBase getAllFollower(String userId, int getFlg) {
         GetFollowerAndFollowingRequest.Builder request = GetFollowerAndFollowingRequest.newBuilder();
         request.setUserId(userId);
+        List<String> follower = new ArrayList<>();
         GetFollowerResponse getFollowerResponse = null;
         GetFollowingResponse getFollowingResponse = null;
         GetFollowerAndFollowingResponse getFollowerAndFollowingResponse = new GetFollowerAndFollowingResponse();
         ResponseBase responseBase = new ResponseBase();
-        FollowRpcServiceGrpc.FollowRpcServiceBlockingStub stub =FollowRpcServiceGrpc.newBlockingStub(channel);
 
         try {
             switch (getFlg) {
                 case 0:
-                    getFollowerResponse = stub.getFollower(request.build());
-                    getFollowingResponse = stub.getFollowing(request.build());
                     break;
 
                 case 1:
@@ -97,5 +98,20 @@ public class GrpcClientFollowService {
         }
 
         return responseBase;
+    }
+
+    public List getFollowing(String userId) {
+        List<String> followers = new ArrayList<>();
+        GetFollowerAndFollowingRequest.Builder request = GetFollowerAndFollowingRequest.newBuilder();
+        FollowRpcServiceGrpc.FollowRpcServiceBlockingStub stub =FollowRpcServiceGrpc.newBlockingStub(channel);
+        request.setUserId(userId);
+        GetFollowingResponse getFollowingResponse = null;
+        try {
+            getFollowingResponse = stub.getFollowing(request.build());
+            return getFollowingResponse.getFollowingList();
+        } catch (Exception e) {
+            return null;
+        }
+
     }
 }
