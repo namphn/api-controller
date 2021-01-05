@@ -49,4 +49,9 @@ public class UserController {
     public ResponseEntity changeUsername(@PathVariable String userId, ChangeUsernameRequest request) {
         return grpcClientService.changeUserName(userId, request);
     }
+
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public ResponseEntity getUserInfo(@PathVariable String userId) {
+
+    }
 }

@@ -149,9 +149,9 @@ public class GrpcClientNewsFeedService {
                 getFollowerRequest.setUserId(postRequest.getUserId());
                 GetFollowingResponse getFollowingResponse = null;
 
-                try {
-                    getFollowingResponse = grpcClientFollowService.getAllFollower(postRequest.getUserId(), );
-                }
+//                try {
+//                    getFollowingResponse = grpcClientFollowService.getAllFollower(postRequest.getUserId(), );
+//                }
             }
             else {
                 responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);

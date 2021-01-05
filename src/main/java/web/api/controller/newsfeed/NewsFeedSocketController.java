@@ -18,9 +18,9 @@ public class NewsFeedSocketController {
     @Autowired
     private GrpcClientNewsFeedService grpcClientNewsFeedService;
 
-    @SendTo("news/{groupId}")
-    public List<Post> listenNews(@Payload Post newPost, @DestinationVariable String groupId) {
-        List<Post> allNewPost = grpcClientNewsFeedService.listenNewsFeesChange(newPost)
-    }
+//    @SendTo("news/{groupId}")
+//    public List<Post> listenNews(@Payload Post newPost, @DestinationVariable String groupId) {
+//        List<Post> allNewPost = grpcClientNewsFeedService.listenNewsFeesChange(newPost);
+//    }
 
 }

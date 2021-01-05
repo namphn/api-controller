@@ -443,6 +443,38 @@ public final class UserServiceGrpc {
      return getGetUserAvatarMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<web.api.rpc.user.GetUserInfoRequest,
+      web.api.rpc.user.GetUserInfoResponse> getGetUserInfoMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getUserInfo",
+      requestType = web.api.rpc.user.GetUserInfoRequest.class,
+      responseType = web.api.rpc.user.GetUserInfoResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<web.api.rpc.user.GetUserInfoRequest,
+      web.api.rpc.user.GetUserInfoResponse> getGetUserInfoMethod() {
+    io.grpc.MethodDescriptor<web.api.rpc.user.GetUserInfoRequest, web.api.rpc.user.GetUserInfoResponse> getGetUserInfoMethod;
+    if ((getGetUserInfoMethod = UserServiceGrpc.getGetUserInfoMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetUserInfoMethod = UserServiceGrpc.getGetUserInfoMethod) == null) {
+          UserServiceGrpc.getGetUserInfoMethod = getGetUserInfoMethod = 
+              io.grpc.MethodDescriptor.<web.api.rpc.user.GetUserInfoRequest, web.api.rpc.user.GetUserInfoResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "UserService", "getUserInfo"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.GetUserInfoRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.GetUserInfoResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getUserInfo"))
+                  .build();
+          }
+        }
+     }
+     return getGetUserInfoMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -600,6 +632,13 @@ public final class UserServiceGrpc {
       asyncUnimplementedUnaryCall(getGetUserAvatarMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void getUserInfo(web.api.rpc.user.GetUserInfoRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserInfoResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetUserInfoMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -693,6 +732,13 @@ public final class UserServiceGrpc {
                 web.api.rpc.user.GetUserAvatarRequest,
                 web.api.rpc.user.GetUserAvatarResponse>(
                   this, METHODID_GET_USER_AVATAR)))
+          .addMethod(
+            getGetUserInfoMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                web.api.rpc.user.GetUserInfoRequest,
+                web.api.rpc.user.GetUserInfoResponse>(
+                  this, METHODID_GET_USER_INFO)))
           .build();
     }
   }
@@ -857,6 +903,14 @@ public final class UserServiceGrpc {
       asyncUnaryCall(
           getChannel().newCall(getGetUserAvatarMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void getUserInfo(web.api.rpc.user.GetUserInfoRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserInfoResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetUserInfoMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -1005,6 +1059,13 @@ public final class UserServiceGrpc {
     public web.api.rpc.user.GetUserAvatarResponse getUserAvatar(web.api.rpc.user.GetUserAvatarRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetUserAvatarMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public web.api.rpc.user.GetUserInfoResponse getUserInfo(web.api.rpc.user.GetUserInfoRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetUserInfoMethod(), getCallOptions(), request);
     }
   }
 
@@ -1168,6 +1229,14 @@ public final class UserServiceGrpc {
       return futureUnaryCall(
           getChannel().newCall(getGetUserAvatarMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<web.api.rpc.user.GetUserInfoResponse> getUserInfo(
+        web.api.rpc.user.GetUserInfoRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetUserInfoMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_REGISTRATION = 0;
@@ -1183,6 +1252,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_RENAME_USER = 10;
   private static final int METHODID_SAVE_AVATAR = 11;
   private static final int METHODID_GET_USER_AVATAR = 12;
+  private static final int METHODID_GET_USER_INFO = 13;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1252,6 +1322,10 @@ public final class UserServiceGrpc {
         case METHODID_GET_USER_AVATAR:
           serviceImpl.getUserAvatar((web.api.rpc.user.GetUserAvatarRequest) request,
               (io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserAvatarResponse>) responseObserver);
+          break;
+        case METHODID_GET_USER_INFO:
+          serviceImpl.getUserInfo((web.api.rpc.user.GetUserInfoRequest) request,
+              (io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserInfoResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1327,6 +1401,7 @@ public final class UserServiceGrpc {
               .addMethod(getRenameUserMethod())
               .addMethod(getSaveAvatarMethod())
               .addMethod(getGetUserAvatarMethod())
+              .addMethod(getGetUserInfoMethod())
               .build();
         }
       }

@@ -149,6 +149,21 @@ public final class User {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GetUserAvatarResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetUserInfoRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetUserInfoRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetUserInfoResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetUserInfoResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_UserPots_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_UserPots_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -195,31 +210,38 @@ public final class User {
       "\016\n\006userId\030\002 \001(\t\"(\n\026SaveUserAvatarRespons" +
       "e\022\016\n\006status\030\001 \001(\t\"&\n\024GetUserAvatarReques" +
       "t\022\016\n\006userId\030\001 \001(\t\"\'\n\025GetUserAvatarRespon" +
-      "se\022\016\n\006avatar\030\001 \001(\t2\213\007\n\013UserService\022C\n\014Re" +
-      "gistration\022\030.RegistrationRequestGrpc\032\031.R" +
-      "egistrationResponseGrpc\022&\n\005Login\022\r.Login" +
-      "Request\032\016.LoginResponse\022L\n\035VerificationT" +
-      "okenRegistration\022\024.ConfirmEmailRequest\032\025" +
-      ".ConfirmEmailResponse\022?\n\016PasswordForgot\022" +
-      "\025.PasswordResetRequest\032\026.PasswordResetRe" +
-      "sponse\022:\n\rPasswordReset\022\023.NewPasswordReq" +
-      "uest\032\024.NewPasswordResponse\022\\\n\027Registrati" +
-      "onInformation\022\037.RegistrationInformationR" +
-      "equest\032 .RegistrationInformationResponse" +
-      "\022q\n\036VerificationResetPasswordToken\022&.Ver" +
-      "ificationResetPasswordTokenRequest\032\'.Ver" +
-      "ificationResetPasswordTokenResponse\0228\n\021G" +
-      "etEmailFromToken\022\020.GetEmailRequest\032\021.Get" +
-      "EmailResponse\022>\n\rValidateToken\022\025.Validat" +
-      "eTokenRequest\032\026.ValidateTokenResponse\0225\n" +
-      "\nGetAllUser\022\022.GetAllUserRequest\032\023.GetAll" +
-      "UserResponse\022C\n\nRenameUser\022\031.ChangeUserN" +
-      "ameRpcRequest\032\032.ChangeUserNameRpcRespons" +
-      "e\022=\n\nSaveAvatar\022\026.SaveUserAvatarRequest\032" +
-      "\027.SaveUserAvatarResponse\022>\n\rgetUserAvata" +
-      "r\022\025.GetUserAvatarRequest\032\026.GetUserAvatar" +
-      "ResponseB\027\n\020web.api.rpc.userP\001\210\001\001b\006proto" +
-      "3"
+      "se\022\016\n\006avatar\030\001 \001(\t\"$\n\022GetUserInfoRequest" +
+      "\022\016\n\006userId\030\001 \001(\t\"\252\001\n\023GetUserInfoResponse" +
+      "\022\020\n\010userName\030\001 \001(\t\022\014\n\004city\030\002 \001(\t\022\017\n\007coun" +
+      "try\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\016\n\006avatar" +
+      "\030\005 \001(\t\022\021\n\tfollowing\030\006 \003(\t\022\021\n\tfollowers\030\007" +
+      " \003(\t\022\027\n\004pots\030\010 \003(\0132\t.UserPots\")\n\010UserPot" +
+      "s\022\016\n\006potsId\030\001 \001(\t\022\r\n\005image\030\002 \001(\t2\305\007\n\013Use" +
+      "rService\022C\n\014Registration\022\030.RegistrationR" +
+      "equestGrpc\032\031.RegistrationResponseGrpc\022&\n" +
+      "\005Login\022\r.LoginRequest\032\016.LoginResponse\022L\n" +
+      "\035VerificationTokenRegistration\022\024.Confirm" +
+      "EmailRequest\032\025.ConfirmEmailResponse\022?\n\016P" +
+      "asswordForgot\022\025.PasswordResetRequest\032\026.P" +
+      "asswordResetResponse\022:\n\rPasswordReset\022\023." +
+      "NewPasswordRequest\032\024.NewPasswordResponse" +
+      "\022\\\n\027RegistrationInformation\022\037.Registrati" +
+      "onInformationRequest\032 .RegistrationInfor" +
+      "mationResponse\022q\n\036VerificationResetPassw" +
+      "ordToken\022&.VerificationResetPasswordToke" +
+      "nRequest\032\'.VerificationResetPasswordToke" +
+      "nResponse\0228\n\021GetEmailFromToken\022\020.GetEmai" +
+      "lRequest\032\021.GetEmailResponse\022>\n\rValidateT" +
+      "oken\022\025.ValidateTokenRequest\032\026.ValidateTo" +
+      "kenResponse\0225\n\nGetAllUser\022\022.GetAllUserRe" +
+      "quest\032\023.GetAllUserResponse\022C\n\nRenameUser" +
+      "\022\031.ChangeUserNameRpcRequest\032\032.ChangeUser" +
+      "NameRpcResponse\022=\n\nSaveAvatar\022\026.SaveUser" +
+      "AvatarRequest\032\027.SaveUserAvatarResponse\022>" +
+      "\n\rgetUserAvatar\022\025.GetUserAvatarRequest\032\026" +
+      ".GetUserAvatarResponse\0228\n\013getUserInfo\022\023." +
+      "GetUserInfoRequest\032\024.GetUserInfoResponse" +
+      "B\027\n\020web.api.rpc.userP\001\210\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -395,6 +417,24 @@ public final class User {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetUserAvatarResponse_descriptor,
         new java.lang.String[] { "Avatar", });
+    internal_static_GetUserInfoRequest_descriptor =
+      getDescriptor().getMessageTypes().get(26);
+    internal_static_GetUserInfoRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetUserInfoRequest_descriptor,
+        new java.lang.String[] { "UserId", });
+    internal_static_GetUserInfoResponse_descriptor =
+      getDescriptor().getMessageTypes().get(27);
+    internal_static_GetUserInfoResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetUserInfoResponse_descriptor,
+        new java.lang.String[] { "UserName", "City", "Country", "Description", "Avatar", "Following", "Followers", "Pots", });
+    internal_static_UserPots_descriptor =
+      getDescriptor().getMessageTypes().get(28);
+    internal_static_UserPots_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_UserPots_descriptor,
+        new java.lang.String[] { "PotsId", "Image", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -11,6 +11,7 @@ import web.api.model.request.PasswordForgotRequest;
 import web.api.model.request.RegistrationRequest;
 import web.api.model.response.*;
 import web.api.rpc.user.*;
+import web.api.rpc.user.GetUserInfoResponse;
 import web.api.rpc.user.LoginResponse;
 import web.api.rpc.user.NewPasswordResponse;
 
@@ -152,5 +153,31 @@ public class GrpcClientUserService {
         if(response != null) return response.getAvatar();
 
         return null;
+    }
+
+    public ResponseEntity getUserInfo(String userId) {
+        ResponseBase responseBase = new ResponseBase();
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        GetUserInfoResponse response = null;
+        GetUserInfoRequest.Builder rpcRequest = GetUserInfoRequest.newBuilder();
+        rpcRequest.setUserId(userId);
+
+        try {
+            response = stub.getUserInfo(rpcRequest.build());
+        } catch (Exception e) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+        }
+
+        if(response != null) {
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(Status.SUCCESS);
+        }
+        else {
+            responseBase.setStatusCode(Status.StatusCode.NODATA);
+            responseBase.setStatus(Status.ERROR);
+        }
+
+        return new ResponseEntity(responseBase, HttpStatus.OK);
     }
 }

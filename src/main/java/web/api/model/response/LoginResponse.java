@@ -10,9 +10,11 @@ import java.io.Serializable;
 public class LoginResponse implements Serializable {
     private String token;
     private String userId;
+    private String userName;
 
     public LoginResponse(web.api.rpc.user.LoginResponse response){
         this.token = response.getToken();
         this.userId = response.getUserId();
+        this.userName = response.getUsername();
     }
 }
