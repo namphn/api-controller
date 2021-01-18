@@ -8,7 +8,9 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/avatars/");
+                .addResourceLocations("classpath:/avatars/")
+                .addResourceLocations("classpath:/images/");
+
     }
 }
 
