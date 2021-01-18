@@ -52,6 +52,6 @@ public class UserController {
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ResponseEntity getUserInfo(@PathVariable String userId) {
-
+        return grpcClientService.getUserInfo(userId);
     }
 }

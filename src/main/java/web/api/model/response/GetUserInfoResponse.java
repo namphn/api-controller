@@ -1,9 +1,15 @@
 package web.api.model.response;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import web.api.model.user.UserPostList;
 
 import java.util.List;
 
+@NoArgsConstructor
+@Getter
+@Setter
 public class GetUserInfoResponse {
     private String userName;
     private String city;
