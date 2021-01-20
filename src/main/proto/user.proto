@@ -125,6 +125,14 @@ message GetUserInfoRequest {
   string userId = 1;
 }
 
+message GetUserNameRequest {
+  string userId = 1;
+}
+
+message GetUserNameResponse {
+  string userName = 1;
+}
+
 message GetUserInfoResponse {
   string userName = 1;
   string city = 2;
@@ -185,6 +193,10 @@ service UserService{
   // get user avatar
   rpc getUserAvatar(GetUserAvatarRequest) returns (GetUserAvatarResponse);
 
+  // get user information
   rpc getUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+
+  //get user name
+  rpc getUserName(GetUserNameRequest) returns (GetUserNameResponse);
 }
 

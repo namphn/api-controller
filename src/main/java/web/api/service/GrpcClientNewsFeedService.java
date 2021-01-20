@@ -22,6 +22,8 @@ import java.util.List;
 public class GrpcClientNewsFeedService {
     @Value( "${path.images}")
     private String imageStore;
+    private final static String IMAGE_SOURCE = "images/";
+    private final static String AVATAR_SOURCE = "avatars/";
 
     @Autowired
     private FileService fileService;
@@ -61,9 +63,15 @@ public class GrpcClientNewsFeedService {
             response.getPostsList().forEach(e -> {
                 web.api.model.newsfeed.Post postResponse = new web.api.model.newsfeed.Post();
                 postResponse.setId(e.getId());
-                postResponse.setUserAvatar(e.getUserAvatar());
+                postResponse.setUserAvatar(AVATAR_SOURCE + e.getUserAvatar());
                 postResponse.setUserId(e.getUserId());
                 postResponse.setContent(e.getContent());
+                postResponse.setImage(IMAGE_SOURCE + e.getImages());
+                postResponse.setUserName(e.getUserName());
+
+                if(e.getUserAvatar() != null)
+
+                if(!e.getPostTime().isEmpty()) postResponse.setPostTime(LocalDateTime.parse(e.getPostTime()));
 
                 List<web.api.model.newsfeed.Comment> comments = new ArrayList<>();
                 e.getCommentsList().forEach(comment -> {

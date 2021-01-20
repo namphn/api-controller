@@ -39,6 +39,7 @@ message Post{
     string images = 7;
     string postTime = 8;
     string userAvatar = 9;
+    string userName = 10;
 }
 
 message GetNewsFeedResponse {

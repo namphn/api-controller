@@ -475,6 +475,38 @@ public final class UserServiceGrpc {
      return getGetUserInfoMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<web.api.rpc.user.GetUserNameRequest,
+      web.api.rpc.user.GetUserNameResponse> getGetUserNameMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "getUserName",
+      requestType = web.api.rpc.user.GetUserNameRequest.class,
+      responseType = web.api.rpc.user.GetUserNameResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<web.api.rpc.user.GetUserNameRequest,
+      web.api.rpc.user.GetUserNameResponse> getGetUserNameMethod() {
+    io.grpc.MethodDescriptor<web.api.rpc.user.GetUserNameRequest, web.api.rpc.user.GetUserNameResponse> getGetUserNameMethod;
+    if ((getGetUserNameMethod = UserServiceGrpc.getGetUserNameMethod) == null) {
+      synchronized (UserServiceGrpc.class) {
+        if ((getGetUserNameMethod = UserServiceGrpc.getGetUserNameMethod) == null) {
+          UserServiceGrpc.getGetUserNameMethod = getGetUserNameMethod = 
+              io.grpc.MethodDescriptor.<web.api.rpc.user.GetUserNameRequest, web.api.rpc.user.GetUserNameResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "UserService", "getUserName"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.GetUserNameRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  web.api.rpc.user.GetUserNameResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new UserServiceMethodDescriptorSupplier("getUserName"))
+                  .build();
+          }
+        }
+     }
+     return getGetUserNameMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -633,10 +665,23 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     * get user information
+     * </pre>
      */
     public void getUserInfo(web.api.rpc.user.GetUserInfoRequest request,
         io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserInfoResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetUserInfoMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *get user name
+     * </pre>
+     */
+    public void getUserName(web.api.rpc.user.GetUserNameRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserNameResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetUserNameMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -739,6 +784,13 @@ public final class UserServiceGrpc {
                 web.api.rpc.user.GetUserInfoRequest,
                 web.api.rpc.user.GetUserInfoResponse>(
                   this, METHODID_GET_USER_INFO)))
+          .addMethod(
+            getGetUserNameMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                web.api.rpc.user.GetUserNameRequest,
+                web.api.rpc.user.GetUserNameResponse>(
+                  this, METHODID_GET_USER_NAME)))
           .build();
     }
   }
@@ -905,11 +957,25 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     * get user information
+     * </pre>
      */
     public void getUserInfo(web.api.rpc.user.GetUserInfoRequest request,
         io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserInfoResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetUserInfoMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *get user name
+     * </pre>
+     */
+    public void getUserName(web.api.rpc.user.GetUserNameRequest request,
+        io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserNameResponse> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetUserNameMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -1062,10 +1128,23 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     * get user information
+     * </pre>
      */
     public web.api.rpc.user.GetUserInfoResponse getUserInfo(web.api.rpc.user.GetUserInfoRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetUserInfoMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *get user name
+     * </pre>
+     */
+    public web.api.rpc.user.GetUserNameResponse getUserName(web.api.rpc.user.GetUserNameRequest request) {
+      return blockingUnaryCall(
+          getChannel(), getGetUserNameMethod(), getCallOptions(), request);
     }
   }
 
@@ -1231,11 +1310,25 @@ public final class UserServiceGrpc {
     }
 
     /**
+     * <pre>
+     * get user information
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<web.api.rpc.user.GetUserInfoResponse> getUserInfo(
         web.api.rpc.user.GetUserInfoRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetUserInfoMethod(), getCallOptions()), request);
+    }
+
+    /**
+     * <pre>
+     *get user name
+     * </pre>
+     */
+    public com.google.common.util.concurrent.ListenableFuture<web.api.rpc.user.GetUserNameResponse> getUserName(
+        web.api.rpc.user.GetUserNameRequest request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetUserNameMethod(), getCallOptions()), request);
     }
   }
 
@@ -1253,6 +1346,7 @@ public final class UserServiceGrpc {
   private static final int METHODID_SAVE_AVATAR = 11;
   private static final int METHODID_GET_USER_AVATAR = 12;
   private static final int METHODID_GET_USER_INFO = 13;
+  private static final int METHODID_GET_USER_NAME = 14;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -1326,6 +1420,10 @@ public final class UserServiceGrpc {
         case METHODID_GET_USER_INFO:
           serviceImpl.getUserInfo((web.api.rpc.user.GetUserInfoRequest) request,
               (io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserInfoResponse>) responseObserver);
+          break;
+        case METHODID_GET_USER_NAME:
+          serviceImpl.getUserName((web.api.rpc.user.GetUserNameRequest) request,
+              (io.grpc.stub.StreamObserver<web.api.rpc.user.GetUserNameResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -1402,6 +1500,7 @@ public final class UserServiceGrpc {
               .addMethod(getSaveAvatarMethod())
               .addMethod(getGetUserAvatarMethod())
               .addMethod(getGetUserInfoMethod())
+              .addMethod(getGetUserNameMethod())
               .build();
         }
       }
