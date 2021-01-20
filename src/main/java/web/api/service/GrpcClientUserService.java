@@ -28,6 +28,8 @@ public class GrpcClientUserService {
     @Autowired
     private  ConvertToGrpcRequest convert;
 
+    private static String DEFAULT_AVATAR = "avatars/default-avatar.png";
+
     public LoginResponse login(web.api.model.request.LoginRequest loginRequest) throws Exception{
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
         web.api.rpc.user.LoginRequest loginRequestGrpc = convert.convertToLoginRequestGprc(loginRequest);
@@ -154,8 +156,9 @@ public class GrpcClientUserService {
             return null;
         }
 
-        if(response != null) return response.getAvatar();
-
+        if(response != null) {
+            return response.getAvatar().isEmpty() ? DEFAULT_AVATAR : response.getAvatar();
+        }
         return null;
     }
 
@@ -197,7 +200,7 @@ public class GrpcClientUserService {
 
             getUserInfoResponse.setFollowers(followerList);
             getUserInfoResponse.setFollowing(followingList);
-            getUserInfoResponse.setPots(postList);
+            getUserInfoResponse.setPosts(postList);
 
             responseBase.setData(getUserInfoResponse);
         }
@@ -208,4 +211,5 @@ public class GrpcClientUserService {
 
         return new ResponseEntity(responseBase, HttpStatus.OK);
     }
+
 }

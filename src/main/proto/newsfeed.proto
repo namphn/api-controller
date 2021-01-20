@@ -38,6 +38,7 @@ message Post{
     repeated Share shares = 6;
     string images = 7;
     string postTime = 8;
+    string userAvatar = 9;
 }
 
 message GetNewsFeedResponse {

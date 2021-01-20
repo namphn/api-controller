@@ -18,5 +18,5 @@ public class GetUserInfoResponse {
     private String avatar;
     private List<String> following;
     private List<String> followers;
-    private List<UserPostList> pots;
+    private List<UserPostList> posts;
 }

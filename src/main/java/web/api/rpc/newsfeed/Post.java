@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     shares_ = java.util.Collections.emptyList();
     images_ = "";
     postTime_ = "";
+    userAvatar_ = "";
   }
 
   @java.lang.Override
@@ -112,6 +113,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             postTime_ = s;
+            break;
+          }
+          case 74: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            userAvatar_ = s;
             break;
           }
         }
@@ -417,6 +424,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int USERAVATAR_FIELD_NUMBER = 9;
+  private volatile java.lang.Object userAvatar_;
+  /**
+   * <code>string userAvatar = 9;</code>
+   */
+  public java.lang.String getUserAvatar() {
+    java.lang.Object ref = userAvatar_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userAvatar_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string userAvatar = 9;</code>
+   */
+  public com.google.protobuf.ByteString
+      getUserAvatarBytes() {
+    java.lang.Object ref = userAvatar_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userAvatar_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -452,6 +493,9 @@ private static final long serialVersionUID = 0L;
     }
     if (!getPostTimeBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, postTime_);
+    }
+    if (!getUserAvatarBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, userAvatar_);
     }
     unknownFields.writeTo(output);
   }
@@ -492,6 +536,9 @@ private static final long serialVersionUID = 0L;
     if (!getPostTimeBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, postTime_);
     }
+    if (!getUserAvatarBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, userAvatar_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -524,6 +571,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getImages());
     result = result && getPostTime()
         .equals(other.getPostTime());
+    result = result && getUserAvatar()
+        .equals(other.getUserAvatar());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -557,6 +606,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getImages().hashCode();
     hash = (37 * hash) + POSTTIME_FIELD_NUMBER;
     hash = (53 * hash) + getPostTime().hashCode();
+    hash = (37 * hash) + USERAVATAR_FIELD_NUMBER;
+    hash = (53 * hash) + getUserAvatar().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -712,6 +763,8 @@ private static final long serialVersionUID = 0L;
 
       postTime_ = "";
 
+      userAvatar_ = "";
+
       return this;
     }
 
@@ -764,6 +817,7 @@ private static final long serialVersionUID = 0L;
       }
       result.images_ = images_;
       result.postTime_ = postTime_;
+      result.userAvatar_ = userAvatar_;
       result.bitField0_ = to_bitField0_;
       onBuilt();
       return result;
@@ -886,6 +940,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPostTime().isEmpty()) {
         postTime_ = other.postTime_;
+        onChanged();
+      }
+      if (!other.getUserAvatar().isEmpty()) {
+        userAvatar_ = other.userAvatar_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -1831,6 +1889,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       postTime_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object userAvatar_ = "";
+    /**
+     * <code>string userAvatar = 9;</code>
+     */
+    public java.lang.String getUserAvatar() {
+      java.lang.Object ref = userAvatar_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userAvatar_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string userAvatar = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUserAvatarBytes() {
+      java.lang.Object ref = userAvatar_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userAvatar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string userAvatar = 9;</code>
+     */
+    public Builder setUserAvatar(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      userAvatar_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string userAvatar = 9;</code>
+     */
+    public Builder clearUserAvatar() {
+      
+      userAvatar_ = getDefaultInstance().getUserAvatar();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string userAvatar = 9;</code>
+     */
+    public Builder setUserAvatarBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      userAvatar_ = value;
       onChanged();
       return this;
     }

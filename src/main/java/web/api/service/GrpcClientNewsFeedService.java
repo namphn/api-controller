@@ -14,6 +14,10 @@ import web.api.rpc.follow.GetFollowingResponse;
 import web.api.rpc.newsfeed.*;
 import web.api.rpc.user.UserServiceGrpc;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class GrpcClientNewsFeedService {
     @Value( "${path.images}")
@@ -52,7 +56,53 @@ public class GrpcClientNewsFeedService {
         else {
             responseBase.setStatusCode(Status.StatusCode.NORMAL);
             responseBase.setStatus(Status.SUCCESS);
-            responseBase.setData(response.getPostsList());
+            List<web.api.model.newsfeed.Post> post = new ArrayList<web.api.model.newsfeed.Post>();
+
+            response.getPostsList().forEach(e -> {
+                web.api.model.newsfeed.Post postResponse = new web.api.model.newsfeed.Post();
+                postResponse.setId(e.getId());
+                postResponse.setUserAvatar(e.getUserAvatar());
+                postResponse.setUserId(e.getUserId());
+                postResponse.setContent(e.getContent());
+
+                List<web.api.model.newsfeed.Comment> comments = new ArrayList<>();
+                e.getCommentsList().forEach(comment -> {
+                    web.api.model.newsfeed.Comment userComment = new web.api.model.newsfeed.Comment();
+                    userComment.setUserId(e.getUserId());
+                    userComment.setCommentContent(e.getContent());
+
+                    List<web.api.model.newsfeed.Comment> childComments = new ArrayList<>();
+                    e.getCommentsList().forEach(childComment -> {
+                        web.api.model.newsfeed.Comment resChildComment = new web.api.model.newsfeed.Comment();
+                        resChildComment.setUserId(childComment.getUserId());
+                        resChildComment.setCommentContent(childComment.getContent());
+                        resChildComment.setUserAvatar(childComment.getUserAvatar());
+                        resChildComment.setCommentTime(LocalDateTime.parse(childComment.getTimeComment()));
+
+                        childComments.add(resChildComment);
+                    });
+
+                    userComment.setChildComment(childComments);
+                });
+                postResponse.setComment(comments);
+                postResponse.setLikes(e.getLikesList() == null ? new ArrayList<>() : e.getLikesList());
+
+                List<web.api.model.newsfeed.Share> shares = new ArrayList<>();
+                if(e.getSharesList() != null) {
+                    e.getSharesList().forEach(share -> {
+                        web.api.model.newsfeed.Share shareDto = new web.api.model.newsfeed.Share();
+                        shareDto.setUserId(share.getUserId());
+                        shareDto.setShareContent(share.getContent());
+
+                        shares.add(shareDto);
+                    });
+                }
+                postResponse.setShare(shares);
+                post.add(postResponse);
+
+            });
+
+            responseBase.setData(post);
         }
 
         return responseBase;
