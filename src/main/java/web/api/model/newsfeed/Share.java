@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Share {
-    private long userId;
+    private String userId;
     private String shareContent;
 
 }

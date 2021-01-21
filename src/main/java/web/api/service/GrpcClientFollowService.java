@@ -31,24 +31,24 @@ public class GrpcClientFollowService {
         GetFollowerAndFollowingResponse getFollowerAndFollowingResponse = new GetFollowerAndFollowingResponse();
         ResponseBase responseBase = new ResponseBase();
 
-        try {
-            switch (getFlg) {
-                case 0:
-                    break;
-
-                case 1:
-                    getFollowerResponse = stub.getFollower(request.build());
-                    break;
-
-                case 2:
-                    getFollowingResponse = stub.getFollowing(request.build());
-                    break;
-            }
-        } catch (Exception e) {
-            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
-            responseBase.setStatus(Status.INTERNAL_SERVER);
-            return responseBase;
-        }
+//        try {
+//            switch (getFlg) {
+//                case 0:
+//                    break;
+//
+//                case 1:
+//                    getFollowerResponse = stub.getFollower(request.build());
+//                    break;
+//
+//                case 2:
+//                    getFollowingResponse = stub.getFollowing(request.build());
+//                    break;
+//            }
+//        } catch (Exception e) {
+//            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+//            responseBase.setStatus(Status.INTERNAL_SERVER);
+//            return responseBase;
+//        }
 
         if(getFollowerResponse != null) getFollowerAndFollowingResponse.setFollowers(getFollowerResponse.getFollowersList());
         if(getFollowingResponse != null) getFollowerAndFollowingResponse.setFollowings(getFollowingResponse.getFollowingList());

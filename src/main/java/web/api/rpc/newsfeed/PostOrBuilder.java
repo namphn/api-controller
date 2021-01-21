@@ -123,4 +123,24 @@ public interface PostOrBuilder extends
    */
   com.google.protobuf.ByteString
       getPostTimeBytes();
+
+  /**
+   * <code>string userAvatar = 9;</code>
+   */
+  java.lang.String getUserAvatar();
+  /**
+   * <code>string userAvatar = 9;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserAvatarBytes();
+
+  /**
+   * <code>string userName = 10;</code>
+   */
+  java.lang.String getUserName();
+  /**
+   * <code>string userName = 10;</code>
+   */
+  com.google.protobuf.ByteString
+      getUserNameBytes();
 }

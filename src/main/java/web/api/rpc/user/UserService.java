@@ -167,6 +167,30 @@ public  abstract class UserService
         web.api.rpc.user.GetUserAvatarRequest request,
         com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserAvatarResponse> done);
 
+    /**
+     * <pre>
+     * get user information
+     * </pre>
+     *
+     * <code>rpc getUserInfo(.GetUserInfoRequest) returns (.GetUserInfoResponse);</code>
+     */
+    public abstract void getUserInfo(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserInfoRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserInfoResponse> done);
+
+    /**
+     * <pre>
+     *get user name
+     * </pre>
+     *
+     * <code>rpc getUserName(.GetUserNameRequest) returns (.GetUserNameResponse);</code>
+     */
+    public abstract void getUserName(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserNameRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserNameResponse> done);
+
   }
 
   public static com.google.protobuf.Service newReflectiveService(
@@ -276,6 +300,22 @@ public  abstract class UserService
         impl.getUserAvatar(controller, request, done);
       }
 
+      @java.lang.Override
+      public  void getUserInfo(
+          com.google.protobuf.RpcController controller,
+          web.api.rpc.user.GetUserInfoRequest request,
+          com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserInfoResponse> done) {
+        impl.getUserInfo(controller, request, done);
+      }
+
+      @java.lang.Override
+      public  void getUserName(
+          com.google.protobuf.RpcController controller,
+          web.api.rpc.user.GetUserNameRequest request,
+          com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserNameResponse> done) {
+        impl.getUserName(controller, request, done);
+      }
+
     };
   }
 
@@ -324,6 +364,10 @@ public  abstract class UserService
             return impl.saveAvatar(controller, (web.api.rpc.user.SaveUserAvatarRequest)request);
           case 12:
             return impl.getUserAvatar(controller, (web.api.rpc.user.GetUserAvatarRequest)request);
+          case 13:
+            return impl.getUserInfo(controller, (web.api.rpc.user.GetUserInfoRequest)request);
+          case 14:
+            return impl.getUserName(controller, (web.api.rpc.user.GetUserNameRequest)request);
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -364,6 +408,10 @@ public  abstract class UserService
             return web.api.rpc.user.SaveUserAvatarRequest.getDefaultInstance();
           case 12:
             return web.api.rpc.user.GetUserAvatarRequest.getDefaultInstance();
+          case 13:
+            return web.api.rpc.user.GetUserInfoRequest.getDefaultInstance();
+          case 14:
+            return web.api.rpc.user.GetUserNameRequest.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -404,6 +452,10 @@ public  abstract class UserService
             return web.api.rpc.user.SaveUserAvatarResponse.getDefaultInstance();
           case 12:
             return web.api.rpc.user.GetUserAvatarResponse.getDefaultInstance();
+          case 13:
+            return web.api.rpc.user.GetUserInfoResponse.getDefaultInstance();
+          case 14:
+            return web.api.rpc.user.GetUserNameResponse.getDefaultInstance();
           default:
             throw new java.lang.AssertionError("Can't get here.");
         }
@@ -568,6 +620,30 @@ public  abstract class UserService
       web.api.rpc.user.GetUserAvatarRequest request,
       com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserAvatarResponse> done);
 
+  /**
+   * <pre>
+   * get user information
+   * </pre>
+   *
+   * <code>rpc getUserInfo(.GetUserInfoRequest) returns (.GetUserInfoResponse);</code>
+   */
+  public abstract void getUserInfo(
+      com.google.protobuf.RpcController controller,
+      web.api.rpc.user.GetUserInfoRequest request,
+      com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserInfoResponse> done);
+
+  /**
+   * <pre>
+   *get user name
+   * </pre>
+   *
+   * <code>rpc getUserName(.GetUserNameRequest) returns (.GetUserNameResponse);</code>
+   */
+  public abstract void getUserName(
+      com.google.protobuf.RpcController controller,
+      web.api.rpc.user.GetUserNameRequest request,
+      com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserNameResponse> done);
+
   public static final
       com.google.protobuf.Descriptors.ServiceDescriptor
       getDescriptor() {
@@ -655,6 +731,16 @@ public  abstract class UserService
           com.google.protobuf.RpcUtil.<web.api.rpc.user.GetUserAvatarResponse>specializeCallback(
             done));
         return;
+      case 13:
+        this.getUserInfo(controller, (web.api.rpc.user.GetUserInfoRequest)request,
+          com.google.protobuf.RpcUtil.<web.api.rpc.user.GetUserInfoResponse>specializeCallback(
+            done));
+        return;
+      case 14:
+        this.getUserName(controller, (web.api.rpc.user.GetUserNameRequest)request,
+          com.google.protobuf.RpcUtil.<web.api.rpc.user.GetUserNameResponse>specializeCallback(
+            done));
+        return;
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -695,6 +781,10 @@ public  abstract class UserService
         return web.api.rpc.user.SaveUserAvatarRequest.getDefaultInstance();
       case 12:
         return web.api.rpc.user.GetUserAvatarRequest.getDefaultInstance();
+      case 13:
+        return web.api.rpc.user.GetUserInfoRequest.getDefaultInstance();
+      case 14:
+        return web.api.rpc.user.GetUserNameRequest.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -735,6 +825,10 @@ public  abstract class UserService
         return web.api.rpc.user.SaveUserAvatarResponse.getDefaultInstance();
       case 12:
         return web.api.rpc.user.GetUserAvatarResponse.getDefaultInstance();
+      case 13:
+        return web.api.rpc.user.GetUserInfoResponse.getDefaultInstance();
+      case 14:
+        return web.api.rpc.user.GetUserNameResponse.getDefaultInstance();
       default:
         throw new java.lang.AssertionError("Can't get here.");
     }
@@ -950,6 +1044,36 @@ public  abstract class UserService
           web.api.rpc.user.GetUserAvatarResponse.class,
           web.api.rpc.user.GetUserAvatarResponse.getDefaultInstance()));
     }
+
+    public  void getUserInfo(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserInfoRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserInfoResponse> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(13),
+        controller,
+        request,
+        web.api.rpc.user.GetUserInfoResponse.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          web.api.rpc.user.GetUserInfoResponse.class,
+          web.api.rpc.user.GetUserInfoResponse.getDefaultInstance()));
+    }
+
+    public  void getUserName(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserNameRequest request,
+        com.google.protobuf.RpcCallback<web.api.rpc.user.GetUserNameResponse> done) {
+      channel.callMethod(
+        getDescriptor().getMethods().get(14),
+        controller,
+        request,
+        web.api.rpc.user.GetUserNameResponse.getDefaultInstance(),
+        com.google.protobuf.RpcUtil.generalizeCallback(
+          done,
+          web.api.rpc.user.GetUserNameResponse.class,
+          web.api.rpc.user.GetUserNameResponse.getDefaultInstance()));
+    }
   }
 
   public static BlockingInterface newBlockingStub(
@@ -1021,6 +1145,16 @@ public  abstract class UserService
     public web.api.rpc.user.GetUserAvatarResponse getUserAvatar(
         com.google.protobuf.RpcController controller,
         web.api.rpc.user.GetUserAvatarRequest request)
+        throws com.google.protobuf.ServiceException;
+
+    public web.api.rpc.user.GetUserInfoResponse getUserInfo(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserInfoRequest request)
+        throws com.google.protobuf.ServiceException;
+
+    public web.api.rpc.user.GetUserNameResponse getUserName(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserNameRequest request)
         throws com.google.protobuf.ServiceException;
   }
 
@@ -1184,6 +1318,30 @@ public  abstract class UserService
         controller,
         request,
         web.api.rpc.user.GetUserAvatarResponse.getDefaultInstance());
+    }
+
+
+    public web.api.rpc.user.GetUserInfoResponse getUserInfo(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserInfoRequest request)
+        throws com.google.protobuf.ServiceException {
+      return (web.api.rpc.user.GetUserInfoResponse) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(13),
+        controller,
+        request,
+        web.api.rpc.user.GetUserInfoResponse.getDefaultInstance());
+    }
+
+
+    public web.api.rpc.user.GetUserNameResponse getUserName(
+        com.google.protobuf.RpcController controller,
+        web.api.rpc.user.GetUserNameRequest request)
+        throws com.google.protobuf.ServiceException {
+      return (web.api.rpc.user.GetUserNameResponse) channel.callBlockingMethod(
+        getDescriptor().getMethods().get(14),
+        controller,
+        request,
+        web.api.rpc.user.GetUserNameResponse.getDefaultInstance());
     }
 
   }

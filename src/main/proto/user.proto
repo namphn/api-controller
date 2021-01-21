@@ -121,6 +121,34 @@ message GetUserAvatarResponse {
   string avatar = 1;
 }
 
+message GetUserInfoRequest {
+  string userId = 1;
+}
+
+message GetUserNameRequest {
+  string userId = 1;
+}
+
+message GetUserNameResponse {
+  string userName = 1;
+}
+
+message GetUserInfoResponse {
+  string userName = 1;
+  string city = 2;
+  string country = 3;
+  string description = 4;
+  string avatar = 5;
+  repeated string following = 6;
+  repeated string followers = 7;
+  repeated UserPots pots = 8;
+}
+
+message UserPots {
+  string potsId = 1;
+  string image = 2;
+}
+
 service UserService{
 
   // create a new account, save new email, password and send verification email
@@ -164,5 +192,11 @@ service UserService{
 
   // get user avatar
   rpc getUserAvatar(GetUserAvatarRequest) returns (GetUserAvatarResponse);
+
+  // get user information
+  rpc getUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
+
+  //get user name
+  rpc getUserName(GetUserNameRequest) returns (GetUserNameResponse);
 }
 

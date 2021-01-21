@@ -10,9 +10,14 @@ import web.api.model.request.ChangeUsernameRequest;
 import web.api.model.request.PasswordForgotRequest;
 import web.api.model.request.RegistrationRequest;
 import web.api.model.response.*;
+import web.api.model.user.UserPostList;
 import web.api.rpc.user.*;
+import web.api.rpc.user.GetUserInfoResponse;
 import web.api.rpc.user.LoginResponse;
 import web.api.rpc.user.NewPasswordResponse;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class GrpcClientUserService {
@@ -22,6 +27,8 @@ public class GrpcClientUserService {
     private ManagedChannel channel;
     @Autowired
     private  ConvertToGrpcRequest convert;
+
+    private static String DEFAULT_AVATAR = "avatars/default-avatar.png";
 
     public LoginResponse login(web.api.model.request.LoginRequest loginRequest) throws Exception{
         UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
@@ -149,8 +156,60 @@ public class GrpcClientUserService {
             return null;
         }
 
-        if(response != null) return response.getAvatar();
-
+        if(response != null) {
+            return response.getAvatar().isEmpty() ? DEFAULT_AVATAR : response.getAvatar();
+        }
         return null;
     }
+
+    public ResponseEntity getUserInfo(String userId) {
+        ResponseBase responseBase = new ResponseBase();
+        web.api.model.response.GetUserInfoResponse getUserInfoResponse = new web.api.model.response.GetUserInfoResponse();
+        UserServiceGrpc.UserServiceBlockingStub stub = UserServiceGrpc.newBlockingStub(channel);
+        GetUserInfoResponse response = null;
+        GetUserInfoRequest.Builder rpcRequest = GetUserInfoRequest.newBuilder();
+        rpcRequest.setUserId(userId);
+        try {
+            response = stub.getUserInfo(rpcRequest.build());
+        } catch (Exception e) {
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+        }
+
+        if(response != null) {
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+            responseBase.setStatus(Status.SUCCESS);
+            responseBase.setData(response);
+            getUserInfoResponse.setUserName(response.getUserName());
+            getUserInfoResponse.setAvatar(response.getAvatar());
+            getUserInfoResponse.setCity(response.getCity());
+            getUserInfoResponse.setCountry(response.getCountry());
+            getUserInfoResponse.setDescription(response.getDescription());
+
+            List<String> followerList = new ArrayList<>();
+            List<String> followingList = new ArrayList<>();
+            List<UserPostList> postList = new ArrayList<>();
+
+            followerList.addAll(response.getFollowersList());
+            followingList.addAll(response.getFollowingList());
+
+            response.getPotsList().forEach(e -> {
+                UserPostList userPost = new UserPostList(e.getPotsId(), e.getImage());
+                postList.add(userPost);
+            });
+
+            getUserInfoResponse.setFollowers(followerList);
+            getUserInfoResponse.setFollowing(followingList);
+            getUserInfoResponse.setPosts(postList);
+
+            responseBase.setData(getUserInfoResponse);
+        }
+        else {
+            responseBase.setStatusCode(Status.StatusCode.NODATA);
+            responseBase.setStatus(Status.ERROR);
+        }
+
+        return new ResponseEntity(responseBase, HttpStatus.OK);
+    }
+
 }

@@ -116,33 +116,34 @@ public final class Newsfeed {
       " \001(\t\022\023\n\013timeComment\030\004 \001(\t\022$\n\rchildCommen" +
       "ts\030\005 \003(\0132\r.ChildComment\"G\n\005Share\022\n\n\002id\030\001" +
       " \001(\t\022\016\n\006userId\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\022\021\n" +
-      "\ttimeShare\030\004 \001(\t\"\230\001\n\004Post\022\n\n\002id\030\001 \001(\t\022\016\n" +
+      "\ttimeShare\030\004 \001(\t\"\276\001\n\004Post\022\n\n\002id\030\001 \001(\t\022\016\n" +
       "\006userId\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\022\032\n\010commen" +
       "ts\030\004 \003(\0132\010.Comment\022\r\n\005likes\030\005 \003(\t\022\026\n\006sha" +
       "res\030\006 \003(\0132\006.Share\022\016\n\006images\030\007 \001(\t\022\020\n\010pos" +
-      "tTime\030\010 \001(\t\"+\n\023GetNewsFeedResponse\022\024\n\005po" +
-      "sts\030\001 \003(\0132\005.Post\"%\n\023SaveNewPostResponse\022" +
-      "\016\n\006status\030\001 \001(\t\"-\n\013LikeRequest\022\016\n\006userId" +
-      "\030\001 \001(\t\022\016\n\006postId\030\002 \001(\t\"\036\n\014LikeResponse\022\016" +
-      "\n\006status\030\001 \001(\t\"?\n\014ShareRequest\022\016\n\006userId" +
-      "\030\001 \001(\t\022\016\n\006postId\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"" +
-      "\037\n\rShareResponse\022\016\n\006status\030\001 \001(\t\"A\n\016Comm" +
-      "entRequest\022\016\n\006userId\030\001 \001(\t\022\016\n\006postId\030\002 \001" +
-      "(\t\022\017\n\007content\030\003 \001(\t\"!\n\017CommentResponse\022\016" +
-      "\n\006status\030\001 \001(\t\",\n\nTagRequest\022\016\n\006userId\030\001" +
-      " \001(\t\022\016\n\006postId\030\002 \001(\t\"\035\n\013TagResponse\022\016\n\006s" +
-      "tatus\030\001 \001(\t\"%\n\023GetNewsGroupRequest\022\016\n\006us" +
-      "erId\030\001 \001(\t\")\n\024GetNewsGroupResponse\022\021\n\tne" +
-      "wsgroup\030\001 \001(\t2\321\002\n\017NewsFeedService\0228\n\013get" +
-      "NewsFeed\022\023.GetNewsFeedRequest\032\024.GetNewsF" +
-      "eedResponse\022*\n\013saveNewPost\022\005.Post\032\024.Save" +
-      "NewPostResponse\022#\n\004like\022\014.LikeRequest\032\r." +
-      "LikeResponse\022&\n\005share\022\r.ShareRequest\032\016.S" +
-      "hareResponse\022,\n\007comment\022\017.CommentRequest" +
-      "\032\020.CommentResponse\022 \n\003tag\022\013.TagRequest\032\014" +
-      ".TagResponse\022;\n\014getNewsGroup\022\024.GetNewsGr" +
-      "oupRequest\032\025.GetNewsGroupResponseB\033\n\024web" +
-      ".api.rpc.newsfeedP\001\210\001\001b\006proto3"
+      "tTime\030\010 \001(\t\022\022\n\nuserAvatar\030\t \001(\t\022\020\n\010userN" +
+      "ame\030\n \001(\t\"+\n\023GetNewsFeedResponse\022\024\n\005post" +
+      "s\030\001 \003(\0132\005.Post\"%\n\023SaveNewPostResponse\022\016\n" +
+      "\006status\030\001 \001(\t\"-\n\013LikeRequest\022\016\n\006userId\030\001" +
+      " \001(\t\022\016\n\006postId\030\002 \001(\t\"\036\n\014LikeResponse\022\016\n\006" +
+      "status\030\001 \001(\t\"?\n\014ShareRequest\022\016\n\006userId\030\001" +
+      " \001(\t\022\016\n\006postId\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"\037\n" +
+      "\rShareResponse\022\016\n\006status\030\001 \001(\t\"A\n\016Commen" +
+      "tRequest\022\016\n\006userId\030\001 \001(\t\022\016\n\006postId\030\002 \001(\t" +
+      "\022\017\n\007content\030\003 \001(\t\"!\n\017CommentResponse\022\016\n\006" +
+      "status\030\001 \001(\t\",\n\nTagRequest\022\016\n\006userId\030\001 \001" +
+      "(\t\022\016\n\006postId\030\002 \001(\t\"\035\n\013TagResponse\022\016\n\006sta" +
+      "tus\030\001 \001(\t\"%\n\023GetNewsGroupRequest\022\016\n\006user" +
+      "Id\030\001 \001(\t\")\n\024GetNewsGroupResponse\022\021\n\tnews" +
+      "group\030\001 \001(\t2\321\002\n\017NewsFeedService\0228\n\013getNe" +
+      "wsFeed\022\023.GetNewsFeedRequest\032\024.GetNewsFee" +
+      "dResponse\022*\n\013saveNewPost\022\005.Post\032\024.SaveNe" +
+      "wPostResponse\022#\n\004like\022\014.LikeRequest\032\r.Li" +
+      "keResponse\022&\n\005share\022\r.ShareRequest\032\016.Sha" +
+      "reResponse\022,\n\007comment\022\017.CommentRequest\032\020" +
+      ".CommentResponse\022 \n\003tag\022\013.TagRequest\032\014.T" +
+      "agResponse\022;\n\014getNewsGroup\022\024.GetNewsGrou" +
+      "pRequest\032\025.GetNewsGroupResponseB\033\n\024web.a" +
+      "pi.rpc.newsfeedP\001\210\001\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -185,7 +186,7 @@ public final class Newsfeed {
     internal_static_Post_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Post_descriptor,
-        new java.lang.String[] { "Id", "UserId", "Content", "Comments", "Likes", "Shares", "Images", "PostTime", });
+        new java.lang.String[] { "Id", "UserId", "Content", "Comments", "Likes", "Shares", "Images", "PostTime", "UserAvatar", "UserName", });
     internal_static_GetNewsFeedResponse_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_GetNewsFeedResponse_fieldAccessorTable = new

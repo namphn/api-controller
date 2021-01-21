@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import web.api.model.request.ChangeUsernameRequest;
+import web.api.model.response.ResponseBase;
+import web.api.model.response.Status;
 import web.api.rpc.user.GetAllUserRequest;
 import web.api.rpc.user.GetAllUserResponse;
 import web.api.service.FileService;
@@ -48,5 +50,26 @@ public class UserController {
     @RequestMapping(value = "/{userId}/username", method = RequestMethod.PUT)
     public ResponseEntity changeUsername(@PathVariable String userId, ChangeUsernameRequest request) {
         return grpcClientService.changeUserName(userId, request);
+    }
+
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public ResponseEntity getUserInfo(@PathVariable String userId) {
+        return grpcClientService.getUserInfo(userId);
+    }
+
+    @RequestMapping(value = "/{userId}/avatar", method = RequestMethod.GET)
+    public ResponseEntity getUserAvatar(@PathVariable String userId) {
+        ResponseBase responseBase = new ResponseBase();
+        String userAvatar = grpcClientService.getUserAvatar(userId);
+        if(userAvatar == null) {
+            responseBase.setStatus(Status.INTERNAL_SERVER);
+            responseBase.setStatusCode(Status.StatusCode.SERVER_ERROR);
+        }
+        else {
+            responseBase.setStatus(Status.SUCCESS);
+            responseBase.setStatusCode(Status.StatusCode.NORMAL);
+        }
+        responseBase.setData(userAvatar);
+        return new ResponseEntity(responseBase, HttpStatus.OK);
     }
 }
