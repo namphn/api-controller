@@ -4,6 +4,7 @@ import io.grpc.ManagedChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Service;
 import web.api.model.request.LikeRequest;
 import web.api.model.request.PostRequest;
@@ -24,6 +25,8 @@ public class GrpcClientNewsFeedService {
     private String imageStore;
     private final static String IMAGE_SOURCE = "images/";
     private final static String AVATAR_SOURCE = "avatars/";
+    @Autowired
+    private MessageSendingOperations<String> messagingTemplate;
 
     @Autowired
     private FileService fileService;
@@ -202,6 +205,7 @@ public class GrpcClientNewsFeedService {
                 String userAvatar = grpcClientUserService.getUserAvatar(postRequest.getUserId());
                 newPost.setUserAvatar(userAvatar);
                 responseBase.setData(newPost);
+                sendPostToUser(newPost);
 
                 GetFollowerAndFollowingRequest.Builder getFollowerRequest = GetFollowerAndFollowingRequest.newBuilder();
                 getFollowerRequest.setUserId(postRequest.getUserId());
@@ -221,5 +225,9 @@ public class GrpcClientNewsFeedService {
         }
 
         return responseBase;
+    }
+
+    public void sendPostToUser(web.api.model.newsfeed.Post newPost) {
+        this.messagingTemplate.convertAndSend("/topic/public", newPost);
     }
 }
