@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private SaveNewPostResponse() {
     status_ = "";
+    image_ = "";
   }
 
   @java.lang.Override
@@ -54,6 +55,12 @@ private static final long serialVersionUID = 0L;
             java.lang.String s = input.readStringRequireUtf8();
 
             status_ = s;
+            break;
+          }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            image_ = s;
             break;
           }
         }
@@ -114,6 +121,40 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int IMAGE_FIELD_NUMBER = 2;
+  private volatile java.lang.Object image_;
+  /**
+   * <code>string image = 2;</code>
+   */
+  public java.lang.String getImage() {
+    java.lang.Object ref = image_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      image_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string image = 2;</code>
+   */
+  public com.google.protobuf.ByteString
+      getImageBytes() {
+    java.lang.Object ref = image_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      image_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   public final boolean isInitialized() {
     byte isInitialized = memoizedIsInitialized;
@@ -129,6 +170,9 @@ private static final long serialVersionUID = 0L;
     if (!getStatusBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, status_);
     }
+    if (!getImageBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, image_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -139,6 +183,9 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getStatusBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, status_);
+    }
+    if (!getImageBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, image_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -158,6 +205,8 @@ private static final long serialVersionUID = 0L;
     boolean result = true;
     result = result && getStatus()
         .equals(other.getStatus());
+    result = result && getImage()
+        .equals(other.getImage());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -171,6 +220,8 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + getStatus().hashCode();
+    hash = (37 * hash) + IMAGE_FIELD_NUMBER;
+    hash = (53 * hash) + getImage().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -302,6 +353,8 @@ private static final long serialVersionUID = 0L;
       super.clear();
       status_ = "";
 
+      image_ = "";
+
       return this;
     }
 
@@ -325,6 +378,7 @@ private static final long serialVersionUID = 0L;
     public web.api.rpc.newsfeed.SaveNewPostResponse buildPartial() {
       web.api.rpc.newsfeed.SaveNewPostResponse result = new web.api.rpc.newsfeed.SaveNewPostResponse(this);
       result.status_ = status_;
+      result.image_ = image_;
       onBuilt();
       return result;
     }
@@ -368,6 +422,10 @@ private static final long serialVersionUID = 0L;
       if (other == web.api.rpc.newsfeed.SaveNewPostResponse.getDefaultInstance()) return this;
       if (!other.getStatus().isEmpty()) {
         status_ = other.status_;
+        onChanged();
+      }
+      if (!other.getImage().isEmpty()) {
+        image_ = other.image_;
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -462,6 +520,75 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       status_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object image_ = "";
+    /**
+     * <code>string image = 2;</code>
+     */
+    public java.lang.String getImage() {
+      java.lang.Object ref = image_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        image_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string image = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getImageBytes() {
+      java.lang.Object ref = image_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        image_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string image = 2;</code>
+     */
+    public Builder setImage(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      image_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string image = 2;</code>
+     */
+    public Builder clearImage() {
+      
+      image_ = getDefaultInstance().getImage();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string image = 2;</code>
+     */
+    public Builder setImageBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      image_ = value;
       onChanged();
       return this;
     }

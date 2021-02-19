@@ -16,4 +16,14 @@ public interface SaveNewPostResponseOrBuilder extends
    */
   com.google.protobuf.ByteString
       getStatusBytes();
+
+  /**
+   * <code>string image = 2;</code>
+   */
+  java.lang.String getImage();
+  /**
+   * <code>string image = 2;</code>
+   */
+  com.google.protobuf.ByteString
+      getImageBytes();
 }
