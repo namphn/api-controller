@@ -49,6 +49,7 @@ message GetNewsFeedResponse {
 
 message SaveNewPostResponse {
     string status = 1;
+    string image = 2;
 }
 
 message LikeRequest {

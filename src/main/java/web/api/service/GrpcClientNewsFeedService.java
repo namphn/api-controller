@@ -4,6 +4,7 @@ import io.grpc.ManagedChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.core.MessageSendingOperations;
 import org.springframework.stereotype.Service;
 import web.api.model.request.LikeRequest;
 import web.api.model.request.PostRequest;
@@ -12,6 +13,9 @@ import web.api.model.response.Status;
 import web.api.rpc.follow.GetFollowerAndFollowingRequest;
 import web.api.rpc.follow.GetFollowingResponse;
 import web.api.rpc.newsfeed.*;
+import web.api.rpc.user.GetUserAvatarResponse;
+import web.api.rpc.user.GetUserNameRequest;
+import web.api.rpc.user.GetUserNameResponse;
 import web.api.rpc.user.UserServiceGrpc;
 
 import java.time.LocalDateTime;
@@ -24,6 +28,8 @@ public class GrpcClientNewsFeedService {
     private String imageStore;
     private final static String IMAGE_SOURCE = "images/";
     private final static String AVATAR_SOURCE = "avatars/";
+    @Autowired
+    private MessageSendingOperations<String> messagingTemplate;
 
     @Autowired
     private FileService fileService;
@@ -31,6 +37,10 @@ public class GrpcClientNewsFeedService {
     @Autowired
     @Qualifier("newsfeed-service")
     private ManagedChannel newsFeedChannel;
+
+    @Autowired
+    @Qualifier("user-service")
+    private ManagedChannel userChannel;
 
     @Autowired
     private GrpcClientUserService grpcClientUserService;
@@ -63,7 +73,7 @@ public class GrpcClientNewsFeedService {
             response.getPostsList().forEach(e -> {
                 web.api.model.newsfeed.Post postResponse = new web.api.model.newsfeed.Post();
                 postResponse.setId(e.getId());
-                postResponse.setUserAvatar(AVATAR_SOURCE + e.getUserAvatar());
+                postResponse.setUserAvatar(e.getUserAvatar());
                 postResponse.setUserId(e.getUserId());
                 postResponse.setContent(e.getContent());
                 postResponse.setImage(IMAGE_SOURCE + e.getImages());
@@ -180,28 +190,36 @@ public class GrpcClientNewsFeedService {
         rpcPost.setUserId(postRequest.getUserId());
         String path = fileService.saveFile(postRequest.getImage(), imageStore, postRequest.getUserId());
         ResponseBase responseBase = new ResponseBase();
+        GetUserNameRequest.Builder getUserAvatarRpcRequest = GetUserNameRequest.newBuilder();
+        getUserAvatarRpcRequest.setUserId(postRequest.getUserId());
 
         NewsFeedServiceGrpc.NewsFeedServiceBlockingStub stub = NewsFeedServiceGrpc.newBlockingStub(newsFeedChannel);
-        UserServiceGrpc.UserServiceBlockingStub userStub = UserServiceGrpc.newBlockingStub(newsFeedChannel);
+        UserServiceGrpc.UserServiceBlockingStub userStub = UserServiceGrpc.newBlockingStub(userChannel);
 
         if(path != null) {
             rpcPost.setImages(path);
         }
 
         SaveNewPostResponse response = null;
+        GetUserNameResponse getUserNameResponse = null;
         try {
             response = stub.saveNewPost(rpcPost.build());
+            getUserNameResponse = userStub.getUserName(getUserAvatarRpcRequest.build());
 
-            if(response != null) {
+            if(response != null && getUserNameResponse != null) {
                 responseBase.setStatusCode(Status.StatusCode.NORMAL);
                 responseBase.setStatus(response.getStatus());
                 web.api.model.newsfeed.Post newPost = new web.api.model.newsfeed.Post();
                 newPost.setUserId(postRequest.getUserId());
-                newPost.setUserAvatar(path);
+                newPost.setImage(IMAGE_SOURCE + path);
+                newPost.setComment(new ArrayList<>());
+                newPost.setContent(postRequest.getContent());
+                newPost.setUserName(getUserNameResponse.getUserName());
 
                 String userAvatar = grpcClientUserService.getUserAvatar(postRequest.getUserId());
                 newPost.setUserAvatar(userAvatar);
                 responseBase.setData(newPost);
+                sendPostToUser(newPost);
 
                 GetFollowerAndFollowingRequest.Builder getFollowerRequest = GetFollowerAndFollowingRequest.newBuilder();
                 getFollowerRequest.setUserId(postRequest.getUserId());
@@ -221,5 +239,9 @@ public class GrpcClientNewsFeedService {
         }
 
         return responseBase;
+    }
+
+    public void sendPostToUser(web.api.model.newsfeed.Post newPost) {
+        this.messagingTemplate.convertAndSend("/topic/public", newPost);
     }
 }

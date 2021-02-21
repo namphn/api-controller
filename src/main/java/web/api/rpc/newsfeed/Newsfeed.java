@@ -122,28 +122,29 @@ public final class Newsfeed {
       "res\030\006 \003(\0132\006.Share\022\016\n\006images\030\007 \001(\t\022\020\n\010pos" +
       "tTime\030\010 \001(\t\022\022\n\nuserAvatar\030\t \001(\t\022\020\n\010userN" +
       "ame\030\n \001(\t\"+\n\023GetNewsFeedResponse\022\024\n\005post" +
-      "s\030\001 \003(\0132\005.Post\"%\n\023SaveNewPostResponse\022\016\n" +
-      "\006status\030\001 \001(\t\"-\n\013LikeRequest\022\016\n\006userId\030\001" +
-      " \001(\t\022\016\n\006postId\030\002 \001(\t\"\036\n\014LikeResponse\022\016\n\006" +
-      "status\030\001 \001(\t\"?\n\014ShareRequest\022\016\n\006userId\030\001" +
-      " \001(\t\022\016\n\006postId\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"\037\n" +
-      "\rShareResponse\022\016\n\006status\030\001 \001(\t\"A\n\016Commen" +
-      "tRequest\022\016\n\006userId\030\001 \001(\t\022\016\n\006postId\030\002 \001(\t" +
-      "\022\017\n\007content\030\003 \001(\t\"!\n\017CommentResponse\022\016\n\006" +
-      "status\030\001 \001(\t\",\n\nTagRequest\022\016\n\006userId\030\001 \001" +
-      "(\t\022\016\n\006postId\030\002 \001(\t\"\035\n\013TagResponse\022\016\n\006sta" +
-      "tus\030\001 \001(\t\"%\n\023GetNewsGroupRequest\022\016\n\006user" +
-      "Id\030\001 \001(\t\")\n\024GetNewsGroupResponse\022\021\n\tnews" +
-      "group\030\001 \001(\t2\321\002\n\017NewsFeedService\0228\n\013getNe" +
-      "wsFeed\022\023.GetNewsFeedRequest\032\024.GetNewsFee" +
-      "dResponse\022*\n\013saveNewPost\022\005.Post\032\024.SaveNe" +
-      "wPostResponse\022#\n\004like\022\014.LikeRequest\032\r.Li" +
-      "keResponse\022&\n\005share\022\r.ShareRequest\032\016.Sha" +
-      "reResponse\022,\n\007comment\022\017.CommentRequest\032\020" +
-      ".CommentResponse\022 \n\003tag\022\013.TagRequest\032\014.T" +
-      "agResponse\022;\n\014getNewsGroup\022\024.GetNewsGrou" +
-      "pRequest\032\025.GetNewsGroupResponseB\033\n\024web.a" +
-      "pi.rpc.newsfeedP\001\210\001\001b\006proto3"
+      "s\030\001 \003(\0132\005.Post\"4\n\023SaveNewPostResponse\022\016\n" +
+      "\006status\030\001 \001(\t\022\r\n\005image\030\002 \001(\t\"-\n\013LikeRequ" +
+      "est\022\016\n\006userId\030\001 \001(\t\022\016\n\006postId\030\002 \001(\t\"\036\n\014L" +
+      "ikeResponse\022\016\n\006status\030\001 \001(\t\"?\n\014ShareRequ" +
+      "est\022\016\n\006userId\030\001 \001(\t\022\016\n\006postId\030\002 \001(\t\022\017\n\007c" +
+      "ontent\030\003 \001(\t\"\037\n\rShareResponse\022\016\n\006status\030" +
+      "\001 \001(\t\"A\n\016CommentRequest\022\016\n\006userId\030\001 \001(\t\022" +
+      "\016\n\006postId\030\002 \001(\t\022\017\n\007content\030\003 \001(\t\"!\n\017Comm" +
+      "entResponse\022\016\n\006status\030\001 \001(\t\",\n\nTagReques" +
+      "t\022\016\n\006userId\030\001 \001(\t\022\016\n\006postId\030\002 \001(\t\"\035\n\013Tag" +
+      "Response\022\016\n\006status\030\001 \001(\t\"%\n\023GetNewsGroup" +
+      "Request\022\016\n\006userId\030\001 \001(\t\")\n\024GetNewsGroupR" +
+      "esponse\022\021\n\tnewsgroup\030\001 \001(\t2\321\002\n\017NewsFeedS" +
+      "ervice\0228\n\013getNewsFeed\022\023.GetNewsFeedReque" +
+      "st\032\024.GetNewsFeedResponse\022*\n\013saveNewPost\022" +
+      "\005.Post\032\024.SaveNewPostResponse\022#\n\004like\022\014.L" +
+      "ikeRequest\032\r.LikeResponse\022&\n\005share\022\r.Sha" +
+      "reRequest\032\016.ShareResponse\022,\n\007comment\022\017.C" +
+      "ommentRequest\032\020.CommentResponse\022 \n\003tag\022\013" +
+      ".TagRequest\032\014.TagResponse\022;\n\014getNewsGrou" +
+      "p\022\024.GetNewsGroupRequest\032\025.GetNewsGroupRe" +
+      "sponseB\033\n\024web.api.rpc.newsfeedP\001\210\001\001b\006pro" +
+      "to3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -198,7 +199,7 @@ public final class Newsfeed {
     internal_static_SaveNewPostResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SaveNewPostResponse_descriptor,
-        new java.lang.String[] { "Status", });
+        new java.lang.String[] { "Status", "Image", });
     internal_static_LikeRequest_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_LikeRequest_fieldAccessorTable = new

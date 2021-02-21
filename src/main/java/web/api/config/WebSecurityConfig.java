@@ -62,6 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/verifying-email", "/verifying-reset-password",
                         "/images/**",
                         "/avatars/**",
+                        "/ws/**",
+                        "/topic/**",
+                        "/app/**",
                         "/public/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
